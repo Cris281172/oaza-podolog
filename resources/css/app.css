@@ -1,0 +1,172 @@
+@import 'tailwindcss';
+@tailwind utilities;
+@import "tw-animate-css";
+@config "../../tailwind.config.ts";
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 0 0% 15%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 15%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 15%;
+
+        --primary: 150 100% 30%;
+        --primary-foreground: 0 0% 100%;
+
+        --secondary: 0 0% 96%;
+        --secondary-foreground: 0 0% 15%;
+
+        --muted: 0 0% 96%;
+        --muted-foreground: 0 0% 45%;
+
+        --accent: 150 100% 30%;
+        --accent-foreground: 0 0% 100%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 100%;
+
+        --border: 0 0% 90%;
+        --input: 0 0% 90%;
+        --ring: 150 100% 30%;
+
+        --radius: 0.5rem;
+
+        --sidebar-background: 0 0% 98%;
+        --sidebar-foreground: 0 0% 15%;
+        --sidebar-primary: 150 100% 30%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 0 0% 96%;
+        --sidebar-accent-foreground: 0 0% 15%;
+        --sidebar-border: 0 0% 90%;
+        --sidebar-ring: 150 100% 30%;
+    }
+
+    .dark {
+        --background: 0 0% 10%;
+        --foreground: 0 0% 95%;
+
+        --card: 0 0% 12%;
+        --card-foreground: 0 0% 95%;
+
+        --popover: 0 0% 12%;
+        --popover-foreground: 0 0% 95%;
+
+        --primary: 150 100% 35%;
+        --primary-foreground: 0 0% 100%;
+
+        --secondary: 0 0% 20%;
+        --secondary-foreground: 0 0% 95%;
+
+        --muted: 0 0% 20%;
+        --muted-foreground: 0 0% 60%;
+
+        --accent: 150 100% 35%;
+        --accent-foreground: 0 0% 100%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 100%;
+
+        --border: 0 0% 25%;
+        --input: 0 0% 25%;
+        --ring: 150 100% 35%;
+        --sidebar-background: 0 0% 12%;
+        --sidebar-foreground: 0 0% 95%;
+        --sidebar-primary: 150 100% 35%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 0 0% 20%;
+        --sidebar-accent-foreground: 0 0% 95%;
+        --sidebar-border: 0 0% 25%;
+        --sidebar-ring: 150 100% 35%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+.tiptap {
+    @apply outline-none min-h-[300px] py-4 px-2;
+
+    /* Akapity */
+    p {
+        @apply leading-relaxed mb-4;
+    }
+
+    /* Listy - dodane bullety i numerowanie */
+    ul {
+        @apply list-disc list-outside ml-6 mb-4 space-y-1;
+    }
+
+    ol {
+        @apply list-decimal list-outside ml-6 mb-4 space-y-1;
+    }
+
+    /* Nagłówki - dopasowane do Twojej skali */
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-bold text-foreground mb-4 mt-8 tracking-tight;
+        line-height: 1.2;
+    }
+
+    h1 { @apply text-3xl; }
+    h2 { @apply text-2xl; }
+    h3 { @apply text-xl; }
+    h4 { @apply text-lg; }
+
+    /* Kod w linii */
+    code {
+        @apply bg-muted text-primary rounded px-1.5 py-0.5 font-mono text-sm;
+    }
+
+    /* Blok kodu */
+    pre {
+        @apply bg-secondary text-secondary-foreground rounded-lg p-4 my-6 font-mono overflow-x-auto border border-border;
+
+        code {
+            @apply bg-transparent p-0 text-inherit;
+        }
+    }
+
+    /* Cytaty - używamy Twojego koloru Primary jako akcentu */
+    blockquote {
+        @apply border-l-4 border-primary pl-4 py-1 my-6 italic text-muted-foreground bg-muted/30 rounded-r;
+    }
+
+    /* Linia pozioma */
+    hr {
+        @apply border-t border-border my-8;
+    }
+
+    /* Zdjęcia */
+    img {
+        @apply rounded-lg border border-border my-6 transition-transform hover:scale-[1.01];
+    }
+
+    /* Linki */
+    a {
+        @apply text-primary underline underline-offset-4 cursor-pointer hover:opacity-80;
+    }
+
+    /* Placeholder - gdy edytor jest pusty */
+    p.is-editor-empty:first-child::before {
+        @apply text-muted-foreground float-left h-0 pointer-events-none;
+        content: attr(data-placeholder);
+    }
+}
+
+/* Stylizacja MenuBar - dla przycisków w Twoim układzie */
+.button-group {
+    @apply flex flex-wrap gap-1 p-2 bg-muted/20 border-b border-border rounded-t-lg;
+}
