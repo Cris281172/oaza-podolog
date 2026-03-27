@@ -168,7 +168,7 @@ const AboutMeSection = () => {
 
                 <motion.div
                     variants={itemVariants}
-                    className="mt-16 w-full border-t border-slate-50 pt-12"
+                    className="mt-16 w-full border-slate-50"
                 >
                     <div className="w-full px-4 md:px-12">
                         <Carousel
