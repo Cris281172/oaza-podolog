@@ -4,193 +4,154 @@ import { Link, usePage } from '@inertiajs/react';
 import { Menu, Phone } from 'lucide-react';
 import { useState } from 'react';
 import logoImage from '../assets/logo.png';
+
+const navigation = [
+    { name: 'Strona główna', href: '/' },
+    { name: 'Usługi', href: '/services' },
+    { name: 'Cennik', href: '/pricing' },
+    { name: 'Galeria', href: '/gallery' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Kontakt', href: '/contact' },
+];
+
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { props } = usePage();
-    console.log(props);
-    const isActive = (path: string) => location.pathname === path;
+    const { url } = usePage();
+
+    const isActive = (path: string) => url === path;
 
     return (
-        <header className="sticky top-0 z-50 bg-background/95 shadow-2xl backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <header className="sticky top-0 z-50 border-b border-slate-100 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container mx-auto px-4">
                 <div className="flex h-20 items-center justify-between">
-                    <Link href="/" className={'flex w-25'}>
-                        <img src={logoImage} />
+                    {/* Logo */}
+                    <Link href="/" className="flex w-24">
+                        <img src={logoImage} alt="Oaza Logo" />
                     </Link>
 
                     <nav className="hidden items-center space-x-6 md:flex">
-                        <Link
-                            href="/"
-                            className={`text-sm font-medium transition-colors hover:text-primary ${
-                                isActive('/')
-                                    ? 'text-primary'
-                                    : 'text-foreground'
-                            }`}
-                        >
-                            Strona główna
-                        </Link>
-                        <Link
-                            href="/services"
-                            className={`text-sm font-medium transition-colors hover:text-primary ${
-                                isActive('/services')
-                                    ? 'text-primary'
-                                    : 'text-foreground'
-                            }`}
-                        >
-                            Usługi
-                        </Link>
-                        <Link
-                            href="/pricing"
-                            className={`text-sm font-medium transition-colors hover:text-primary ${
-                                isActive('/pricing')
-                                    ? 'text-primary'
-                                    : 'text-foreground'
-                            }`}
-                        >
-                            Cennik
-                        </Link>
-                        <Link
-                            href="/gallery"
-                            className={`text-sm font-medium transition-colors hover:text-primary ${
-                                isActive('/gallery')
-                                    ? 'text-primary'
-                                    : 'text-foreground'
-                            }`}
-                        >
-                            Galeria
-                        </Link>
-                        <Link
-                            href="/blog"
-                            className={`text-sm font-medium transition-colors hover:text-primary ${
-                                isActive('/blog')
-                                    ? 'text-primary'
-                                    : 'text-foreground'
-                            }`}
-                        >
-                            Blog
-                        </Link>
-                        <Link
-                            href="/contact"
-                            className={`text-sm font-medium transition-colors hover:text-primary ${
-                                isActive('/contact')
-                                    ? 'text-primary'
-                                    : 'text-foreground'
-                            }`}
-                        >
-                            Kontakt
-                        </Link>
+                        {navigation.map((item) => (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                className={`text-sm font-medium transition-colors hover:text-primary ${
+                                    isActive(item.href)
+                                        ? 'text-primary'
+                                        : 'text-slate-600'
+                                }`}
+                            >
+                                {item.name}
+                            </Link>
+                        ))}
                     </nav>
 
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-3">
                         <a
                             href="tel:505849060"
-                            className="hidden items-center space-x-2 text-sm text-foreground transition-colors hover:text-primary md:flex"
+                            className="hidden items-center space-x-2 text-sm font-semibold text-slate-700 transition-colors hover:text-primary lg:flex"
                         >
                             <Phone className="h-4 w-4" />
                             <span>505 849 060</span>
                         </a>
-                        <Button asChild className="hidden md:inline-flex">
+
+                        <Button
+                            asChild
+                            className="hidden rounded-full px-6 md:inline-flex"
+                        >
                             <Link href="/contact">Umów wizytę</Link>
                         </Button>
 
-                        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-                            <SheetTrigger asChild>
-                                <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    className="md:hidden"
+                        <div className="flex items-center space-x-2 md:hidden">
+                            <a
+                                href="tel:505849060"
+                                className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors active:bg-primary active:text-white"
+                                aria-label="Zadzwoń teraz"
+                            >
+                                <Phone className="h-5 w-5" />
+                            </a>
+
+                            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                                <SheetTrigger asChild>
+                                    <Button
+                                        variant="ghost"
+                                        size="icon"
+                                        className="h-10 w-10 rounded-xl border border-slate-100"
+                                    >
+                                        <Menu className="h-5 w-5 text-slate-700" />
+                                    </Button>
+                                </SheetTrigger>
+                                <SheetContent
+                                    side="right"
+                                    className="w-[300px] border-l-0 p-0"
                                 >
-                                    <Menu className="h-5 w-5" />
-                                </Button>
-                            </SheetTrigger>
-                            <SheetContent side="right" className="w-[300px]">
-                                <nav className="mt-8 flex flex-col space-y-4 px-5">
-                                    <Link
-                                        href="/"
-                                        onClick={() => setIsOpen(false)}
-                                        className={`py-2 text-base font-medium transition-colors hover:text-primary ${
-                                            isActive('/')
-                                                ? 'text-primary'
-                                                : 'text-foreground'
-                                        }`}
-                                    >
-                                        Strona główna
-                                    </Link>
-                                    <Link
-                                        href="/services"
-                                        onClick={() => setIsOpen(false)}
-                                        className={`py-2 text-base font-medium transition-colors hover:text-primary ${
-                                            isActive('/services')
-                                                ? 'text-primary'
-                                                : 'text-foreground'
-                                        }`}
-                                    >
-                                        Usługi
-                                    </Link>
-                                    <Link
-                                        href="/pricing"
-                                        onClick={() => setIsOpen(false)}
-                                        className={`py-2 text-base font-medium transition-colors hover:text-primary ${
-                                            isActive('/pricing')
-                                                ? 'text-primary'
-                                                : 'text-primary'
-                                        }`}
-                                    >
-                                        Cennik
-                                    </Link>
-                                    <Link
-                                        href="/gallery"
-                                        onClick={() => setIsOpen(false)}
-                                        className={`py-2 text-base font-medium transition-colors hover:text-primary ${
-                                            isActive('/gallery')
-                                                ? 'text-primary'
-                                                : 'text-foreground'
-                                        }`}
-                                    >
-                                        Galeria
-                                    </Link>
-                                    <Link
-                                        href="/blog"
-                                        onClick={() => setIsOpen(false)}
-                                        className={`py-2 text-base font-medium transition-colors hover:text-primary ${
-                                            isActive('/blog')
-                                                ? 'text-primary'
-                                                : 'text-foreground'
-                                        }`}
-                                    >
-                                        Blog
-                                    </Link>
-                                    <Link
-                                        href="/contact"
-                                        onClick={() => setIsOpen(false)}
-                                        className={`py-2 text-base font-medium transition-colors hover:text-primary ${
-                                            isActive('/contact')
-                                                ? 'text-primary'
-                                                : 'text-foreground'
-                                        }`}
-                                    >
-                                        Kontakt
-                                    </Link>
-                                    <div className="border-t border-border pt-4">
-                                        <a
-                                            href="tel:505849060"
-                                            className="flex items-center space-x-2 py-2 text-sm text-foreground transition-colors hover:text-primary"
-                                        >
-                                            <Phone className="h-4 w-4" />
-                                            <span>505 849 060</span>
-                                        </a>
-                                        <Button asChild className="mt-4 w-full">
-                                            <Link
-                                                href="/contact"
-                                                onClick={() => setIsOpen(false)}
+                                    <div className="flex h-full flex-col p-6">
+                                        <div className="mb-10">
+                                            <img
+                                                src={logoImage}
+                                                alt="Logo"
+                                                className="w-24"
+                                            />
+                                        </div>
+
+                                        <nav className="flex flex-col space-y-2">
+                                            {navigation.map((item) => (
+                                                <Link
+                                                    key={item.href}
+                                                    href={item.href}
+                                                    onClick={() =>
+                                                        setIsOpen(false)
+                                                    }
+                                                    className={`rounded-xl px-4 py-2 text-lg font-medium transition-colors ${
+                                                        isActive(item.href)
+                                                            ? 'bg-primary/5 text-primary'
+                                                            : 'text-slate-600 hover:bg-slate-50'
+                                                    }`}
+                                                >
+                                                    {item.name}
+                                                </Link>
+                                            ))}
+                                        </nav>
+
+                                        <div className="mt-auto border-t border-slate-100 pt-6">
+                                            <p className="mb-4 px-4 text-xs font-bold tracking-widest text-slate-400 uppercase">
+                                                Szybki kontakt
+                                            </p>
+
+                                            <a
+                                                href="tel:505849060"
+                                                className="flex items-center gap-3 rounded-2xl bg-slate-50 px-4 py-4 transition-colors hover:bg-primary/5"
                                             >
-                                                Umów wizytę
-                                            </Link>
-                                        </Button>
+                                                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
+                                                    <Phone className="h-5 w-5" />
+                                                </div>
+                                                <div className="flex flex-col">
+                                                    <span className="text-xs text-slate-500">
+                                                        Zadzwoń do nas
+                                                    </span>
+                                                    <span className="text-base font-bold text-slate-900">
+                                                        505 849 060
+                                                    </span>
+                                                </div>
+                                            </a>
+
+                                            <Button
+                                                asChild
+                                                className="mt-4 w-full rounded-2xl"
+                                            >
+                                                <Link
+                                                    href="/contact"
+                                                    onClick={() =>
+                                                        setIsOpen(false)
+                                                    }
+                                                >
+                                                    Umów wizytę online
+                                                </Link>
+                                            </Button>
+                                        </div>
                                     </div>
-                                </nav>
-                            </SheetContent>
-                        </Sheet>
+                                </SheetContent>
+                            </Sheet>
+                        </div>
                     </div>
                 </div>
             </div>
