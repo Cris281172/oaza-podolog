@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { Link } from '@inertiajs/react';
 import { motion, Variants } from 'framer-motion';
 import { Plus } from 'lucide-react';
@@ -26,7 +27,7 @@ const containerVariants: Variants = {
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.1, // Odstęp między kartami
+            staggerChildren: 0.1,
             delayChildren: 0.1,
         },
     },
@@ -42,16 +43,16 @@ const itemVariants: Variants = {
 };
 
 const ServicesSection = () => {
+    const isMobile = useIsMobile();
     return (
         <section className="overflow-hidden bg-white py-12 md:py-24">
             <motion.div
                 className="container mx-auto px-4"
-                initial="hidden"
+                initial={isMobile ? 'visible' : 'hidden'}
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                variants={containerVariants}
+                variants={isMobile ? {} : containerVariants}
             >
-                {/* NAGŁÓWEK */}
                 <div className="mb-8 flex flex-col justify-between gap-6 md:mb-12 md:flex-row md:items-end">
                     <motion.div variants={itemVariants} className="max-w-xl">
                         <span className="text-xs font-bold tracking-widest text-primary uppercase">

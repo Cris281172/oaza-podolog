@@ -1,37 +1,37 @@
 import heroImage from '@/assets/hero-bg.webp';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { motion, Variants } from 'framer-motion';
 import { useState } from 'react';
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2,
+        },
+    },
+};
 
+const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5 },
+    },
+};
 const HeroSection = () => {
     const [imgReady, setImgReady] = useState(false);
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.2,
-            },
-        },
-    };
-
-    const itemVariants: Variants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.5 },
-        },
-    };
+    const isMobile = useIsMobile();
 
     return (
         <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden bg-slate-950 py-12 md:py-20">
             <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-950 opacity-100" />
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: imgReady ? 1 : 0 }}
+                initial={{ opacity: isMobile ? 1 : 0 }}
+                animate={{ opacity: isMobile ? 1 : imgReady ? 1 : 0 }}
                 transition={{ duration: 1, ease: 'easeOut' }}
                 className="absolute inset-0 bg-cover bg-center will-change-transform"
                 style={{
@@ -49,8 +49,8 @@ const HeroSection = () => {
 
             <motion.div
                 className="relative z-10 container mx-auto px-4 text-center text-white"
-                variants={containerVariants}
-                initial="hidden"
+                variants={isMobile ? {} : containerVariants}
+                initial={isMobile ? 'visible' : 'hidden'}
                 animate="visible"
                 style={{ transform: 'translateZ(0)' }}
             >

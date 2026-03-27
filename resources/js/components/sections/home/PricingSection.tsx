@@ -1,3 +1,4 @@
+import { useIsMobile } from '@/hooks/use-mobile';
 import { Link } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
@@ -9,6 +10,7 @@ const pricingPreview = [
 ];
 
 const PricingSection = () => {
+    const isMobile = useIsMobile();
     return (
         <section className="overflow-hidden bg-white py-12 md:py-24">
             <div className="container mx-auto px-4">
@@ -25,7 +27,7 @@ const PricingSection = () => {
                 </div>
 
                 <motion.div
-                    initial={{ opacity: 0, y: 15 }}
+                    initial={isMobile ? false : { opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-50px' }}
                     transition={{ duration: 0.6, ease: 'easeOut' }}

@@ -1,14 +1,16 @@
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { Link } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Phone } from 'lucide-react';
 
 const CTASection = () => {
+    const isMobile = useIsMobile();
     return (
         <section className="overflow-hidden bg-primary py-20 text-white">
             <motion.div
                 className="container mx-auto px-4 text-center"
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                initial={isMobile ? false : { opacity: 0, scale: 0.95, y: 20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{

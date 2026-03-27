@@ -5,6 +5,7 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { Faq } from '@/types';
 import { Link } from '@inertiajs/react';
 import { motion, Variants } from 'framer-motion';
@@ -33,16 +34,17 @@ const contactVariants: Variants = {
 };
 
 const ContactFaqSection = ({ faqs }: PropsI) => {
+    const isMobile = useIsMobile();
     return (
         <section className="overflow-hidden bg-slate-50/50 py-12 md:py-24">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
                     <motion.div
                         className="lg:col-span-7"
-                        initial="hidden"
+                        initial={isMobile ? 'visible' : 'hidden'}
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.1 }}
-                        variants={faqVariants}
+                        variants={isMobile ? {} : faqVariants}
                     >
                         <div className="mb-8 md:mb-12">
                             <span className="text-xs font-bold tracking-widest text-primary uppercase">
@@ -76,7 +78,7 @@ const ContactFaqSection = ({ faqs }: PropsI) => {
                         </Accordion>
 
                         <motion.div
-                            initial={{ opacity: 0, y: 10 }}
+                            initial={isMobile ? false : { opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.4 }}
@@ -112,10 +114,10 @@ const ContactFaqSection = ({ faqs }: PropsI) => {
                     <motion.div
                         id="contact"
                         className="lg:col-span-5 lg:pl-10"
-                        initial="hidden"
+                        initial={isMobile ? 'visible' : 'hidden'}
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.1 }}
-                        variants={contactVariants}
+                        variants={isMobile ? {} : contactVariants}
                     >
                         <div className="mb-8 md:mb-12">
                             <span className="text-xs font-bold tracking-widest text-primary uppercase">
@@ -190,7 +192,7 @@ const ContactFaqSection = ({ faqs }: PropsI) => {
                 </div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    initial={isMobile ? false : { opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.4 }}

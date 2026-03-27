@@ -6,6 +6,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from '@/components/ui/carousel';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { Link } from '@inertiajs/react';
 import { motion, Variants } from 'framer-motion';
 import { ArrowRight, BadgeCheck, GraduationCap, Heart } from 'lucide-react';
@@ -64,14 +65,15 @@ const badgeVariants: Variants = {
 };
 
 const AboutMeSection = () => {
+    const isMobile = useIsMobile();
     return (
         <section className="overflow-hidden bg-slate-50/50 py-12 md:py-24">
             <motion.div
                 className="container mx-auto px-4"
-                initial="hidden"
+                initial={isMobile ? 'visible' : 'hidden'}
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                variants={containerVariants}
+                variants={isMobile ? {} : containerVariants}
             >
                 <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-2">
                     <motion.div
