@@ -148,7 +148,7 @@ const ContactFaqSection = ({ faqs }: PropsI) => {
                                     icon: Clock,
                                     title: 'Godziny',
                                     content:
-                                        'Pon - Pt: 9:00 - 18:00\nSob - Nd: Zamknięte',
+                                        'Pon-Czw: 16:00 - 20:00\nPt: 14:00 - 20:00\nSob: 9:00 - 13:00\nNd: Zamknięte',
                                     link: null,
                                 },
                             ].map((item, i) => (

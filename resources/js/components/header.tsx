@@ -4,12 +4,12 @@ import { Link, usePage } from '@inertiajs/react';
 import { Menu, Phone } from 'lucide-react';
 import { useState } from 'react';
 import logoImage from '../assets/logo.png';
-
+import { contact, priceList, services } from '../routes';
 const navigation = [
     { name: 'Strona główna', href: '/' },
-    { name: 'Usługi', href: '/services' },
-    { name: 'Cennik', href: '/pricing' },
-    { name: 'Kontakt', href: '/contact' },
+    { name: 'Usługi', href: services.url() },
+    { name: 'Cennik', href: priceList.url() },
+    { name: 'Kontakt', href: contact.url() },
 ];
 
 const Header = () => {
@@ -22,7 +22,6 @@ const Header = () => {
         <header className="sticky top-0 z-50 border-b border-slate-100 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container mx-auto px-4">
                 <div className="flex h-20 items-center justify-between">
-                    {/* Logo */}
                     <Link href="/" className="flex w-24">
                         <img src={logoImage} alt="Oaza Logo" />
                     </Link>

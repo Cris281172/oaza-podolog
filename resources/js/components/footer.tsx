@@ -1,5 +1,5 @@
-import { Clock, MapPin, Phone } from 'lucide-react';
 import { Link } from '@inertiajs/react';
+import { Clock, MapPin, Phone } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -36,9 +36,14 @@ const Footer = () => {
                                     505 849 060
                                 </a>
                             </div>
-                            <div className="flex items-center space-x-2">
+                            <div className="flex items-start space-x-2">
                                 <Clock className="h-4 w-4" />
-                                <span>Pon-Pt: 9:00 - 18:00</span>
+                                <div className={'flex flex-col'}>
+                                    <span>Pon-Czw: 16:00 - 20:00</span>
+                                    <span>Pt: 14:00 - 20:00</span>
+                                    <span>Sob: 9:00 - 13:00</span>
+                                    <span>Nd: Zamknięte</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -83,6 +88,6 @@ const Footer = () => {
             </div>
         </footer>
     );
-}
+};
 
 export default Footer;

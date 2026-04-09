@@ -1,3 +1,4 @@
+import { ImageZoom } from '@/components/animate-ui/primitives/effects/image-zoom';
 import { Button } from '@/components/ui/button';
 import {
     Carousel,
@@ -6,16 +7,86 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from '@/components/ui/carousel';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Link } from '@inertiajs/react';
 import { motion, Variants } from 'framer-motion';
-import { ArrowRight, BadgeCheck, GraduationCap, Heart } from 'lucide-react';
+import {
+    ArrowRight,
+    BadgeCheck,
+    GraduationCap,
+    Heart,
+    Maximize,
+    X,
+} from 'lucide-react';
+import { useState } from 'react';
 const diplomas = [
-    { src: '/images/cert-1.webp', alt: 'Certyfikat Podologia Kliniczna' },
-    { src: '/images/cert-1.webp', alt: 'Dyplom Ortonyksja' },
-    { src: '/images/cert-1.webp', alt: 'Szkolenie Stopa Cukrzycowa' },
-    { src: '/images/cert-1.webp', alt: 'Certyfikat Rekonstrukcja Paznokcia' },
-    { src: '/images/cert-1.webp', alt: 'Dyplom Kursu Pękające Pięty' },
+    {
+        id: 1,
+        src: '/images/cert-1-sm.webp',
+        srcLightbox: '/images/cert-1-lg.webp',
+        alt: 'Certyfikat Podologia Kliniczna',
+    },
+    {
+        id: 2,
+        src: '/images/cert-2-sm.webp',
+        alt: 'Dyplom Ortonyksja',
+        srcLightbox: '/images/cert-2-lg.webp',
+    },
+    {
+        id: 3,
+        src: '/images/cert-3-sm.webp',
+        alt: 'Szkolenie Stopa Cukrzycowa',
+        srcLightbox: '/images/cert-3-lg.webp',
+    },
+    {
+        id: 4,
+        src: '/images/cert-4-sm.webp',
+        srcLightbox: '/images/cert-4-lg.webp',
+        alt: 'Certyfikat Rekonstrukcja Paznokcia',
+    },
+    {
+        id: 5,
+        src: '/images/cert-5-sm.webp',
+        srcLightbox: '/images/cert-5-lg.webp',
+        alt: 'Dyplom Kursu Pękające Pięty',
+    },
+    {
+        id: 6,
+        src: '/images/cert-6-sm.webp',
+        srcLightbox: '/images/cert-6-lg.webp',
+        alt: 'Dyplom Kursu Pękające Pięty',
+    },
+    {
+        id: 7,
+        src: '/images/cert-7-sm.webp',
+        srcLightbox: '/images/cert-7-lg.webp',
+        alt: 'Dyplom Kursu Pękające Pięty',
+    },
+    {
+        id: 8,
+        src: '/images/cert-8-sm.webp',
+        srcLightbox: '/images/cert-8-lg.webp',
+        alt: 'Dyplom Kursu Pękające Pięty',
+    },
+    {
+        id: 9,
+        src: '/images/cert-9-sm.webp',
+        srcLightbox: '/images/cert-9-lg.webp',
+        alt: 'Dyplom Kursu Pękające Pięty',
+    },
+    {
+        id: 10,
+        src: '/images/cert-10-sm.webp',
+        srcLightbox: '/images/cert-10-lg.webp',
+        alt: 'Dyplom Kursu Pękające Pięty',
+    },
+    {
+        id: 11,
+        src: '/images/cert-11-sm.webp',
+        srcLightbox: '/images/cert-11-lg.webp',
+        alt: 'Dyplom Kursu Pękające Pięty',
+    },
 ];
 
 const itemVariants: Variants = {
@@ -66,6 +137,9 @@ const badgeVariants: Variants = {
 
 const AboutMeSection = () => {
     const isMobile = useIsMobile();
+    const [activeDiploma, setActiveDiploma] = useState<undefined | number>(
+        undefined,
+    );
     return (
         <section className="overflow-hidden bg-slate-50/50 py-12 md:py-24">
             <motion.div
@@ -179,17 +253,28 @@ const AboutMeSection = () => {
                                 {diplomas.map((diploma, index) => (
                                     <CarouselItem
                                         key={index}
-                                        className="basis-full pl-2 sm:basis-1/3 md:basis-1/3 md:pl-4"
+                                        className="relative basis-full pl-2 sm:basis-1/3 md:basis-1/3 md:pl-4"
                                     >
+                                        <Button
+                                            onClick={() =>
+                                                setActiveDiploma(index + 1)
+                                            }
+                                            variant={'secondary'}
+                                            className={
+                                                'absolute top-1 right-1 z-2 h-8 w-8 cursor-pointer'
+                                            }
+                                        >
+                                            <Maximize />
+                                        </Button>
                                         <motion.div
                                             whileHover={{ y: -5 }}
                                             className="group relative overflow-hidden rounded-xl border border-slate-100 bg-white shadow-sm transition-all hover:shadow-md"
                                         >
-                                            <div className="overflow-hidden">
+                                            <div className="flex aspect-[4/3] w-full items-center justify-center overflow-hidden bg-slate-100">
                                                 <img
                                                     src={diploma.src}
                                                     alt={diploma.alt}
-                                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                    className="h-full max-h-full w-full max-w-full object-cover transition-transform duration-500 group-hover:scale-105"
                                                 />
                                             </div>
                                         </motion.div>
@@ -209,6 +294,36 @@ const AboutMeSection = () => {
                     </div>
                 </motion.div>
             </motion.div>
+            {activeDiploma && (
+                <Dialog
+                    open={!!activeDiploma}
+                    onOpenChange={() => setActiveDiploma(undefined)}
+                >
+                    <DialogContent
+                        showCloseButton={false}
+                        className="flex max-h-[100vh] max-w-[100vw] items-center justify-center border-0 bg-transparent p-0"
+                    >
+                        <div className="relative">
+                            <Button
+                                onClick={() => setActiveDiploma(undefined)}
+                                size="icon"
+                                className="absolute top-4 right-4 z-10"
+                            >
+                                <X />
+                            </Button>
+
+                            <ImageZoom zoomOnHover={false}>
+                                <img
+                                    src={
+                                        diplomas[activeDiploma - 1].srcLightbox
+                                    }
+                                    className="max-h-[90vh] max-w-[95vw] rounded-xl object-contain"
+                                />
+                            </ImageZoom>
+                        </div>
+                    </DialogContent>
+                </Dialog>
+            )}
         </section>
     );
 };
