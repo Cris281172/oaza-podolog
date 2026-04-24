@@ -1,5 +1,6 @@
 import CTASection from '@/components/cta-section';
 import HeaderPage from '@/components/header-page';
+import { useIsMobile } from '@/hooks/use-mobile';
 import PageLayout from '@/layouts/page-layout';
 import { motion } from 'framer-motion';
 
@@ -92,6 +93,8 @@ const priceData = [
 ];
 
 const PriceList = () => {
+    const isMobile = useIsMobile();
+
     return (
         <PageLayout>
             <main className="bg-white">
@@ -108,7 +111,9 @@ const PriceList = () => {
                             {priceData.map((section, idx) => (
                                 <motion.div
                                     key={idx}
-                                    initial={{ opacity: 0, y: 20 }}
+                                    initial={
+                                        isMobile ? false : { opacity: 0, y: 20 }
+                                    }
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{
@@ -143,7 +148,6 @@ const PriceList = () => {
                             ))}
                         </div>
 
-                        {/* Dodatkowa informacja pod cennikiem */}
                         <div className="mx-auto mt-16 max-w-4xl rounded-2xl border-l-4 border-primary/30 bg-slate-50 p-6 text-sm leading-relaxed font-light text-muted-foreground">
                             Powyższy cennik ma charakter informacyjny i nie
                             stanowi oferty handlowej w rozumieniu Kodeksu
@@ -154,7 +158,6 @@ const PriceList = () => {
                     </div>
                 </section>
                 <CTASection />
-                {/*<CTASection />*/}
             </main>
         </PageLayout>
     );

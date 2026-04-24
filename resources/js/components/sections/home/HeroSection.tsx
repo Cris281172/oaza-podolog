@@ -1,8 +1,8 @@
-import heroImage from '@/assets/hero-bg.webp';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { motion, Variants } from 'framer-motion';
 import { useState } from 'react';
+import heroImage from '../../../assets/hero-bg.webp';
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -27,7 +27,18 @@ const HeroSection = () => {
     const isMobile = useIsMobile();
 
     return (
-        <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden bg-slate-950 py-12 md:py-20">
+        <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden bg-white py-12 md:py-20">
+            {/*<div className="absolute inset-0 overflow-hidden">*/}
+            {/*    <div*/}
+            {/*        className="absolute -top-[10%] -left-[10%] h-[50%] w-[40%] rounded-full opacity-20 blur-[120px]"*/}
+            {/*        style={{ backgroundColor: 'var(--primary, #0ea5e9)' }}*/}
+            {/*    />*/}
+            {/*    <div*/}
+            {/*        className="absolute -bottom-[10%] left-0 h-[50%] w-[100%] rounded-full opacity-10 blur-[120px]"*/}
+            {/*        style={{ backgroundColor: '#14b8a6' }}*/}
+            {/*    />*/}
+            {/*    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]" />*/}
+            {/*</div>*/}
             <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-950 opacity-100" />
             <motion.div
                 initial={{ opacity: isMobile ? 1 : 0 }}
@@ -35,7 +46,7 @@ const HeroSection = () => {
                 transition={{ duration: 1, ease: 'easeOut' }}
                 className="absolute inset-0 bg-cover bg-center will-change-transform"
                 style={{
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url(${heroImage})`,
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${heroImage})`,
                     transform: 'translateZ(0)',
                 }}
             >
@@ -60,27 +71,27 @@ const HeroSection = () => {
                 >
                     Profesjonalna Podologia | Kielce
                 </motion.span>
-
                 <motion.h1
                     variants={itemVariants}
-                    className="mb-6 text-4xl font-extrabold tracking-tight md:text-5xl"
+                    className="mb-4 text-4xl font-extrabold tracking-tight md:mb-6 md:text-5xl"
                 >
-                    Skuteczny{' '}
-                    <span className="text-primary">Podolog Kielce</span> <br />–
-                    Twoja ulga w bólu stóp
+                    Profesjonalny{' '}
+                    <span className="text-primary">Podolog Kielce</span>
+                    <br />
+                    <span className="text-2xl font-bold md:text-4xl">
+                        pomoc w bólu i problemach stóp
+                    </span>
                 </motion.h1>
-
                 <motion.p
                     variants={itemVariants}
-                    className="mx-auto mb-10 max-w-2xl text-base leading-relaxed font-light text-white/90 md:text-lg"
+                    className="mx-auto mb-7 max-w-2xl text-base leading-relaxed font-light text-white/90 md:mb-10 md:text-lg"
                 >
-                    Cierpisz na{' '}
-                    <span className="font-medium text-primary">
-                        wrastające paznokcie
-                    </span>
-                    , modzele lub bolesne odciski? W gabinecie OAZA łączymy
-                    doświadczenie z nowoczesną terapią, by przywrócić Ci pełną
-                    sprawność i zdrowy wygląd stóp.
+                    Pomagamy pacjentom zmagającym się z wrastającymi
+                    paznokciami, bolesnymi odciskami, modzelami i innymi
+                    dolegliwościami stóp. W gabinecie{' '}
+                    <span className={'text-primary'}>OAZA w Kielce</span>{' '}
+                    łączymy doświadczenie, nowoczesną podologię i indywidualnie
+                    dobraną terapię.
                 </motion.p>
 
                 <motion.div

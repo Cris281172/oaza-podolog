@@ -3,10 +3,10 @@ import { Link } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 const pricingPreview = [
-    { name: 'Usunięcie odcisku', price: 'od 80 zł' },
-    { name: 'Opracowanie paznokci', price: 'od 70 zł' },
+    { name: 'Pedicure podologiczny', price: 'od 170 zł' },
     { name: 'Wrastający paznokieć', price: 'od 100 zł' },
-    { name: 'Rekonstrukcja paznokcia', price: 'od 120 zł' },
+    { name: 'Usuwanie odcisków / modzeli', price: 'od 100 zł' },
+    { name: 'Brodawki wirusowe (kurzajki)', price: 'od 150 zł' },
 ];
 
 const PricingSection = () => {
@@ -19,10 +19,13 @@ const PricingSection = () => {
                         CENNIK
                     </span>
                     <h2 className="mt-2 mb-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-                        Przykładowe <span className="text-primary">ceny</span>
+                        Cennik <span className="text-primary">podologa</span> w
+                        Kielcach
                     </h2>
                     <p className="text-base font-light text-muted-foreground">
-                        Transparentne ceny najpopularniejszych zabiegów.
+                        Sprawdź orientacyjne ceny najczęściej wykonywanych
+                        zabiegów podologicznych w gabinecie{' '}
+                        <span className={'text-primary'}>OAZA w Kielcach</span>
                     </p>
                 </div>
 

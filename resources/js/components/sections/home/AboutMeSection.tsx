@@ -11,15 +11,9 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Link } from '@inertiajs/react';
 import { motion, Variants } from 'framer-motion';
-import {
-    ArrowRight,
-    BadgeCheck,
-    GraduationCap,
-    Heart,
-    Maximize,
-    X,
-} from 'lucide-react';
+import { ArrowRight, Maximize, X } from 'lucide-react';
 import { useState } from 'react';
+import selfImage from '../../../assets/self-image.webp';
 const diplomas = [
     {
         id: 1,
@@ -156,14 +150,7 @@ const AboutMeSection = () => {
                     >
                         <div className="aspect-[4/5] overflow-hidden rounded-3xl bg-slate-100 transition-all group-hover:shadow-2xl group-hover:shadow-primary/5">
                             <div className="flex h-full w-full items-center justify-center text-slate-300">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    className="h-32 w-32 opacity-50"
-                                >
-                                    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
-                                </svg>
+                                <img src={selfImage} />
                             </div>
                         </div>
                     </motion.div>
@@ -173,59 +160,32 @@ const AboutMeSection = () => {
                             GABINET PODOLOGICZNY OAZA
                         </span>
                         <h2 className="mt-2 mb-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-                            mgr{' '}
                             <span className={'text-primary'}>
                                 Agnieszka Schabek
                             </span>{' '}
-                            – Twój specjalista od zdrowia stóp
+                            – Podolog w Kielcach
                         </h2>
 
                         <div className="space-y-6 text-base leading-relaxed font-light text-muted-foreground">
                             <p>
-                                Łączę pasję do podologii z wieloletnią praktyką
-                                kliniczną. Jako dyplomowany specjalista, każdy
-                                przypadek traktuję holistycznie, wykorzystując
-                                sprawdzoną wiedzę medyczną oraz
-                                najnowocześniejsze metody terapii, aby
-                                skutecznie przywracać sprawność Twoim stopom.
-                            </p>
-                            <p>
-                                W gabinecie <strong>OAZA</strong> moim
-                                priorytetem jest Twoje bezpieczeństwo i komfort.
-                                Stawiam na kompleksowe podejście — od
-                                precyzyjnej diagnostyki, przez indywidualny
-                                dobór terapii, aż po edukację, dzięki której
-                                nauczysz się, jak dbać o zdrowie stóp na co
-                                dzień.
+                                Agnieszka Schabek to doświadczona specjalistka
+                                łącząca wiedzę i doświadczenie z zakresu
+                                podologii oraz praktykę kliniczną zdobytą w
+                                pracy jako położna. Tak interdyscyplinarne
+                                przygotowanie pozwala jej spojrzeć na problemy
+                                stóp i paznokci w sposób kompleksowy, z
+                                uwzględnieniem ogólnego stanu zdrowia pacjenta,
+                                procesów gojenia oraz szczególnych potrzeb osób
+                                w trakcie leczenia. Dzięki doświadczeniu w
+                                środowisku szpitalnym również w Gabinecie
+                                Podologiczna Oaza stosuje najwyższe standardy
+                                higieny i bezpieczeństwa. Przyjmuje osoby z
+                                problemami w obrębie stóp i paznokci np. z
+                                brodawkami, grzybicą czy wrastającymi
+                                paznokciami.
                             </p>
                         </div>
 
-                        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-                            {[
-                                {
-                                    icon: GraduationCap,
-                                    text: 'Dyplomowany podolog',
-                                },
-                                {
-                                    icon: BadgeCheck,
-                                    text: 'Certyfikowane szkolenia',
-                                },
-                                { icon: Heart, text: 'Indywidualne podejście' },
-                            ].map((item, i) => (
-                                <motion.div
-                                    key={i}
-                                    variants={badgeVariants}
-                                    className="flex items-center gap-4"
-                                >
-                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-primary/10 bg-primary/5">
-                                        <item.icon className="h-4 w-4 text-primary" />
-                                    </div>
-                                    <p className="text-sm font-semibold text-slate-700">
-                                        {item.text}
-                                    </p>
-                                </motion.div>
-                            ))}
-                        </div>
                         <motion.div variants={itemVariants} className="mt-10">
                             <Button asChild className="rounded-xl">
                                 <Link

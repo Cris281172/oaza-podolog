@@ -121,28 +121,32 @@ const Header = () => {
                                                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
                                                     <Phone className="h-5 w-5" />
                                                 </div>
-                                                <div className="flex flex-col">
+                                                <a
+                                                    href="tel:505849060"
+                                                    className="flex flex-col"
+                                                >
                                                     <span className="text-xs text-slate-500">
                                                         Zadzwoń do nas
                                                     </span>
                                                     <span className="text-base font-bold text-slate-900">
                                                         505 849 060
                                                     </span>
-                                                </div>
+                                                </a>
                                             </a>
 
                                             <Button
                                                 asChild
                                                 className="mt-4 w-full rounded-2xl"
                                             >
-                                                <Link
-                                                    href="/contact"
+                                                <a
+                                                    href="https://booksy.com/pl-pl/254137_gabinet-podologiczna-oaza-podolog-kielce_podologia_7937_kielce"
+                                                    target={'_blank'}
                                                     onClick={() =>
                                                         setIsOpen(false)
                                                     }
                                                 >
                                                     Umów wizytę online
-                                                </Link>
+                                                </a>
                                             </Button>
                                         </div>
                                     </div>

@@ -4,6 +4,7 @@ import CTASection from '@/components/sections/home/CTASection';
 import HeroSection from '@/components/sections/home/HeroSection';
 import PricingSection from '@/components/sections/home/PricingSection';
 import ServicesSection from '@/components/sections/home/ServicesSection';
+import SEO from '@/components/seo';
 import PageLayout from '@/layouts/page-layout';
 import { Faq } from '@/types';
 
@@ -14,6 +15,7 @@ interface PropsI {
 const Home = ({ faqs }: PropsI) => {
     return (
         <PageLayout>
+            <SEO />
             <main className="flex-1">
                 <HeroSection />
                 <ServicesSection />

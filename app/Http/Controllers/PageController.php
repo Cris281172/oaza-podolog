@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Faq;
+use App\Services\PodologyService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -20,5 +21,18 @@ class PageController extends Controller
     }
     public function priceList(){
         return Inertia::render('priceList');
+    }
+    public function service(string $slug){
+        $serviceConfig = config('podology_services');
+        if (!isset($serviceConfig[$slug])) {
+            abort(404);
+        }
+
+        $service = $serviceConfig[$slug];
+
+        return Inertia::render('service', [
+            'service' => $service,
+            'crossSell' => PodologyService::getCrossSell($slug),
+        ]);
     }
 }

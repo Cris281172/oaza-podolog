@@ -2,6 +2,8 @@ import CTASection from '@/components/cta-section';
 import HeaderPage from '@/components/header-page';
 import { useIsMobile } from '@/hooks/use-mobile';
 import PageLayout from '@/layouts/page-layout';
+import { service } from '@/routes';
+import { Link } from '@inertiajs/react';
 import { motion, Variants } from 'framer-motion';
 
 const serviceGroups = [
@@ -12,16 +14,19 @@ const serviceGroups = [
                 title: 'Bezpłatna konsultacja z ulotką',
                 description:
                     'Wstępna ocena stanu stóp po okazaniu materiałów promocyjnych gabinetu.',
+                url: 'bezplatna-konsultacja-z-ulotka',
             },
             {
                 title: 'Konsultacja w ramach zabiegu',
                 description:
                     'Pełna diagnostyka i planowanie terapii wliczone w cenę wykonywanego zabiegu.',
+                url: 'bezplatna-konsultacja-w-ramach-zabiegu',
             },
             {
                 title: 'Konsultacja w gabinecie',
                 description:
                     'Szczegółowy wywiad medyczny, badanie przedmiotowe i profesjonalna porada specjalisty.',
+                url: 'konsultacja-podologiczna-w-gabinecie',
             },
         ],
     },
@@ -32,6 +37,7 @@ const serviceGroups = [
                 title: 'Pedicure dla zdrowych stóp',
                 description:
                     'Kompleksowe opracowanie paznokci, wałów i podeszwy stóp wraz z profesjonalną pielęgnacją.',
+                url: 'pedicure-dla-zdrowych-stop',
             },
         ],
     },
@@ -42,21 +48,25 @@ const serviceGroups = [
                 title: 'Stopa cukrzycowa i łuszczycowa',
                 description:
                     'Specjalistyczne opracowanie podeszwy stopy dotkniętej zmianami chorobowymi (cukrzyca, łuszczyca).',
+                url: 'stopa-cukrzycowa-i-luszczycowa',
             },
             {
                 title: 'Terapia pękających pięt',
                 description:
                     'Opracowanie bolesnych rozpadlin i głębokich pęknięć pięt z odpowiednim doborem preparatów.',
+                url: 'terapia-pekajacych-piet',
             },
             {
                 title: 'Terapia brodawki wirusowej',
                 description:
                     'Skuteczne usuwanie kurzajek przy użyciu sprawdzonych metod terapeutycznych.',
+                url: 'terapia-brodawki-wirusowej',
             },
             {
                 title: 'Usuwanie modzeli i odcisków',
                 description:
                     'Likwidacja bolesnych nagniotków, odcisków i modzeli przywracająca pełny komfort chodzenia.',
+                url: 'usuwanie-modzeli-i-odcisków',
             },
         ],
     },
@@ -67,11 +77,13 @@ const serviceGroups = [
                 title: 'Obcięcie paznokci zdrowych',
                 description:
                     'Prawidłowe skrócenie płytki paznokciowej zapobiegające wrastaniu i deformacjom.',
+                url: 'obciecie-paznokci-zdrowych',
             },
             {
                 title: 'Opracowanie paznokci i wałów',
                 description:
                     'Profesjonalne oczyszczenie okolicy paznokcia, wałów i nadanie płytce właściwego kształtu.',
+                url: 'opracowanie-paznokci-i-walow',
             },
         ],
     },
@@ -82,21 +94,25 @@ const serviceGroups = [
                 title: 'Paznokcie dystroficzne',
                 description:
                     'Specjalistyczne opracowanie paznokci o zmienionej strukturze, kolorze i grubości.',
+                url: 'paznokcie-dystroficzne',
             },
             {
                 title: 'Odbarczanie krwiaka',
                 description:
                     'Doraźna pomoc w przypadku krwiaków podpaznokciowych powstałych w wyniku urazu mechanicznego.',
+                url: 'odbarczanie-krwiaka',
             },
             {
                 title: 'Terapia onycholizy i infekcji',
                 description:
                     'Leczenie zmian grzybiczych, łuszczycowych oraz infekcji bakteryjnych (Pseudomonas).',
+                url: 'terapia-onycholizy-i-infekcji',
             },
             {
                 title: 'Pielęgnacja po onkologii',
                 description:
                     'Bezpieczne opracowanie paznokci szponowatych i zmienionych w trakcie lub po leczeniu onkologicznym.',
+                url: 'pielegnacja-po-onkologii',
             },
         ],
     },
@@ -107,11 +123,13 @@ const serviceGroups = [
                 title: 'Podstawowy zabieg podologiczny',
                 description:
                     'Usunięcie mniejszych fizjologicznych zrogowaceń oraz pełne opracowanie paznokci i wałów.',
+                url: 'podstawowy-zabieg-podologiczny',
             },
             {
                 title: 'Rozszerzony zabieg podologiczny',
                 description:
                     'Usunięcie średnich fizjologicznych zrogowaceń oraz zaawansowane oczyszczanie podeszwy i paznokci.',
+                url: 'rozszerzony-zabieg-podologiczny',
             },
         ],
     },
@@ -122,16 +140,19 @@ const serviceGroups = [
                 title: 'Badania mykologiczne',
                 description:
                     'Pobranie materiału w celu identyfikacji gatunku grzyba (hodowla oraz badanie bezpośrednie).',
+                url: 'badania-mykologiczne',
             },
             {
                 title: 'Badanie mikrobiologiczne',
                 description:
                     'Wymaz z antybiogramem (np. przy stanie zapalnym) oraz badania genetyczne w kierunku łuszczycy.',
+                url: 'badanie-mikrobiologiczne',
             },
             {
                 title: 'Pomiar poziomu cukru',
                 description:
                     'Szybkie badanie glikemii u pacjentów z grupy ryzyka stopy cukrzycowej.',
+                url: 'pomiar-poziomu-cukru',
             },
         ],
     },
@@ -142,11 +163,13 @@ const serviceGroups = [
                 title: 'Klamry ortonyksyjne',
                 description:
                     'Zakładanie, przekładanie i usuwanie profesjonalnych klamer korygujących tor wzrostu paznokcia.',
+                url: 'klamry-ortonyksyjne',
             },
             {
                 title: 'Tamponada i opatrunki',
                 description:
                     'Zabezpieczenie bolesnych miejsc, taping, odciążenia oraz opatrunki ze specjalistycznym preparatem.',
+                url: 'tamponada-i-opatrunki',
             },
         ],
     },
@@ -207,13 +230,19 @@ const Services = () => {
                                 >
                                     {group.items.map((item, iIdx) => {
                                         globalIndex++;
+                                        const serviceUrl = item.url
+                                            ? service.url(item.url)
+                                            : '#';
                                         return (
                                             <motion.div
                                                 key={iIdx}
                                                 variants={itemVariants}
                                             >
                                                 <div className="group block h-full">
-                                                    <div className="flex h-full min-h-[220px] flex-col justify-between rounded-3xl border border-slate-100 bg-slate-50/50 p-8 transition-all duration-300 hover:border-primary/20 hover:bg-white hover:shadow-2xl hover:shadow-primary/5">
+                                                    <Link
+                                                        href={serviceUrl}
+                                                        className="flex h-full min-h-[220px] flex-col justify-between rounded-3xl border border-slate-100 bg-slate-50/50 p-8 transition-all duration-300 hover:border-primary/20 hover:bg-white hover:shadow-2xl hover:shadow-primary/5"
+                                                    >
                                                         <div>
                                                             <span className="text-xs font-bold tracking-widest text-primary/40 uppercase">
                                                                 Zabieg{' '}
@@ -235,7 +264,7 @@ const Services = () => {
                                                         <div className="mt-6 flex items-center text-xs font-black tracking-tighter text-primary uppercase opacity-100 transition-all group-hover:opacity-100 md:opacity-0">
                                                             Dowiedz się więcej →
                                                         </div>
-                                                    </div>
+                                                    </Link>
                                                 </div>
                                             </motion.div>
                                         );

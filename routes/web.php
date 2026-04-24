@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/uslugi', [PageController::class, 'services'])->name('services');
+Route::get('/uslugi/{slug}', [PageController::class, 'service'])->name('service');
 Route::get('/cennik', [PageController::class, 'priceList'])->name('priceList');
 Route::get('/kontakt', [PageController::class, 'contact'])->name('contact');
 

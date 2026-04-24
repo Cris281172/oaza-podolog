@@ -51,9 +51,13 @@ const ContactFaqSection = ({ faqs }: PropsI) => {
                                 WIĘCEJ WIEDZY
                             </span>
                             <h2 className="mt-2 mb-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-                                Często zadawane{' '}
+                                Częste{' '}
                                 <span className={'text-primary'}>pytania</span>
                             </h2>
+                            <p className="text-base leading-relaxed text-muted-foreground">
+                                Masz więcej pytań o leczenie, zabiegi lub
+                                pierwszą wizytę? Zobacz pełną bazę odpowiedzi.
+                            </p>
                         </div>
 
                         <Accordion
@@ -127,6 +131,13 @@ const ContactFaqSection = ({ faqs }: PropsI) => {
                                 Umów{' '}
                                 <span className={'text-primary'}>wizytę</span>
                             </h2>
+                            <p className="text-base leading-relaxed text-muted-foreground">
+                                Skontaktuj się z gabinetem{' '}
+                                <span className={'text-primary'}>
+                                    OAZA w Kielcach
+                                </span>{' '}
+                                i dobierz odpowiedni termin wizyty.
+                            </p>
                         </div>
 
                         <div className="space-y-6 rounded-3xl border border-slate-100 bg-white p-7 shadow-xl shadow-black/[0.02]">

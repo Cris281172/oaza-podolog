@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Link } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Phone } from 'lucide-react';
 
@@ -19,13 +18,16 @@ const CTASection = () => {
                 }}
             >
                 <h2 className="mb-6 text-3xl font-extrabold tracking-tight md:text-4xl">
-                    Nie lekceważ problemów ze stopami. <br />
-                    <span className="text-white/90">Zaufaj ekspertom.</span>
+                    Masz problem ze stopami lub paznokciami?
+                    <br />
+                    <span className="text-white/90">
+                        Umów wizytę u podologa w Kielcach.
+                    </span>
                 </h2>
 
                 <p className="mx-auto mb-10 max-w-xl text-lg font-light opacity-90">
-                    Pierwsza konsultacja pozwoli nam zdiagnozować problem i
-                    dobrać skuteczną metodę leczenia.
+                    Dobierzemy odpowiedni zabieg i pomożemy skutecznie rozwiązać
+                    problem.
                 </p>
 
                 <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -36,13 +38,14 @@ const CTASection = () => {
                             variant="secondary"
                             className="w-full rounded-full text-base text-primary shadow-2xl transition-colors hover:bg-white sm:w-auto"
                         >
-                            <Link
-                                href="/contact"
+                            <a
+                                href="https://booksy.com/pl-pl/254137_gabinet-podologiczna-oaza-podolog-kielce_podologia_7937_kielce"
+                                target={'_blank'}
                                 className="flex items-center gap-2"
                             >
-                                <span>Umów wizytę online</span>
+                                <span>Zarezerwuj wizytę</span>
                                 <ArrowRight className="h-4 w-4" />
-                            </Link>
+                            </a>
                         </Button>
                     </div>
 
@@ -58,7 +61,7 @@ const CTASection = () => {
                                 className="flex items-center gap-2"
                             >
                                 <Phone className="h-4 w-4" />
-                                <span>Zadzwoń teraz</span>
+                                <span>505 849 060</span>
                             </a>
                         </Button>
                     </div>

@@ -1,27 +1,30 @@
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { service as serviceRoute, services } from '@/routes';
 import { Link } from '@inertiajs/react';
 import { motion, Variants } from 'framer-motion';
 import { Plus } from 'lucide-react';
 
-const services = [
+const servicesItems = [
     {
-        title: 'Usuwanie odcisków',
-        description: 'Profesjonalne usuwanie odcisków i modzeli',
-        link: '/services/usuwanie-odciskow',
+        title: 'Terapia brodawki',
+        description:
+            'Diagnostyka, miejscowe opracowanie brodawek wirusowych oraz wsparcie profilaktyki domowej.',
+        link: 'terapia-brodawki',
     },
     {
-        title: 'Leczenie wrastających paznokci',
-        description: 'Skuteczne leczenie wrastających paznokci',
-        link: '/services/wrastajace-paznokcie',
+        title: 'Terapia grzybicy paznokci i stóp',
+        description:
+            'Diagnostyka, badanie mykologiczne, opracowane zmian grzybiczych i stosowanie preparatów.',
+        link: 'grzybica',
     },
     {
-        title: 'Rekonstrukcja paznokci',
-        description: 'Odbudowa uszkodzonych płytek paznokciowych',
-        link: '/services/rekonstrukcja-paznokci',
+        title: 'Terapia wrastających paznokci ',
+        description:
+            'Diagnostyka, opracowanie paznokcia i wałów okołopaznokciowych, założenie klamry, odciążeń.',
+        link: 'brodawki',
     },
 ];
-
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -54,24 +57,27 @@ const ServicesSection = () => {
                 variants={isMobile ? {} : containerVariants}
             >
                 <div className="mb-8 flex flex-col justify-between gap-6 md:mb-12 md:flex-row md:items-end">
-                    <motion.div variants={itemVariants} className="max-w-xl">
+                    <motion.div variants={itemVariants} className="max-w-2xl">
                         <span className="text-xs font-bold tracking-widest text-primary uppercase">
                             Oferta
                         </span>
                         <h2 className="mt-2 mb-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
                             Specjalistyczna{' '}
-                            <span className="text-primary">oferta</span>
+                            <span className="text-primary">
+                                oferta podologiczna
+                            </span>
                         </h2>
                         <p className="text-base leading-relaxed text-muted-foreground">
-                            W OAZIE skupiamy się na rozwiązaniach, które
-                            przywracają stopom zdrowie i estetyczny wygląd. Oto
-                            nasze kluczowe zabiegi:
+                            Specjalistyczne zabiegi podologiczne w Kielcach –
+                            leczenie wrastających paznokci, odcisków i modzeli
+                            oraz regeneracja płytki paznokciowej. Każdy
+                            przypadek diagnozujemy indywidualnie.
                         </p>
                     </motion.div>
 
                     <motion.div variants={itemVariants}>
                         <Link
-                            href="/services"
+                            href={services.url()}
                             className="hidden font-semibold text-primary underline-offset-8 hover:underline md:block"
                         >
                             Zobacz wszystkie usługi (12+)
@@ -80,16 +86,16 @@ const ServicesSection = () => {
                 </div>
 
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    {services.map((service, index) => (
+                    {servicesItems.map((service, index) => (
                         <motion.div key={index} variants={itemVariants}>
                             <Link
-                                href={service.link}
+                                href={serviceRoute.url(service.link)}
                                 className="group block h-full"
                             >
                                 <div className="flex h-full min-h-[200px] flex-col justify-between rounded-3xl border border-slate-100 bg-slate-50/50 p-8 transition-all duration-300 hover:border-primary/20 hover:bg-white hover:shadow-2xl hover:shadow-primary/5 md:min-h-[280px]">
                                     <div>
                                         <span className="text-xs font-bold tracking-widest text-primary/40 uppercase">
-                                            Zabieg 0{index + 1}
+                                            Zabieg podologiczny 0{index + 1}
                                         </span>
                                         <h3 className="mt-4 text-xl leading-tight font-bold transition-colors group-hover:text-primary md:text-2xl">
                                             {service.title}
@@ -108,16 +114,20 @@ const ServicesSection = () => {
                     ))}
 
                     <motion.div variants={itemVariants}>
-                        <Link href="/services" className="group block h-full">
-                            <div className="flex h-full min-h-[280px] flex-col items-center justify-center rounded-3xl border-2 border-dashed border-primary/20 bg-primary/[0.02] p-8 text-center transition-all hover:border-primary hover:bg-primary">
+                        <Link
+                            href={services.url()}
+                            className="group block h-full"
+                        >
+                            <div className="flex h-full min-h-[280px] flex-col items-center justify-center rounded-3xl border-2 border-dashed border-primary/20 bg-primary/[0.02] p-4 text-center transition-all hover:border-primary hover:bg-primary">
                                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary transition-all group-hover:scale-110 group-hover:bg-white">
                                     <Plus className="h-8 w-8" />
                                 </div>
                                 <h3 className="text-xl font-bold transition-colors group-hover:text-white">
-                                    Poznaj pełną <br /> ofertę zabiegów
+                                    Pełna oferta <br /> zabiegów podologicznych
                                 </h3>
                                 <p className="mt-2 text-sm text-muted-foreground transition-colors group-hover:text-white/80">
-                                    Ponad 15 specjalistycznych usług
+                                    Sprawdź wszystkie dostępne terapie i zabiegi
+                                    dla zdrowia Twoich stóp
                                 </p>
                             </div>
                         </Link>
@@ -133,7 +143,7 @@ const ServicesSection = () => {
                         variant="outline"
                         className="w-full rounded-2xl py-6"
                     >
-                        <Link href="/services">Wszystkie usługi</Link>
+                        <Link href={services.url()}>Wszystkie usługi</Link>
                     </Button>
                 </motion.div>
             </motion.div>

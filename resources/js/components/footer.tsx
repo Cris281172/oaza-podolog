@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { Clock, MapPin, Phone } from 'lucide-react';
+import { Clock, Facebook, MapPin, Phone } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -14,6 +14,20 @@ const Footer = () => {
                             Profesjonalna opieka podologiczna w Kielcach. Dbamy
                             o zdrowie Twoich stóp.
                         </p>
+                        <div className={'flex'}>
+                            <a
+                                href={
+                                    'https://www.facebook.com/profile.php?id=61566252414011'
+                                }
+                                target={'_blank'}
+                                className={'rounded-full bg-primary p-2'}
+                            >
+                                <Facebook
+                                    className={'text-gray-100'}
+                                    size={19}
+                                />
+                            </a>
+                        </div>
                     </div>
 
                     <div>
