@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\Pricing\PricingCreateRequest;
+use App\Http\Requests\Dashboard\Pricing\PricingUpdateRequest;
 use App\Models\Pricing;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PricingController extends Controller
 {
@@ -13,7 +16,8 @@ class PricingController extends Controller
      */
     public function index()
     {
-        //
+        $pricing = Pricing::orderBy('order', 'asc')->with('items')->paginate(5);
+        return Inertia::render('dashboard/pricing/index', compact('pricing'));
     }
 
     /**
@@ -21,15 +25,23 @@ class PricingController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('dashboard/pricing/create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PricingCreateRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        Pricing::create([
+            "title" => $data["title"],
+            "description" => $data["description"],
+            "order" => Pricing::max('order') + 1,
+        ]);
+
+        return back();
     }
 
     /**
@@ -43,17 +55,24 @@ class PricingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pricing $pricing)
+    public function edit(Pricing $pricing, string $id)
     {
-        //
+        $pricing = Pricing::where('id', $id)->first();
+        return Inertia::render('dashboard/pricing/edit', compact('pricing'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pricing $pricing)
+    public function update(PricingUpdateRequest $request, Pricing $pricing)
     {
-        //
+        $data = $request->validated();
+        Pricing::where('id', $request->pricingID)->update([
+            "title" => $data["title"],
+            "description" => $data["description"],
+        ]);
+
+        return back();
     }
 
     /**
@@ -62,5 +81,12 @@ class PricingController extends Controller
     public function destroy(Pricing $pricing)
     {
         //
+    }
+    public function reorder(Request $request){
+        $ids = $request->input('ids');
+        foreach ($ids as $index => $id) {
+            Pricing::where('id', $id)->update(['order' => $index]);
+        }
+        return back();
     }
 }

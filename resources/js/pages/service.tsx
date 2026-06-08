@@ -223,8 +223,11 @@ const SingleServicePage = ({ service, crossSell }: PropsI) => {
                         </div>
                     </section>
                 )}
-
-                <CTASection />
+                <CTASection
+                    title="Zadbaj o zdrowie swoich stóp."
+                    subtitle="Umów profesjonalną terapię."
+                    description="Każdy zabieg poprzedzamy dokładną oceną problemu i indywidualnym planem działania."
+                />
             </main>
         </PageLayout>
     );

@@ -10,19 +10,19 @@ const servicesItems = [
         title: 'Terapia brodawki',
         description:
             'Diagnostyka, miejscowe opracowanie brodawek wirusowych oraz wsparcie profilaktyki domowej.',
-        link: 'terapia-brodawki',
+        link: 'terapia-brodawki-wirusowej',
     },
     {
         title: 'Terapia grzybicy paznokci i stóp',
         description:
             'Diagnostyka, badanie mykologiczne, opracowane zmian grzybiczych i stosowanie preparatów.',
-        link: 'grzybica',
+        link: 'terapia-grzybicy-paznokci-i-stop',
     },
     {
         title: 'Terapia wrastających paznokci ',
         description:
             'Diagnostyka, opracowanie paznokcia i wałów okołopaznokciowych, założenie klamry, odciążeń.',
-        link: 'brodawki',
+        link: 'terapia-wrastajacych-paznokci',
     },
 ];
 const containerVariants: Variants = {
@@ -89,7 +89,7 @@ const ServicesSection = () => {
                     {servicesItems.map((service, index) => (
                         <motion.div key={index} variants={itemVariants}>
                             <Link
-                                href={serviceRoute.url(service.link)}
+                                href={serviceRoute.url(`${service.link}`)}
                                 className="group block h-full"
                             >
                                 <div className="flex h-full min-h-[200px] flex-col justify-between rounded-3xl border border-slate-100 bg-slate-50/50 p-8 transition-all duration-300 hover:border-primary/20 hover:bg-white hover:shadow-2xl hover:shadow-primary/5 md:min-h-[280px]">

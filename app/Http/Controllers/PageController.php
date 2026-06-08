@@ -35,4 +35,8 @@ class PageController extends Controller
             'crossSell' => PodologyService::getCrossSell($slug),
         ]);
     }
+    public function faq(){
+        $faqs = Faq::orderBy('order', 'asc')->get();
+        return Inertia::render('faq', compact('faqs'));
+    }
 }

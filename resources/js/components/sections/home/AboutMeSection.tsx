@@ -9,9 +9,8 @@ import {
 } from '@/components/ui/carousel';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Link } from '@inertiajs/react';
 import { motion, Variants } from 'framer-motion';
-import { ArrowRight, Maximize, X } from 'lucide-react';
+import { Maximize, X } from 'lucide-react';
 import { useState } from 'react';
 import selfImage from '../../../assets/self-image.webp';
 const diplomas = [
@@ -186,17 +185,17 @@ const AboutMeSection = () => {
                             </p>
                         </div>
 
-                        <motion.div variants={itemVariants} className="mt-10">
-                            <Button asChild className="rounded-xl">
-                                <Link
-                                    href="/o-mnie"
-                                    className="flex items-center gap-2"
-                                >
-                                    Poznaj moją pełną ścieżkę zawodową
-                                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                                </Link>
-                            </Button>
-                        </motion.div>
+                        {/*<motion.div variants={itemVariants} className="mt-10">*/}
+                        {/*    <Button asChild className="rounded-xl">*/}
+                        {/*        <Link*/}
+                        {/*            href="/o-mnie"*/}
+                        {/*            className="flex items-center gap-2"*/}
+                        {/*        >*/}
+                        {/*            Poznaj moją pełną ścieżkę zawodową*/}
+                        {/*            <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />*/}
+                        {/*        </Link>*/}
+                        {/*    </Button>*/}
+                        {/*</motion.div>*/}
                     </motion.div>
                 </div>
 

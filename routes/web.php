@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Dashboard\BlogController;
 use App\Http\Controllers\Dashboard\FaqController;
+use App\Http\Controllers\Dashboard\PricingController;
+use App\Http\Controllers\Dashboard\PricingItemController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
@@ -11,18 +13,33 @@ Route::get('/uslugi', [PageController::class, 'services'])->name('services');
 Route::get('/uslugi/{slug}', [PageController::class, 'service'])->name('service');
 Route::get('/cennik', [PageController::class, 'priceList'])->name('priceList');
 Route::get('/kontakt', [PageController::class, 'contact'])->name('contact');
-
-//Route::get('/', function () {
-//    return Inertia::render('welcome', [
-//        'canRegister' => false,
-//    ]);
-//})->name('home');
+Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
         Route::get('/home', [DashboardController::class, 'home'])->name('home');
         Route::get('/pricing', [DashboardController::class, 'pricing'])->name('pricing');
+
+        Route::prefix('pricing')->name('pricing.')->group(function () {
+
+            Route::get('/', [PricingController::class, 'index'])->name('index');
+            Route::get('/create', [PricingController::class, 'create'])->name('create');
+            Route::post('/', [PricingController::class, 'store'])->name('store');
+            Route::patch('/{id}', [PricingController::class, 'update'])->name('update');
+            Route::post('/reorder', [PricingController::class, 'reorder'])->name('reorder');
+            Route::get('/{id}/edit', [PricingController::class, 'edit'])->name('edit');
+            Route::patch('/{id}', [PricingController::class, 'update'])->name('update');
+
+            Route::prefix('items')->name('items.')->group(function () {
+
+                Route::get('/create/{id}', [PricingItemController::class, 'create'])->name('create');
+                Route::post('/', [PricingItemController::class, 'store'])->name('store');
+                Route::post('/reorder', [PricingItemController::class, 'reorder'])->name('reorder');
+
+            });
+
+        });
 
         Route::prefix('faq')->name('faq.')->group(function () {
             Route::get('/', [FaqController::class, 'index'])->name('index');

@@ -74,3 +74,10 @@ export interface PaginatedResponse<T> {
         total: number;
     };
 }
+
+export interface PricingItem {
+    id: number;
+    title: string;
+    description: string;
+    order: number;
+}

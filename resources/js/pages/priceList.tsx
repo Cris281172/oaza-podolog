@@ -157,7 +157,11 @@ const PriceList = () => {
                         </div>
                     </div>
                 </section>
-                <CTASection />
+                <CTASection
+                    title="Dobierz odpowiedni zabieg."
+                    subtitle="Umów konsultację."
+                    description="Nie wiesz, która usługa będzie najlepsza? Podolog oceni problem i zaproponuje skuteczną terapię."
+                />
             </main>
         </PageLayout>
     );

@@ -21,8 +21,8 @@ const Header = () => {
     return (
         <header className="sticky top-0 z-50 border-b border-slate-100 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container mx-auto px-4">
-                <div className="flex h-20 items-center justify-between">
-                    <Link href="/" className="flex w-24">
+                <div className="flex h-22 items-center justify-between">
+                    <Link href="/" className="flex w-26">
                         <img src={logoImage} alt="Oaza Logo" />
                     </Link>
 
@@ -31,7 +31,7 @@ const Header = () => {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className={`text-sm font-medium transition-colors hover:text-primary ${
+                                className={`text-md font-medium transition-colors hover:text-primary ${
                                     isActive(item.href)
                                         ? 'text-primary'
                                         : 'text-slate-600'
@@ -47,7 +47,7 @@ const Header = () => {
                             href="tel:505849060"
                             className="hidden items-center space-x-2 text-sm font-semibold text-slate-700 transition-colors hover:text-primary lg:flex"
                         >
-                            <Phone className="h-4 w-4" />
+                            <Phone className="h-5 w-5" />
                             <span>505 849 060</span>
                         </a>
 
@@ -55,13 +55,13 @@ const Header = () => {
                             asChild
                             className="hidden rounded-full px-6 md:inline-flex"
                         >
-                            <Link href="/contact">Umów wizytę</Link>
+                            <Link href="/kontakt">Umów wizytę</Link>
                         </Button>
 
                         <div className="flex items-center space-x-2 md:hidden">
                             <a
                                 href="tel:505849060"
-                                className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors active:bg-primary active:text-white"
+                                className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors active:bg-primary active:text-white"
                                 aria-label="Zadzwoń teraz"
                             >
                                 <Phone className="h-5 w-5" />
@@ -72,7 +72,7 @@ const Header = () => {
                                     <Button
                                         variant="ghost"
                                         size="icon"
-                                        className="h-10 w-10 rounded-xl border border-slate-100"
+                                        className="h-12 w-12 rounded-xl border border-slate-100"
                                     >
                                         <Menu className="h-5 w-5 text-slate-700" />
                                     </Button>

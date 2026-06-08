@@ -10,14 +10,12 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import blog from '@/routes/dashboard/blog';
 import faq from '@/routes/dashboard/faq';
 import dashboard from '@/routes/dashboard/index';
+import pricing from '@/routes/dashboard/pricing';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import {
-    Book,
-    BookOpen,
     Folder,
     LayoutGrid,
     MessageCircleQuestionIcon,
@@ -33,7 +31,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Cennik',
-        href: dashboard.pricing.url(),
+        href: pricing.index.url(),
         icon: Wallet,
     },
     {
@@ -41,23 +39,18 @@ const mainNavItems: NavItem[] = [
         href: faq.index.url(),
         icon: MessageCircleQuestionIcon,
     },
-    {
-        title: 'Blog',
-        href: blog.index.url(),
-        icon: Book,
-    },
+    // {
+    //     title: 'Blog',
+    //     href: blog.index.url(),
+    //     icon: Book,
+    // },
 ];
 
 const footerNavItems: NavItem[] = [
     {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
+        title: 'Repozytorium ',
+        href: 'https://github.com/Cris281172/oaza-podolog',
         icon: Folder,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
-        icon: BookOpen,
     },
 ];
 

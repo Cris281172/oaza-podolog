@@ -53,7 +53,7 @@ const PricingSection = () => {
                     ))}
 
                     <Link
-                        href="/pricing"
+                        href="/cennik"
                         className="group flex items-center justify-between rounded-2xl border-2 border-dashed border-slate-200 p-6 transition-all hover:border-primary/50 hover:bg-primary/[0.02]"
                     >
                         <span className="text-base font-semibold text-slate-500 transition-colors group-hover:text-primary">

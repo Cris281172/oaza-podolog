@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\Pricing\PricingItemCreateRequest;
 use App\Models\PricingItem;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PricingItemController extends Controller
 {
@@ -19,17 +21,24 @@ class PricingItemController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(string $id)
     {
-        //
+        return Inertia::render('dashboard/pricing/item/create', compact('id'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PricingItemCreateRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        PricingItem::create([
+            'pricing_id' => $data['pricingID'],
+            "name" => $data["name"],
+            "price" => $data["price"],
+            "order" => PricingItem::max('order') + 1,
+        ]);
     }
 
     /**
@@ -62,5 +71,13 @@ class PricingItemController extends Controller
     public function destroy(PricingItem $pricingItem)
     {
         //
+    }
+    public function reorder(Request $request){
+        $ids = $request->input('ids');
+
+        foreach ($ids as $index => $id) {
+            PricingItem::where('id', $id)->update(['order' => $index]);
+        }
+        return back();
     }
 }

@@ -21,7 +21,6 @@ const Contact = () => {
 
                 <section className="overflow-hidden py-12 md:py-24">
                     <div className="container mx-auto px-4">
-                        {/* CONTACT CARD */}
                         <motion.div
                             initial={isMobile ? false : { opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -91,7 +90,6 @@ const Contact = () => {
                             </div>
                         </motion.div>
 
-                        {/* MAP */}
                         <motion.div
                             initial={
                                 isMobile ? false : { opacity: 0, scale: 0.95 }
@@ -115,8 +113,11 @@ const Contact = () => {
                         </motion.div>
                     </div>
                 </section>
-
-                <CTASection />
+                <CTASection
+                    title="Gotowy na wizytę?"
+                    subtitle="Skontaktuj się z nami."
+                    description="Zadzwoń i wybierz dogodny termin konsultacji lub zabiegu."
+                />
             </main>
         </PageLayout>
     );

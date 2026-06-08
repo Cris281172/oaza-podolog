@@ -8,151 +8,171 @@ import { motion, Variants } from 'framer-motion';
 
 const serviceGroups = [
     {
+        category: 'Najczęściej wybierane zabiegi',
+        items: [
+            {
+                badge: 'Zabieg podologiczny 01',
+                title: 'Terapia brodawki',
+                description:
+                    'Diagnostyka, miejscowe opracowanie brodawek wirusowych oraz wsparcie profilaktyki domowej.',
+                url: 'terapia-brodawki-wirusowej',
+            },
+            {
+                badge: 'Zabieg podologiczny 02',
+                title: 'Terapia grzybicy paznokci i stóp',
+                description:
+                    'Diagnostyka, badanie mykologiczne, opracowanie zmian grzybiczych i stosowanie preparatów.',
+                url: 'terapia-grzybicy-paznokci-i-stop',
+            },
+            {
+                badge: 'Zabieg podologiczny 03',
+                title: 'Terapia wrastających paznokci',
+                description:
+                    'Diagnostyka, opracowanie paznokcia i wałów okołopaznokciowych, założenie klamry oraz odciążeń.',
+                url: 'terapia-wrastajacych-paznokci',
+            },
+        ],
+    },
+    {
         category: 'Konsultacja podologiczna',
         items: [
             {
                 title: 'Bezpłatna konsultacja z ulotką',
                 description:
-                    'Wstępna ocena stanu stóp po okazaniu materiałów promocyjnych gabinetu.',
+                    'Wstępna ocena stanu stóp, omówienie problemu i wskazanie możliwych kierunków dalszej terapii.',
                 url: 'bezplatna-konsultacja-z-ulotka',
             },
             {
                 title: 'Konsultacja w ramach zabiegu',
                 description:
-                    'Pełna diagnostyka i planowanie terapii wliczone w cenę wykonywanego zabiegu.',
+                    'Diagnostyka oraz dobór terapii wykonywane bez dodatkowych kosztów podczas wizyty zabiegowej.',
                 url: 'bezplatna-konsultacja-w-ramach-zabiegu',
             },
             {
-                title: 'Konsultacja w gabinecie',
+                title: 'Konsultacja podologiczna w gabinecie',
                 description:
-                    'Szczegółowy wywiad medyczny, badanie przedmiotowe i profesjonalna porada specjalisty.',
+                    'Szczegółowy wywiad, ocena stanu stóp i paznokci oraz przygotowanie indywidualnego planu terapii.',
                 url: 'konsultacja-podologiczna-w-gabinecie',
             },
         ],
     },
     {
-        category: 'Stopy zdrowe',
+        category: 'Zabiegi podologiczne na stopy zdrowe',
         items: [
             {
-                title: 'Pedicure dla zdrowych stóp',
+                title: 'Pedicure podologiczny',
                 description:
-                    'Kompleksowe opracowanie paznokci, wałów i podeszwy stóp wraz z profesjonalną pielęgnacją.',
+                    'Konsultacja, obcięcie i opracowanie paznokci, oczyszczenie wałów, wygładzenie podeszwy oraz pielęgnacja.',
                 url: 'pedicure-dla-zdrowych-stop',
             },
         ],
     },
     {
-        category: 'Stopy zmienione chorobowo',
+        category: 'Zabiegi podologiczne na stopy zmienione chorobowo',
         items: [
             {
-                title: 'Stopa cukrzycowa i łuszczycowa',
+                title: 'Opracowanie stopy cukrzycowej i łuszczycowej',
                 description:
-                    'Specjalistyczne opracowanie podeszwy stopy dotkniętej zmianami chorobowymi (cukrzyca, łuszczyca).',
+                    'Bezpieczne opracowanie podeszwy stopy zmienionej chorobowo, w tym stopy cukrzycowej i łuszczycowej.',
                 url: 'stopa-cukrzycowa-i-luszczycowa',
             },
             {
-                title: 'Terapia pękających pięt',
+                title: 'Opracowanie pękających pięt',
                 description:
-                    'Opracowanie bolesnych rozpadlin i głębokich pęknięć pięt z odpowiednim doborem preparatów.',
+                    'Opracowanie pięt zmienionych chorobowo, rozpadlin, pęknięć oraz nadmiernych zrogowaceń.',
                 url: 'terapia-pekajacych-piet',
             },
             {
-                title: 'Terapia brodawki wirusowej',
+                title: 'Usuwanie modzeli, odcisków i nagniotków',
                 description:
-                    'Skuteczne usuwanie kurzajek przy użyciu sprawdzonych metod terapeutycznych.',
-                url: 'terapia-brodawki-wirusowej',
-            },
-            {
-                title: 'Usuwanie modzeli i odcisków',
-                description:
-                    'Likwidacja bolesnych nagniotków, odcisków i modzeli przywracająca pełny komfort chodzenia.',
-                url: 'usuwanie-modzeli-i-odcisków',
+                    'Miejscowe opracowanie bolesnych zmian skórnych, zmniejszenie ucisku oraz zalecenia profilaktyczne.',
+                url: 'usuwanie-modzeli-i-odciskow',
             },
         ],
     },
     {
-        category: 'Paznokcie zdrowe',
+        category: 'Zabiegi na paznokcie zdrowe',
         items: [
             {
                 title: 'Obcięcie paznokci zdrowych',
                 description:
-                    'Prawidłowe skrócenie płytki paznokciowej zapobiegające wrastaniu i deformacjom.',
+                    'Prawidłowe skrócenie zdrowych paznokci u stóp z zachowaniem komfortu i bezpieczeństwa.',
                 url: 'obciecie-paznokci-zdrowych',
             },
             {
-                title: 'Opracowanie paznokci i wałów',
+                title: 'Obcięcie i opracowanie paznokci oraz wałów',
                 description:
-                    'Profesjonalne oczyszczenie okolicy paznokcia, wałów i nadanie płytce właściwego kształtu.',
+                    'Skrócenie paznokci, opracowanie płytki oraz oczyszczenie wałów okołopaznokciowych.',
                 url: 'opracowanie-paznokci-i-walow',
             },
         ],
     },
     {
-        category: 'Paznokcie chorobowe / po urazach',
+        category: 'Zabiegi na paznokcie zmienione chorobowo / po urazach',
         items: [
             {
-                title: 'Paznokcie dystroficzne',
+                title: 'Opracowanie paznokci dystroficznych',
                 description:
-                    'Specjalistyczne opracowanie paznokci o zmienionej strukturze, kolorze i grubości.',
+                    'Specjalistyczne opracowanie paznokci zmienionych chorobowo, pogrubionych, zniekształconych lub dystroficznych.',
                 url: 'paznokcie-dystroficzne',
             },
             {
-                title: 'Odbarczanie krwiaka',
+                title: 'Odbarczanie krwiaka podpaznokciowego',
                 description:
-                    'Doraźna pomoc w przypadku krwiaków podpaznokciowych powstałych w wyniku urazu mechanicznego.',
-                url: 'odbarczanie-krwiaka',
+                    'Pomoc przy paznokciach po urazie, zmniejszenie ucisku i zabezpieczenie uszkodzonej płytki.',
+                url: 'odbarczanie-krwiaka-podpaznokciowego',
             },
             {
-                title: 'Terapia onycholizy i infekcji',
+                title: 'Opracowanie paznokci grzybiczych i łuszczycowych',
                 description:
-                    'Leczenie zmian grzybiczych, łuszczycowych oraz infekcji bakteryjnych (Pseudomonas).',
-                url: 'terapia-onycholizy-i-infekcji',
-            },
-            {
-                title: 'Pielęgnacja po onkologii',
-                description:
-                    'Bezpieczne opracowanie paznokci szponowatych i zmienionych w trakcie lub po leczeniu onkologicznym.',
-                url: 'pielegnacja-po-onkologii',
+                    'Opracowanie zmian grzybiczych, łuszczycowych, onycholizy, pseudomonas, paznokci szponowatych i zmian po leczeniu onkologicznym.',
+                url: 'terapia-grzybicy-paznokci-i-stop',
             },
         ],
     },
     {
-        category: 'Zabiegi kompleksowe',
+        category: 'Kompleksowe zabiegi na stopy i paznokcie',
         items: [
             {
                 title: 'Podstawowy zabieg podologiczny',
                 description:
-                    'Usunięcie mniejszych fizjologicznych zrogowaceń oraz pełne opracowanie paznokci i wałów.',
+                    'Usunięcie mniejszych fizjologicznych zrogowaceń, opracowanie paznokci i wałów oraz nałożenie preparatów.',
                 url: 'podstawowy-zabieg-podologiczny',
             },
             {
                 title: 'Rozszerzony zabieg podologiczny',
                 description:
-                    'Usunięcie średnich fizjologicznych zrogowaceń oraz zaawansowane oczyszczanie podeszwy i paznokci.',
+                    'Usunięcie średnich fizjologicznych zrogowaceń, opracowanie paznokci i wałów oraz pielęgnacja preparatami.',
                 url: 'rozszerzony-zabieg-podologiczny',
             },
         ],
     },
     {
-        category: 'Diagnostyka i badania',
+        category: 'Diagnostyka i badania w obrębie stóp i paznokci',
         items: [
-            {
-                title: 'Badania mykologiczne',
-                description:
-                    'Pobranie materiału w celu identyfikacji gatunku grzyba (hodowla oraz badanie bezpośrednie).',
-                url: 'badania-mykologiczne',
-            },
-            {
-                title: 'Badanie mikrobiologiczne',
-                description:
-                    'Wymaz z antybiogramem (np. przy stanie zapalnym) oraz badania genetyczne w kierunku łuszczycy.',
-                url: 'badanie-mikrobiologiczne',
-            },
             {
                 title: 'Pomiar poziomu cukru',
                 description:
-                    'Szybkie badanie glikemii u pacjentów z grupy ryzyka stopy cukrzycowej.',
+                    'Szybki kontrolny pomiar poziomu glukozy we krwi, szczególnie ważny u pacjentów z cukrzycą.',
                 url: 'pomiar-poziomu-cukru',
+            },
+            {
+                title: 'Badania mykologiczne',
+                description:
+                    'Badanie bezpośrednie, hodowla lub diagnostyka kompleksowa w celu wykrycia i identyfikacji grzybicy.',
+                url: 'badania-mykologiczne',
+            },
+            {
+                title: 'Badanie mikrobiologiczne z mykogramem',
+                description:
+                    'Wymaz przy stanie zapalnym lub infekcji oraz dobór dalszego kierunku terapii na podstawie wyniku.',
+                url: 'badanie-mikrobiologiczne',
+            },
+            {
+                title: 'Badanie genetyczne HLA-CW6',
+                description:
+                    'Diagnostyka genetyczna w kierunku predyspozycji do łuszczycy związanej z genem HLA-CW6.',
+                url: 'badanie-genetyczne-hla-cw6',
             },
         ],
     },
@@ -160,15 +180,21 @@ const serviceGroups = [
         category: 'Terapia wrastających paznokci',
         items: [
             {
-                title: 'Klamry ortonyksyjne',
+                title: 'Założenie klamry ortonyksyjnej',
                 description:
-                    'Zakładanie, przekładanie i usuwanie profesjonalnych klamer korygujących tor wzrostu paznokcia.',
+                    'Dobór i założenie klamry na wrastający lub wkręcający paznokieć w celu korekcji toru wzrostu.',
                 url: 'klamry-ortonyksyjne',
             },
             {
-                title: 'Tamponada i opatrunki',
+                title: 'Przełożenie lub zdjęcie klamry',
                 description:
-                    'Zabezpieczenie bolesnych miejsc, taping, odciążenia oraz opatrunki ze specjalistycznym preparatem.',
+                    'Wizyta kontrolna, korekta działania klamry albo jej bezpieczne zdjęcie po zakończeniu etapu terapii.',
+                url: 'klamry-ortonyksyjne',
+            },
+            {
+                title: 'Tamponada, taping i opatrunki',
+                description:
+                    'Odciążenie bolesnego miejsca, zabezpieczenie wałów okołopaznokciowych oraz opatrunki specjalistyczne.',
                 url: 'tamponada-i-opatrunki',
             },
         ],
@@ -194,7 +220,6 @@ const itemVariants: Variants = {
 
 const Services = () => {
     const isMobile = useIsMobile();
-    // Licznik globalny dla numeracji usług
     let globalIndex = 0;
 
     return (
@@ -245,11 +270,11 @@ const Services = () => {
                                                     >
                                                         <div>
                                                             <span className="text-xs font-bold tracking-widest text-primary/40 uppercase">
-                                                                Zabieg{' '}
-                                                                {globalIndex <
-                                                                10
-                                                                    ? `0${globalIndex}`
-                                                                    : globalIndex}
+                                                                {'badge' in
+                                                                    item &&
+                                                                item.badge
+                                                                    ? item.badge
+                                                                    : `Zabieg ${globalIndex < 10 ? `0${globalIndex}` : globalIndex}`}
                                                             </span>
                                                             <h3 className="mt-4 text-xl leading-tight font-bold text-slate-900 transition-colors group-hover:text-primary">
                                                                 {item.title}
@@ -274,7 +299,11 @@ const Services = () => {
                         </section>
                     ))}
                 </div>
-                <CTASection />
+                <CTASection
+                    title="Nie wiesz, który zabieg wybrać?"
+                    subtitle="Pomożemy Ci podjąć decyzję."
+                    description="Skontaktuj się z nami i opowiedz o swoim problemie — dobierzemy odpowiednią terapię."
+                />
             </main>
         </PageLayout>
     );

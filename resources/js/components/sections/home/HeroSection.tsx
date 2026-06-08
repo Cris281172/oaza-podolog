@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Link } from '@inertiajs/react';
 import { motion, Variants } from 'framer-motion';
 import { useState } from 'react';
 import heroImage from '../../../assets/hero-bg.webp';
@@ -103,7 +104,7 @@ const HeroSection = () => {
                         size="lg"
                         className="rounded-full px-10 shadow-2xl shadow-primary/20"
                     >
-                        <a href="#contact">Zarezerwuj wizytę</a>
+                        <Link href="/kontakt">Zarezerwuj wizytę</Link>
                     </Button>
                 </motion.div>
             </motion.div>
