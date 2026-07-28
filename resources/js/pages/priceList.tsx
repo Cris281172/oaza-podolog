@@ -97,7 +97,7 @@ const PriceList = () => {
 
     return (
         <PageLayout>
-            <main className="bg-white">
+            <main className="bg-background">
                 <HeaderPage
                     overline="Oaza Kielce"
                     title="Cennik"

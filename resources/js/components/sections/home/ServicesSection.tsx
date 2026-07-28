@@ -48,7 +48,7 @@ const itemVariants: Variants = {
 const ServicesSection = () => {
     const isMobile = useIsMobile();
     return (
-        <section className="overflow-hidden bg-white py-12 md:py-24">
+        <section className="overflow-hidden bg-background py-12 md:py-24">
             <motion.div
                 className="container mx-auto px-4"
                 initial={isMobile ? 'visible' : 'hidden'}

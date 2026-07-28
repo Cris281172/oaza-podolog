@@ -28,7 +28,7 @@ const HeroSection = () => {
     const isMobile = useIsMobile();
 
     return (
-        <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden bg-white py-12 md:py-20">
+        <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden bg-background py-12 md:py-20">
             {/*<div className="absolute inset-0 overflow-hidden">*/}
             {/*    <div*/}
             {/*        className="absolute -top-[10%] -left-[10%] h-[50%] w-[40%] rounded-full opacity-20 blur-[120px]"*/}

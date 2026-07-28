@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\ServiceCategory;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
@@ -46,6 +47,11 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
             ],
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
+            'categories' => fn () => ServiceCategory::with(['services' => function ($query) {
+                $query->orderBy('order');
+            }])
+                ->orderBy('order')
+                ->get(),
         ];
     }
 }

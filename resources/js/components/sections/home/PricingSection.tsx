@@ -12,7 +12,7 @@ const pricingPreview = [
 const PricingSection = () => {
     const isMobile = useIsMobile();
     return (
-        <section className="overflow-hidden bg-white py-12 md:py-24">
+        <section className="overflow-hidden bg-background py-12 md:py-24">
             <div className="container mx-auto px-4">
                 <div className="mx-auto mb-8 max-w-xl text-center md:mb-12">
                     <span className="text-xs font-bold tracking-widest text-primary uppercase">

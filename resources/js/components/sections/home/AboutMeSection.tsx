@@ -134,7 +134,7 @@ const AboutMeSection = () => {
         undefined,
     );
     return (
-        <section className="overflow-hidden bg-slate-50/50 py-12 md:py-24">
+        <section className="overflow-hidden bg-muted/50 py-12 md:py-24">
             <motion.div
                 className="container mx-auto px-4"
                 initial={isMobile ? 'visible' : 'hidden'}

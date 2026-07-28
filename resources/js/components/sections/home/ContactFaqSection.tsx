@@ -36,7 +36,7 @@ const contactVariants: Variants = {
 const ContactFaqSection = ({ faqs }: PropsI) => {
     const isMobile = useIsMobile();
     return (
-        <section className="overflow-hidden bg-slate-50/50 py-12 md:py-24">
+        <section className="overflow-hidden bg-muted/50 py-12 md:py-24">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
                     <motion.div
@@ -210,7 +210,7 @@ const ContactFaqSection = ({ faqs }: PropsI) => {
                     className="mt-16 h-96 overflow-hidden rounded-3xl border border-slate-100 bg-slate-100 shadow-inner"
                 >
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2515.362!2d20.6282!3d50.8661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDUxJzU4LjAiTiAyMMKwMzcnNDEuNSJF!5e0!3m2!1spl!2spl!4v1234567890"
+                        src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJuUmH7pgpGEcRCW3lEO6SorY&key=AIzaSyA2bpfJ_-nlj9vXjkJHmA-lFicik-vMS94"
                         width="100%"
                         height="100%"
                         style={{

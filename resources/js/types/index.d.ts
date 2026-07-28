@@ -81,3 +81,18 @@ export interface PricingItem {
     description: string;
     order: number;
 }
+
+export interface ServiceItem {
+    id: string;
+    name: string;
+    slug: string;
+    order: number;
+    short_description: string;
+}
+
+export interface ServiceCategory {
+    id: number;
+    name: string;
+    order: number;
+    services: ServiceItem[];
+}

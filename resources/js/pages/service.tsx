@@ -35,7 +35,7 @@ const SingleServicePage = ({ service, crossSell }: PropsI) => {
     console.log(crossSell);
     return (
         <PageLayout>
-            <main className="flex-1 bg-white">
+            <main className="flex-1 bg-background">
                 {/* HERO */}
                 <section className="py-20 md:py-28">
                     <div className="container mx-auto px-4">
@@ -100,7 +100,7 @@ const SingleServicePage = ({ service, crossSell }: PropsI) => {
                 </section>
 
                 {service.symptoms && service.symptoms.length !== 0 && (
-                    <section className="bg-slate-50 py-16">
+                    <section className="bg-muted py-16">
                         <div className="container mx-auto max-w-5xl px-4">
                             <h2 className="mb-10 text-3xl font-bold">
                                 Kiedy warto zgłosić się na zabieg?
@@ -108,7 +108,7 @@ const SingleServicePage = ({ service, crossSell }: PropsI) => {
 
                             <div className="grid gap-4 md:grid-cols-2">
                                 {service.symptoms.map((item) => (
-                                    <div className="flex gap-3 rounded-2xl border bg-white p-6">
+                                    <div className="flex gap-3 rounded-2xl border bg-background p-6">
                                         <Check className="mt-1 text-primary" />
                                         <span>{item}</span>
                                     </div>
@@ -145,7 +145,7 @@ const SingleServicePage = ({ service, crossSell }: PropsI) => {
 
                 {/* STEPS */}
                 {service.steps && service.steps.length !== 0 && (
-                    <section className="bg-slate-50 py-20">
+                    <section className="bg-muted py-20">
                         <div className="container mx-auto max-w-5xl px-4">
                             <h2 className="mb-10 text-3xl font-bold">
                                 Jak wygląda terapia?
@@ -153,7 +153,7 @@ const SingleServicePage = ({ service, crossSell }: PropsI) => {
 
                             <div className="grid gap-6 md:grid-cols-3">
                                 {service.steps.map((step, i) => (
-                                    <div className="rounded-3xl border bg-white p-8">
+                                    <div className="rounded-3xl border bg-background p-8">
                                         <span className="font-bold text-primary">
                                             0{i + 1}
                                         </span>
@@ -173,7 +173,7 @@ const SingleServicePage = ({ service, crossSell }: PropsI) => {
                 )}
 
                 {crossSell && crossSell.length !== 0 && (
-                    <section className="bg-white py-20">
+                    <section className="bg-background py-20">
                         <div className="container mx-auto px-4">
                             <div className="mb-10 text-center">
                                 <span className="text-xs font-bold tracking-widest text-primary uppercase">

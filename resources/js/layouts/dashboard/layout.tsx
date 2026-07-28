@@ -2,23 +2,10 @@ import Heading from '@/components/heading';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { cn, isSameUrl, resolveUrl } from '@/lib/utils';
-import { create, index } from '@/routes/dashboard/faq';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import { ReactNode } from 'react';
 
-const sidebarNavItems: NavItem[] = [
-    {
-        title: 'Wszystkie',
-        href: index(),
-        icon: null,
-    },
-    {
-        title: 'Tworzenie',
-        href: create(),
-        icon: null,
-    },
-];
 interface PropsI {
     children: ReactNode;
     navItems: NavItem[];

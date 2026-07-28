@@ -4,6 +4,8 @@ use App\Http\Controllers\Dashboard\BlogController;
 use App\Http\Controllers\Dashboard\FaqController;
 use App\Http\Controllers\Dashboard\PricingController;
 use App\Http\Controllers\Dashboard\PricingItemController;
+use App\Http\Controllers\Dashboard\ServiceCategoryController;
+use App\Http\Controllers\Dashboard\ServiceController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +52,25 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/{faq}/edit', [FaqController::class, 'edit'])->name('edit');
             Route::patch('/{faq}', [FaqController::class, 'update'])->name('update');
         });
+
+        Route::prefix('services')->name('services.')->group(function () {
+
+            Route::get('/', [ServiceController::class, 'index'])->name('index');
+            Route::get('/create/{categoryID}', [ServiceController::class, 'create'])->name('create');
+            Route::post('/', [ServiceController::class, 'store'])->name('store');
+            Route::post('/reorder', [ServiceController::class, 'reorder'])->name('reorder');
+            Route::post('/reorder-categories', [ServiceController::class, 'reorderCategories'])->name('reorderCategories');
+            Route::get('/{id}/edit', [ServiceController::class, 'edit'])->name('edit');
+            Route::patch('/{id}', [ServiceController::class, 'update'])->name('update');
+            Route::delete('/{service}', [ServiceController::class, 'destroy'])->name('destroy');
+
+            Route::prefix('categories')->name('services-category.')->group(function () {
+                Route::get('/create', [ServiceCategoryController::class, 'create'])->name('create');
+            });
+
+        });
+
+
 
         Route::prefix('blog')->name('blog.')->group(function () {
             Route::get('/', [BlogController::class, 'index'])->name('index');

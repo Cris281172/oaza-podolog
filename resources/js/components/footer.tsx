@@ -1,6 +1,5 @@
 import { Link } from '@inertiajs/react';
 import { Clock, Facebook, MapPin, Phone } from 'lucide-react';
-
 const Footer = () => {
     return (
         <footer className="border-t border-border bg-secondary">
@@ -8,13 +7,27 @@ const Footer = () => {
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
                     <div>
                         <h3 className="mb-4 text-lg font-bold text-primary">
-                            OAZA GABINET PODOLOGICZNY
+                            GABINET PODOLOGICZNA OAZA
                         </h3>
                         <p className="mb-4 text-sm text-muted-foreground">
                             Profesjonalna opieka podologiczna w Kielcach. Dbamy
                             o zdrowie Twoich stóp.
                         </p>
-                        <div className={'flex'}>
+                        <div className={'flex gap-1'}>
+                            <a
+                                href={
+                                    'https://www.tiktok.com/@podolog_kielce?_r=1&_d=secCgYIASAHKAESPgo8mcv4a2yEc4%2BHvW94vijmNuCl8JRmbRNGJK37EMZQ2eF6SrcxOuMK2ZEmMLHh6s2i4RqRI7XercGimkUzGgA%3D&_svg=2&checksum=cabb966a06978a72d6ea4acebc4d8d5d2e6d98e8ac9a00f6b74aa4b619f1b91c&item_author_type=1&reflow_sign_scene=7&rgssign=8.1.DlVUoObundwROICFwl8kFw&sec_uid=MS4wLjABAAAAeBBnzo0lMdE8e9jIXIVcsm3XWKFaK6lgwY6K83dN4olpMbIDJtp3wx2SXkxpqogu&sec_user_id=MS4wLjABAAAAeBBnzo0lMdE8e9jIXIVcsm3XWKFaK6lgwY6K83dN4olpMbIDJtp3wx2SXkxpqogu&share_app_id=1233&share_author_id=7597363463048250390&share_link_id=9BCA3EEF-39E3-4B0A-89B9-5E75BCB641A6&share_region=PL&share_scene=1&sharer_language=pl&social_share_type=4&source=h5_m&timestamp=1784786530&tt_from=copy&u_code=f1feh8dbahbmi8&ug_btm=b8727%2Cb0&user_id=7597363463048250390&utm_campaign=client_share&utm_medium=ios&utm_source=copy'
+                                }
+                                target={'_blank'}
+                                className={'rounded-full bg-primary p-2'}
+                            >
+                                <img
+                                    src="/images/tiktok.svg"
+                                    width={19}
+                                    height={19}
+                                    className="brightness-0 invert"
+                                />
+                            </a>
                             <a
                                 href={
                                     'https://www.facebook.com/profile.php?id=61566252414011'
@@ -66,28 +79,29 @@ const Footer = () => {
                         <h4 className="mb-4 text-sm font-semibold">Menu</h4>
                         <nav className="space-y-2 text-sm">
                             <Link
-                                href="/services"
+                                href="/"
+                                className="block text-muted-foreground transition-colors hover:text-primary"
+                            >
+                                Strona główna
+                            </Link>
+                            <Link
+                                href="/uslugi"
                                 className="block text-muted-foreground transition-colors hover:text-primary"
                             >
                                 Usługi
                             </Link>
                             <Link
-                                href="/pricing"
+                                href="/cennik"
                                 className="block text-muted-foreground transition-colors hover:text-primary"
                             >
                                 Cennik
                             </Link>
+
                             <Link
-                                href="/gallery"
+                                href="/kontakt"
                                 className="block text-muted-foreground transition-colors hover:text-primary"
                             >
-                                Galeria
-                            </Link>
-                            <Link
-                                href="/blog"
-                                className="block text-muted-foreground transition-colors hover:text-primary"
-                            >
-                                Blog
+                                Kontakt
                             </Link>
                         </nav>
                     </div>

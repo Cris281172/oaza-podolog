@@ -13,6 +13,7 @@ import {
 import faq from '@/routes/dashboard/faq';
 import dashboard from '@/routes/dashboard/index';
 import pricing from '@/routes/dashboard/pricing';
+import services from '@/routes/dashboard/services';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import {
@@ -38,6 +39,11 @@ const mainNavItems: NavItem[] = [
         title: 'FAQ',
         href: faq.index.url(),
         icon: MessageCircleQuestionIcon,
+    },
+    {
+        title: 'Usługi',
+        href: services.index.url(),
+        icon: Folder,
     },
     // {
     //     title: 'Blog',

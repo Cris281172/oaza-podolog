@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Faq;
+use App\Models\Service;
+use App\Models\ServiceCategory;
 use App\Services\PodologyService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -10,11 +12,21 @@ use Inertia\Inertia;
 class PageController extends Controller
 {
     public function home(){
+        $categories = ServiceCategory::with(['services' => function ($query) {
+            $query->orderBy('order');
+        }])
+            ->orderBy('order')
+            ->get();
         $faqs = Faq::orderBy('order', 'asc')->take(5)->get();
-        return Inertia::render('home', compact('faqs'));
+        return Inertia::render('home', compact('faqs', 'categories'));
     }
     public function services(){
-        return Inertia::render('services');
+        $categories = ServiceCategory::with(['services' => function ($query) {
+            $query->orderBy('order');
+        }])
+            ->orderBy('order')
+            ->get();
+        return Inertia::render('services', compact('categories'));
     }
     public function contact(){
         return Inertia::render('contact');

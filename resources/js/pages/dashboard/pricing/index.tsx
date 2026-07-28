@@ -115,15 +115,6 @@ const PricingSubItemsList = ({
                 },
                 { preserveScroll: true },
             );
-
-            // API Call dla konkretnej kategorii
-            // router.post(
-            //     pricingItemRoutes.reorder(categoryId).url,
-            //     {
-            //         ids: newOrder.map((i) => i.id),
-            //     },
-            //     { preserveScroll: true },
-            // );
         }
     };
 

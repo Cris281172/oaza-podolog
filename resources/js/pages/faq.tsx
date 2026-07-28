@@ -16,7 +16,7 @@ interface PropsI {
 const Faq = ({ faqs }: PropsI) => {
     return (
         <PageLayout>
-            <main className="bg-white">
+            <main className="bg-background">
                 <HeaderPage
                     overline="Oaza Kielce"
                     title="Najczęściej"

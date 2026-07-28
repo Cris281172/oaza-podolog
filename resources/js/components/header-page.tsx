@@ -22,7 +22,7 @@ const HeaderPage = ({
     breadcrumbs,
 }: PropsI) => {
     return (
-        <section className="border-b border-slate-100 bg-slate-50/50 py-16 md:py-24">
+        <section className="border-b border-slate-100 bg-muted/50 py-16 md:py-24">
             <div className="container mx-auto px-4">
                 {breadcrumbs && breadcrumbs.length !== 0 && (
                     <div className="mb-8">
