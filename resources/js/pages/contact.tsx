@@ -1,5 +1,6 @@
 import CTASection from '@/components/cta-section';
 import HeaderPage from '@/components/header-page';
+import Seo from '@/components/seo';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import PageLayout from '@/layouts/page-layout';
@@ -11,6 +12,12 @@ const Contact = () => {
 
     return (
         <PageLayout>
+            <Seo
+                title={'Kontakt – Podolog Kielce'}
+                desc={
+                    'Skontaktuj się z gabinetem podologicznym w Kielcach i umów wizytę. Sprawdź dane kontaktowe, lokalizację gabinetu oraz dostępne formy kontaktu.'
+                }
+            />
             <main className="bg-white">
                 <HeaderPage
                     overline="Kontakt"

@@ -1,5 +1,6 @@
 import CTASection from '@/components/cta-section';
 import HeaderPage from '@/components/header-page';
+import Seo from '@/components/seo';
 import {
     Accordion,
     AccordionContent,
@@ -16,6 +17,12 @@ interface PropsI {
 const Faq = ({ faqs }: PropsI) => {
     return (
         <PageLayout>
+            <Seo
+                title={'FAQ – Najczęściej zadawane pytania'}
+                desc={
+                    'Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące wizyt u podologa, zabiegów podologicznych, przygotowania do wizyty oraz terapii problemów stóp i paznokci.'
+                }
+            />
             <main className="bg-background">
                 <HeaderPage
                     overline="Oaza Kielce"

@@ -15,7 +15,12 @@ interface PropsI {
 const Home = ({ faqs }: PropsI) => {
     return (
         <PageLayout>
-            <SEO />
+            <SEO
+                title={'Podolog Kielce'}
+                desc={
+                    'Gabinet podologiczny OAZA w Kielcach. Profesjonalna pomoc w leczeniu wrastających paznokci, odcisków, brodawek, modzeli i innych problemów stóp.'
+                }
+            />
             <main className="flex-1">
                 <HeroSection />
                 <ServicesSection />

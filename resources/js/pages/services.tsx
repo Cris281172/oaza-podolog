@@ -1,5 +1,6 @@
 import CTASection from '@/components/cta-section';
 import HeaderPage from '@/components/header-page';
+import Seo from '@/components/seo';
 import { useIsMobile } from '@/hooks/use-mobile';
 import PageLayout from '@/layouts/page-layout';
 import { service } from '@/routes';
@@ -31,6 +32,12 @@ const Services = ({ categories }: { categories: ServiceCategory[] }) => {
 
     return (
         <PageLayout>
+            <Seo
+                title={'Usługi podologiczne Kielce'}
+                desc={
+                    'Poznaj usługi podologiczne w gabinecie OAZA w Kielcach. Leczenie wrastających paznokci, odcisków, modzeli, brodawek oraz kompleksowa pielęgnacja stóp.'
+                }
+            />
             <main className="flex-1 bg-background">
                 <HeaderPage
                     overline={'Oaza Kielce'}

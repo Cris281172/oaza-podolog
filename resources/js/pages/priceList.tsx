@@ -1,5 +1,6 @@
 import CTASection from '@/components/cta-section';
 import HeaderPage from '@/components/header-page';
+import SEO from '@/components/seo';
 import { useIsMobile } from '@/hooks/use-mobile';
 import PageLayout from '@/layouts/page-layout';
 import { motion } from 'framer-motion';
@@ -97,6 +98,11 @@ const PriceList = () => {
 
     return (
         <PageLayout>
+            <SEO
+                title="Cennik usług podologicznych Kielce"
+                desc="Sprawdź cennik usług podologicznych w gabinecie OAZA w Kielcach. Konsultacje, pedicure podologiczny, terapia wrastających paznokci, odcisków i brodawek."
+                canonicalUrl="https://gabinetpodologicznaoaza.pl/cennik"
+            />
             <main className="bg-background">
                 <HeaderPage
                     overline="Oaza Kielce"
