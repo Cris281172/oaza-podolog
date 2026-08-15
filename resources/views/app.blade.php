@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title inertia >OAZA Podolog Kielce</title>
 
-        <meta name="robots" content="index, follow" />
-
         {{-- Inline script to detect system dark mode preference and apply it immediately --}}
         <script>
             (function() {
