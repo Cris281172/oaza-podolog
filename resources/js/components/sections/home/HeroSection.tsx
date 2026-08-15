@@ -3,6 +3,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { Link } from '@inertiajs/react';
 import { motion, Variants } from 'framer-motion';
 import { useState } from 'react';
+import heroImageMobile from '../../../assets/hero-bg-mobile.webp';
 import heroImage from '../../../assets/hero-bg.webp';
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -29,34 +30,29 @@ const HeroSection = () => {
 
     return (
         <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden bg-background py-12 md:py-20">
-            {/*<div className="absolute inset-0 overflow-hidden">*/}
-            {/*    <div*/}
-            {/*        className="absolute -top-[10%] -left-[10%] h-[50%] w-[40%] rounded-full opacity-20 blur-[120px]"*/}
-            {/*        style={{ backgroundColor: 'var(--primary, #0ea5e9)' }}*/}
-            {/*    />*/}
-            {/*    <div*/}
-            {/*        className="absolute -bottom-[10%] left-0 h-[50%] w-[100%] rounded-full opacity-10 blur-[120px]"*/}
-            {/*        style={{ backgroundColor: '#14b8a6' }}*/}
-            {/*    />*/}
-            {/*    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]" />*/}
-            {/*</div>*/}
             <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-950 opacity-100" />
             <motion.div
-                initial={{ opacity: isMobile ? 1 : 0 }}
-                animate={{ opacity: isMobile ? 1 : imgReady ? 1 : 0 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: imgReady ? 1 : 0 }}
                 transition={{ duration: 1, ease: 'easeOut' }}
-                className="absolute inset-0 bg-cover bg-center will-change-transform"
-                style={{
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${heroImage})`,
-                    transform: 'translateZ(0)',
-                }}
+                className="absolute inset-0 overflow-hidden"
             >
-                <img
-                    src={heroImage}
-                    className="hidden"
-                    onLoad={() => setImgReady(true)}
-                    loading="eager"
-                />
+                <picture className="absolute inset-0">
+                    <source
+                        media="(max-width: 767px)"
+                        srcSet={heroImageMobile}
+                    />
+                    <img
+                        src={heroImage}
+                        alt=""
+                        className="h-full w-full object-cover object-center"
+                        onLoad={() => setImgReady(true)}
+                        loading="eager"
+                        fetchPriority="high"
+                    />
+                </picture>
+
+                <div className="absolute inset-0 bg-black/70" />
             </motion.div>
 
             <motion.div
