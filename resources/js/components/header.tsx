@@ -70,7 +70,10 @@ const Header = () => {
                                 }`}
                             >
                                 Usługi
-                                <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
+                                <ChevronDown
+                                    aria-hidden="true"
+                                    className="h-4 w-4 transition-transform group-hover:rotate-180"
+                                />
                             </Link>
 
                             {categories && categories.length > 0 && (
@@ -176,9 +179,10 @@ const Header = () => {
                         </div>
                         <a
                             href="tel:505849060"
+                            aria-label="Zadzwoń teraz"
                             className="hidden items-center space-x-2 text-sm font-semibold text-slate-700 transition-colors hover:text-primary lg:flex"
                         >
-                            <Phone className="h-5 w-5" />
+                            <Phone aria-hidden="true" className="h-5 w-5" />
                             <span>505 849 060</span>
                         </a>
 
@@ -186,7 +190,9 @@ const Header = () => {
                             asChild
                             className="hidden rounded-full px-6 md:inline-flex"
                         >
-                            <Link href="/kontakt">Umów wizytę</Link>
+                            <Link href="/kontakt" aria-label="Umów wizytę">
+                                Umów wizytę
+                            </Link>
                         </Button>
                         {showSearch && (
                             <div className="absolute top-full left-0 z-50 w-full border-b bg-white p-4 shadow-lg md:hidden">
@@ -242,17 +248,21 @@ const Header = () => {
                         <div className="flex items-center space-x-2 md:hidden">
                             <button
                                 type="button"
+                                aria-label="Wyszukaj usługi"
                                 onClick={() => setShowSearch(!showSearch)}
                                 className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 text-slate-600"
                             >
-                                <Search className="h-5 w-5" />
+                                <Search
+                                    className="h-5 w-5"
+                                    aria-hidden="true"
+                                />
                             </button>
                             <a
                                 href="tel:505849060"
                                 className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors active:bg-primary active:text-white"
                                 aria-label="Zadzwoń teraz"
                             >
-                                <Phone className="h-5 w-5" />
+                                <Phone className="h-5 w-5" aria-hidden="true" />
                             </a>
 
                             <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -260,9 +270,13 @@ const Header = () => {
                                     <Button
                                         variant="ghost"
                                         size="icon"
+                                        aria-label="Otwórz menu"
                                         className="h-12 w-12 rounded-xl border border-slate-100"
                                     >
-                                        <Menu className="h-5 w-5 text-slate-700" />
+                                        <Menu
+                                            className="h-5 w-5 text-slate-700"
+                                            aria-hidden="true"
+                                        />
                                     </Button>
                                 </SheetTrigger>
                                 <SheetContent
@@ -351,6 +365,11 @@ const Header = () => {
                                                                                     category.id,
                                                                                 )
                                                                             }
+                                                                            aria-expanded={
+                                                                                openMobileCategory ===
+                                                                                category.id
+                                                                            }
+                                                                            aria-controls={`category-${category.id}`}
                                                                             className="flex w-full items-center justify-between gap-3 py-1 text-left text-sm font-bold tracking-widest text-slate-400 uppercase"
                                                                         >
                                                                             <span className="flex-1">
@@ -360,6 +379,7 @@ const Header = () => {
                                                                             </span>
 
                                                                             <ChevronDown
+                                                                                aria-hidden="true"
                                                                                 className={`h-6 w-6 shrink-0 transition-transform ${
                                                                                     openMobileCategory ===
                                                                                     category.id
@@ -371,7 +391,10 @@ const Header = () => {
 
                                                                         {openMobileCategory ===
                                                                             category.id && (
-                                                                            <div className="flex flex-col space-y-1 py-1">
+                                                                            <div
+                                                                                className="flex flex-col space-y-1 py-1"
+                                                                                id={`category-${category.id}`}
+                                                                            >
                                                                                 {category.services.map(
                                                                                     (
                                                                                         service,
