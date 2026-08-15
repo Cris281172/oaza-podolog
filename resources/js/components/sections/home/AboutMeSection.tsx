@@ -149,7 +149,7 @@ const AboutMeSection = () => {
                     >
                         <div className="aspect-[4/5] overflow-hidden rounded-3xl bg-slate-100 transition-all group-hover:shadow-2xl group-hover:shadow-primary/5">
                             <div className="flex h-full w-full items-center justify-center text-slate-300">
-                                <img src={selfImage} />
+                                <img src={selfImage} alt="Agnieszka Schabek" />
                             </div>
                         </div>
                     </motion.div>

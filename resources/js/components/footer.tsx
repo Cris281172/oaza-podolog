@@ -15,6 +15,7 @@ const Footer = () => {
                         </p>
                         <div className={'flex gap-1'}>
                             <a
+                                aria-label="Odwiedź profil OAZA na TikToku"
                                 href={
                                     'https://www.tiktok.com/@podolog_kielce?_r=1&_d=secCgYIASAHKAESPgo8mcv4a2yEc4%2BHvW94vijmNuCl8JRmbRNGJK37EMZQ2eF6SrcxOuMK2ZEmMLHh6s2i4RqRI7XercGimkUzGgA%3D&_svg=2&checksum=cabb966a06978a72d6ea4acebc4d8d5d2e6d98e8ac9a00f6b74aa4b619f1b91c&item_author_type=1&reflow_sign_scene=7&rgssign=8.1.DlVUoObundwROICFwl8kFw&sec_uid=MS4wLjABAAAAeBBnzo0lMdE8e9jIXIVcsm3XWKFaK6lgwY6K83dN4olpMbIDJtp3wx2SXkxpqogu&sec_user_id=MS4wLjABAAAAeBBnzo0lMdE8e9jIXIVcsm3XWKFaK6lgwY6K83dN4olpMbIDJtp3wx2SXkxpqogu&share_app_id=1233&share_author_id=7597363463048250390&share_link_id=9BCA3EEF-39E3-4B0A-89B9-5E75BCB641A6&share_region=PL&share_scene=1&sharer_language=pl&social_share_type=4&source=h5_m&timestamp=1784786530&tt_from=copy&u_code=f1feh8dbahbmi8&ug_btm=b8727%2Cb0&user_id=7597363463048250390&utm_campaign=client_share&utm_medium=ios&utm_source=copy'
                                 }
@@ -25,6 +26,8 @@ const Footer = () => {
                                     src="/images/tiktok.svg"
                                     width={19}
                                     height={19}
+                                    alt={'TikTok'}
+                                    aria-hidden="true"
                                     className="brightness-0 invert"
                                 />
                             </a>
@@ -33,11 +36,13 @@ const Footer = () => {
                                     'https://www.facebook.com/profile.php?id=61566252414011'
                                 }
                                 target={'_blank'}
+                                aria-label="Odwiedź profil OAZA na Facebooku"
                                 className={'rounded-full bg-primary p-2'}
                             >
                                 <Facebook
                                     className={'text-gray-100'}
                                     size={19}
+                                    aria-hidden="true"
                                 />
                             </a>
                         </div>

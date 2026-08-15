@@ -210,6 +210,7 @@ const ContactFaqSection = ({ faqs }: PropsI) => {
                     className="mt-16 h-96 overflow-hidden rounded-3xl border border-slate-100 bg-slate-100 shadow-inner"
                 >
                     <iframe
+                        title="Lokalizacja gabinetu podologicznego OAZA w Kielcach"
                         src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJuUmH7pgpGEcRCW3lEO6SorY&key=AIzaSyA2bpfJ_-nlj9vXjkJHmA-lFicik-vMS94"
                         width="100%"
                         height="100%"
