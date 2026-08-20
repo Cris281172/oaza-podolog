@@ -1,19 +1,10 @@
 import AlertEmpty from '@/components/alert-empty';
+import DeleteConfirmDialog from '@/components/deleteConfirmDialog';
 import HeadingSmall from '@/components/heading-small';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import {
-    Dialog,
-    DialogClose,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogTitle,
-    DialogTrigger,
-} from '@/components/ui/dialog';
 import AppLayout from '@/layouts/app-layout';
 import FaqLayout from '@/layouts/dashboard/faq/layout';
-import blogRoute from '@/routes/dashboard/blog';
 import faq from '@/routes/dashboard/faq';
 import { BreadcrumbItem } from '@/types';
 import {
@@ -34,7 +25,7 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Head, Link, router, useForm } from '@inertiajs/react';
-import { GripVertical, Pencil, Trash2 } from 'lucide-react';
+import { GripVertical, Pencil } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 
@@ -56,58 +47,6 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
-const DeleteFaqDialog = ({ faqID }: { faqID: number }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const { delete: destroy, processing } = useForm();
-
-    const handleDelete = (e: React.FormEvent) => {
-        e.preventDefault();
-        destroy(faq.destroy.url(faqID), {
-            preserveScroll: true,
-            onSuccess: () => {
-                setIsOpen(false);
-                toast.success('Usunięcie powiodło się.');
-            },
-        });
-    };
-    return (
-        <Dialog open={isOpen} onOpenChange={setIsOpen}>
-            <DialogTrigger asChild>
-                <Button
-                    variant="outline"
-                    size="icon"
-                    className="cursor-pointer text-destructive hover:bg-destructive/10 hover:text-destructive"
-                >
-                    <Trash2 />
-                </Button>
-            </DialogTrigger>
-            <DialogContent>
-                <DialogTitle>Czy na pewno chcesz usunąć to faq?</DialogTitle>
-                <DialogDescription>
-                    Po potwierdzeniu nie będzie możliwości przywrócenia faq.
-                </DialogDescription>
-
-                <form onSubmit={handleDelete} className="space-y-6">
-                    <DialogFooter className="gap-2">
-                        <DialogClose asChild>
-                            <Button variant="secondary">Anuluj</Button>
-                        </DialogClose>
-
-                        <Button
-                            type="submit"
-                            variant="destructive"
-                            disabled={processing}
-                        >
-                            {processing ? 'Usuwanie...' : 'Potwierdzam, usuń'}
-                        </Button>
-                    </DialogFooter>
-                </form>
-            </DialogContent>
-        </Dialog>
-    );
-};
-
 const SortableFaqItem = ({ item }: { item: FaqI }) => {
     const { attributes, listeners, setNodeRef, transform, transition } =
         useSortable({ id: item.id });
@@ -116,6 +55,8 @@ const SortableFaqItem = ({ item }: { item: FaqI }) => {
         transform: CSS.Transform.toString(transform),
         transition,
     };
+
+    const { delete: destroy, processing } = useForm();
 
     return (
         <div ref={setNodeRef} style={style} className="relative mb-2">
@@ -147,7 +88,17 @@ const SortableFaqItem = ({ item }: { item: FaqI }) => {
                         <Pencil />
                     </Link>
                 </Button>
-                <DeleteFaqDialog faqID={+item.id} />
+                <DeleteConfirmDialog
+                    deleteFunc={() =>
+                        destroy(faq.destroy.url(+item.id), {
+                            preserveScroll: true,
+                            onSuccess: () => {
+                                toast.success('Usunięcie powiodło się.');
+                            },
+                        })
+                    }
+                    processing={processing}
+                />
             </div>
         </div>
     );
@@ -201,7 +152,7 @@ const Index = ({ faqs }: FaqsI) => {
                         description="Zarządzaj treścią, edytuj i publikuj nowe faq."
                     />
                     <Button asChild>
-                        <Link href={blogRoute.create.url()}>Nowy faq</Link>
+                        <Link href={faq.create.url()}>Nowy faq</Link>
                     </Button>
                 </div>
                 {!items || items.length === 0 ? (

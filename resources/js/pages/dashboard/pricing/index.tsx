@@ -1,3 +1,4 @@
+import DeleteConfirmDialog from '@/components/deleteConfirmDialog';
 import HeadingSmall from '@/components/heading-small';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,7 +7,7 @@ import PricingLayout from '@/layouts/dashboard/pricing/layout';
 import faq from '@/routes/dashboard/faq';
 import pricingRoutes from '@/routes/dashboard/pricing';
 import pricingItemRoutes from '@/routes/dashboard/pricing/items';
-import { BreadcrumbItem, PaginatedResponse, PricingItem } from '@/types';
+import { BreadcrumbItem, PricingItem, Pricings } from '@/types';
 import {
     closestCenter,
     DndContext,
@@ -24,23 +25,29 @@ import {
     verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { Head, Link, router } from '@inertiajs/react';
+import { Head, Link, router, useForm } from '@inertiajs/react';
 import { GripVertical, Pencil, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'FAQ',
+        title: 'Cennik',
         href: faq.index.url(),
     },
 ];
 
 interface PropsI {
-    pricing: PaginatedResponse<PricingItem>;
+    pricing: Pricings[];
 }
 
-const SortableSubItem = ({ subItem }: { subItem: any }) => {
+const SortableSubItem = ({
+    subItem,
+    onDelete,
+}: {
+    subItem: PricingItem;
+    onDelete: (id: number) => void;
+}) => {
     const { attributes, listeners, setNodeRef, transform, transition } =
         useSortable({ id: `sub-${subItem.id}` });
 
@@ -69,11 +76,12 @@ const SortableSubItem = ({ subItem }: { subItem: any }) => {
                         className={'cursor-pointer'}
                         asChild
                     >
-                        <Link href={''}>
+                        <Link href={pricingItemRoutes.edit.url(subItem.id)}>
                             <Pencil />
                         </Link>
                     </Button>
                     <Button
+                        onClick={() => onDelete(subItem.id)}
                         variant="outline"
                         size="icon"
                         className="cursor-pointer text-destructive hover:bg-destructive/10 hover:text-destructive"
@@ -87,13 +95,24 @@ const SortableSubItem = ({ subItem }: { subItem: any }) => {
 };
 
 const PricingSubItemsList = ({
-    categoryID,
     initialItems,
 }: {
-    categoryID: number;
-    initialItems: any[];
+    initialItems: PricingItem[];
 }) => {
     const [subItems, setSubItems] = useState(initialItems);
+
+    const handleDelete = (id: number) => {
+        router.delete(pricingItemRoutes.destroy.url(id), {
+            preserveScroll: true,
+            onSuccess: () => {
+                setSubItems((current) =>
+                    current.filter((item) => item.id !== id),
+                );
+
+                toast.success('Pozycja pricingu została usunięta.');
+            },
+        });
+    };
 
     const handleSubDragEnd = (event: DragEndEvent) => {
         const { active, over } = event;
@@ -129,7 +148,11 @@ const PricingSubItemsList = ({
             >
                 <div className="mt-3 space-y-1">
                     {subItems.map((sub) => (
-                        <SortableSubItem key={sub.id} subItem={sub} />
+                        <SortableSubItem
+                            key={sub.id}
+                            subItem={sub}
+                            onDelete={handleDelete}
+                        />
                     ))}
                 </div>
             </SortableContext>
@@ -137,7 +160,13 @@ const PricingSubItemsList = ({
     );
 };
 
-const SortablePricingItem = ({ item }: { item: PricingItem }) => {
+const SortablePricingItem = ({
+    item,
+    onDelete,
+}: {
+    item: Pricings;
+    onDelete: (id: number) => void;
+}) => {
     const { attributes, listeners, setNodeRef, transform, transition } =
         useSortable({ id: item.id });
 
@@ -145,7 +174,8 @@ const SortablePricingItem = ({ item }: { item: PricingItem }) => {
         transform: CSS.Transform.toString(transform),
         transition,
     };
-    console.log(item.items);
+
+    const { delete: destroy, processing } = useForm();
 
     return (
         <div ref={setNodeRef} style={style} className="relative mb-2">
@@ -161,9 +191,6 @@ const SortablePricingItem = ({ item }: { item: PricingItem }) => {
                         </div>
                         <div className="flex-1">
                             <p className="font-medium">{item.title}</p>
-                            <p className="text-sm text-muted-foreground">
-                                {item.description}
-                            </p>
                         </div>
                     </div>
                     <div className={'mt-5'}>
@@ -173,13 +200,10 @@ const SortablePricingItem = ({ item }: { item: PricingItem }) => {
                             className={'w-full'}
                         >
                             <Link href={pricingItemRoutes.create.url(item.id)}>
-                                Dodaj nowa cene
+                                Dodaj nową cenę
                             </Link>
                         </Button>
-                        <PricingSubItemsList
-                            categoryID={item.id}
-                            initialItems={item.items}
-                        />
+                        <PricingSubItemsList initialItems={item.items} />
                     </div>
                 </CardContent>
             </Card>
@@ -194,14 +218,25 @@ const SortablePricingItem = ({ item }: { item: PricingItem }) => {
                         <Pencil />
                     </Link>
                 </Button>
-                {/*<DeleteFaqDialog faqID={+item.id} />*/}
+                <DeleteConfirmDialog
+                    deleteFunc={() => {
+                        destroy(pricingRoutes.destroy.url(+item.id), {
+                            preserveScroll: true,
+                            onSuccess: () => {
+                                onDelete(item.id);
+                                toast.success('Usunięcie powiodło się.');
+                            },
+                        });
+                    }}
+                    processing={processing}
+                />
             </div>
         </div>
     );
 };
 
 const Index = ({ pricing }: PropsI) => {
-    const [items, setItems] = useState<PricingItem[]>(pricing.data);
+    const [items, setItems] = useState<Pricings[]>(pricing);
     const sensors = useSensors(
         useSensor(PointerSensor),
         useSensor(KeyboardSensor, {
@@ -232,14 +267,18 @@ const Index = ({ pricing }: PropsI) => {
         }
     };
 
+    const handleDelete = (id: number) => {
+        setItems((current) => current.filter((item) => item.id !== id));
+    };
+
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="FAQ" />
+            <Head title="Cennik" />
             <PricingLayout>
                 <div className="flex items-center justify-between">
                     <HeadingSmall
-                        title="Wszystkie faq"
-                        description="Zarządzaj treścią, edytuj i publikuj nowe faq."
+                        title="Cennik"
+                        description="Zarządzaj cennikiem produktów i usług."
                     />
                     <Button asChild>
                         <Link href={pricingRoutes.create.url()}>
@@ -258,7 +297,11 @@ const Index = ({ pricing }: PropsI) => {
                     >
                         <div className="mx-auto max-w-2xl py-6">
                             {items.map((item) => (
-                                <SortablePricingItem item={item} />
+                                <SortablePricingItem
+                                    key={item.id}
+                                    item={item}
+                                    onDelete={handleDelete}
+                                />
                             ))}
                         </div>
                     </SortableContext>

@@ -75,13 +75,6 @@ export interface PaginatedResponse<T> {
     };
 }
 
-export interface PricingItem {
-    id: number;
-    title: string;
-    description: string;
-    order: number;
-}
-
 export interface ServiceItem {
     id: string;
     name: string;
@@ -95,4 +88,18 @@ export interface ServiceCategory {
     name: string;
     order: number;
     services: ServiceItem[];
+}
+
+export interface Pricings {
+    id: number;
+    title: string;
+    items: PricingItem[];
+    order: number;
+}
+
+export interface PricingItem {
+    id: number;
+    name: string;
+    order: number;
+    price: string;
 }

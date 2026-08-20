@@ -45,11 +45,6 @@ const mainNavItems: NavItem[] = [
         href: services.index.url(),
         icon: Folder,
     },
-    // {
-    //     title: 'Blog',
-    //     href: blog.index.url(),
-    //     icon: Book,
-    // },
 ];
 
 const footerNavItems: NavItem[] = [

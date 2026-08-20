@@ -36,9 +36,9 @@ const DeleteConfirmDialog = ({ deleteFunc, processing }: PropsI) => {
                 </Button>
             </DialogTrigger>
             <DialogContent>
-                <DialogTitle>Czy na pewno chcesz usunąć to faq?</DialogTitle>
+                <DialogTitle>Czy na pewno chcesz usunąć?</DialogTitle>
                 <DialogDescription>
-                    Po potwierdzeniu nie będzie możliwości przywrócenia faq.
+                    Po potwierdzeniu nie będzie możliwości przywrócenia.
                 </DialogDescription>
 
                 <form onSubmit={handleDelete} className="space-y-6">

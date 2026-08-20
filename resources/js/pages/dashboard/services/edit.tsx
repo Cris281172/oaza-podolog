@@ -14,6 +14,10 @@ const breadcrumbs: BreadcrumbItem[] = [
         title: 'Usługi',
         href: services.index.url(),
     },
+    {
+        title: 'Edytowanie usług',
+        href: '',
+    },
 ];
 
 interface PropsI {
@@ -36,11 +40,11 @@ const Edit = ({ service }: PropsI) => {
     };
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="FAQ" />
+            <Head title="Edytowanie usług" />
             <ServicesLayout>
                 <HeadingSmall
-                    title="Profile information"
-                    description="Update your name and email address"
+                    title="Edytowanie usług"
+                    description="Edytuj usługę"
                 />
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid gap-2">

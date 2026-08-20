@@ -54,7 +54,7 @@ class PricingItemController extends Controller
      */
     public function edit(PricingItem $pricingItem)
     {
-        //
+        return Inertia::render('dashboard/pricing/item/edit', compact('pricingItem'));
     }
 
     /**
@@ -62,15 +62,22 @@ class PricingItemController extends Controller
      */
     public function update(Request $request, PricingItem $pricingItem)
     {
-        //
+        $data = $request->validate([
+            "name" => 'required|string',
+            "price" => 'required|numeric|min:0',
+        ]);
+
+        $pricingItem->update($data);
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PricingItem $pricingItem)
+    public function destroy($id)
     {
-        //
+        PricingItem::where('id', $id)->delete();
+        return back();
     }
     public function reorder(Request $request){
         $ids = $request->input('ids');

@@ -43,8 +43,8 @@ const Create = () => {
             <Head title="FAQ" />
             <FaqLayout>
                 <HeadingSmall
-                    title="Profile information"
-                    description="Update your name and email address"
+                    title="Tworzenie nowego pytania FAQ"
+                    description="Dodaj nowe pytanie i odpowiedź do sekcji FAQ"
                 />
 
                 <form onSubmit={submit} className="space-y-6">

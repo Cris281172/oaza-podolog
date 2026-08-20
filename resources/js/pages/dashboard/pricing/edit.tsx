@@ -6,30 +6,28 @@ import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/app-layout';
 import PricingLayout from '@/layouts/dashboard/pricing/layout';
 import pricingRoutes from '@/routes/dashboard/pricing';
-import { BreadcrumbItem, PricingItem } from '@/types';
+import { BreadcrumbItem, Pricings } from '@/types';
 import { Head, useForm } from '@inertiajs/react';
 import React from 'react';
 import { toast } from 'sonner';
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'FAQ',
-        href: '',
+        title: 'Cennik',
+        href: pricingRoutes.index.url(),
     },
     {
-        title: 'Tworzenie',
+        title: 'Edytowanie',
         href: '',
     },
 ];
 
 interface PropsI {
-    pricing: PricingItem;
+    pricing: Pricings;
 }
 
 const Edit = ({ pricing }: PropsI) => {
     const { data, setData, errors, processing, patch } = useForm({
         title: pricing.title ?? '',
-        description: pricing.description ?? '',
-        pricingID: pricing.id ?? '',
     });
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -40,11 +38,11 @@ const Edit = ({ pricing }: PropsI) => {
     };
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="FAQ" />
+            <Head title="Edytuj pozycje w cenniku" />
             <PricingLayout>
                 <HeadingSmall
-                    title="Profile information"
-                    description="Update your name and email address"
+                    title="Edytuj pozycje w cenniku"
+                    description="Edytuj pozycje w cenniku usług."
                 />
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid gap-2">
@@ -59,27 +57,8 @@ const Edit = ({ pricing }: PropsI) => {
                         />
                         <InputError className="mt-2" message={errors.title} />
                     </div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="description">
-                            Opis kategorii cennika
-                        </Label>
-
-                        <Input
-                            id="description"
-                            value={data.description}
-                            onChange={(e) =>
-                                setData('description', e.target.value)
-                            }
-                            placeholder="Podaj opis kategorii cennika"
-                            className="mt-1"
-                        />
-                        <InputError
-                            className="mt-2"
-                            message={errors.description}
-                        />
-                    </div>
                     <Button disabled={processing} type={'submit'}>
-                        Dodaj
+                        Aktualizuj
                     </Button>
                 </form>
             </PricingLayout>

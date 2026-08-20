@@ -11,8 +11,8 @@ import { Head, useForm } from '@inertiajs/react';
 import React from 'react';
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'FAQ',
-        href: '',
+        title: 'Usługi',
+        href: services.index().url,
     },
     {
         title: 'Tworzenie',

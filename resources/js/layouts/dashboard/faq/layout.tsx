@@ -19,8 +19,8 @@ const sidebarNavItems: NavItem[] = [
 export default function FaqLayout({ children }: PropsWithChildren) {
     return (
         <DashboardContentLayout
-            title={'test'}
-            desc={'test'}
+            title={'FAQ'}
+            desc={'Zarządzaj pytaniami i odpowiedziami.'}
             navItems={sidebarNavItems}
         >
             {children}

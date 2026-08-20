@@ -23,7 +23,7 @@ class PricingItemCreateRequest extends FormRequest
     {
         return [
             "name" => "required|string",
-            "price" => "required|numeric",
+            "price" => "required",
             "pricingID" => "required|string",
         ];
     }

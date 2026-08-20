@@ -48,7 +48,7 @@ const Edit = ({ faq }: PropsI) => {
             <FaqLayout>
                 <HeadingSmall
                     title={`Edytyjesz ${faq.id}`}
-                    description="Update your name and email address"
+                    description="Edytuj pytanie i odpowiedź FAQ."
                 />
 
                 <form onSubmit={submit} className="space-y-6">

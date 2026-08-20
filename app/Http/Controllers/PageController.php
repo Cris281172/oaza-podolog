@@ -8,6 +8,7 @@ use App\Models\ServiceCategory;
 use App\Services\PodologyService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Pricing;
 
 class PageController extends Controller
 {
@@ -32,7 +33,8 @@ class PageController extends Controller
         return Inertia::render('contact');
     }
     public function priceList(){
-        return Inertia::render('priceList');
+        $pricingList = Pricing::orderBy('order', 'asc')->with('items')->get();
+        return Inertia::render('priceList', compact('pricingList'));
     }
     public function service(string $slug){
         $serviceConfig = config('podology_services');

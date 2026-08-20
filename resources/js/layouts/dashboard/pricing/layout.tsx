@@ -1,16 +1,12 @@
 import DashboardContentLayout from '@/layouts/dashboard/layout';
+import pricing from '@/routes/dashboard/pricing';
 import { type NavItem } from '@/types';
 import { type PropsWithChildren } from 'react';
 
 const sidebarNavItems: NavItem[] = [
     {
         title: 'Wszystkie',
-        href: '',
-        icon: null,
-    },
-    {
-        title: 'Tworzenie',
-        href: '',
+        href: pricing.index.url(),
         icon: null,
     },
 ];
@@ -18,8 +14,8 @@ const sidebarNavItems: NavItem[] = [
 export default function PricingLayout({ children }: PropsWithChildren) {
     return (
         <DashboardContentLayout
-            title={'test'}
-            desc={'test'}
+            title={'Cennik'}
+            desc={'Zarządzaj cennikiem produktów i usług.'}
             navItems={sidebarNavItems}
         >
             {children}

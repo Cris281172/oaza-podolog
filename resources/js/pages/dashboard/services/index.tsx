@@ -37,7 +37,13 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 // --- Pojedyncza usługa (przeciągana wewnątrz kategorii) ---
-const SortableServiceItem = ({ item }: { item: ServiceItem }) => {
+const SortableServiceItem = ({
+    item,
+    onDelete,
+}: {
+    item: ServiceItem;
+    onDelete: (itemId: number) => void;
+}) => {
     const { attributes, listeners, setNodeRef, transform, transition } =
         useSortable({ id: item.id });
     const style = {
@@ -82,8 +88,10 @@ const SortableServiceItem = ({ item }: { item: ServiceItem }) => {
                     deleteFunc={() => {
                         destroy(services.destroy.url(+item.id), {
                             preserveScroll: true,
-                            onSuccess: () =>
-                                toast.success('Usunięcie powiodło się.'),
+                            onSuccess: () => {
+                                onDelete(+item.id);
+                                toast.success('Usunięcie powiodło się.');
+                            },
                         });
                     }}
                     processing={processing}
@@ -96,10 +104,16 @@ const SortableServiceItem = ({ item }: { item: ServiceItem }) => {
 const SortableCategorySection = ({
     category,
     onReorderServices,
+    onDeleteService,
+    handleDeleteCategory,
 }: {
     category: ServiceCategory;
-    onReorderServices: (categoryId: number, newItems: ServiceItem[]) => void;
+    onReorderServices: (categoryID: number, newItems: ServiceItem[]) => void;
+    onDeleteService: (categoryID: number, serviceID: number) => void;
+    handleDeleteCategory: (categoryID: number) => void;
 }) => {
+    const { delete: destroy, processing } = useForm();
+
     const { attributes, listeners, setNodeRef, transform, transition } =
         useSortable({ id: `category-${category.id}` });
     const style = {
@@ -147,15 +161,46 @@ const SortableCategorySection = ({
 
     return (
         <div ref={setNodeRef} style={style} className="mb-8">
-            <div className="mb-3 flex items-center gap-2">
-                <div
-                    {...attributes}
-                    {...listeners}
-                    className="cursor-grab text-muted-foreground active:cursor-grabbing"
-                >
-                    <GripVertical size={18} />
+            <div className="mb-3 flex justify-between">
+                <div className={'flex items-center gap-2'}>
+                    <div
+                        {...attributes}
+                        {...listeners}
+                        className="cursor-grab text-muted-foreground active:cursor-grabbing"
+                    >
+                        <GripVertical size={18} />
+                    </div>
+                    <h3 className="font-semibold">{category.name}</h3>
                 </div>
-                <h3 className="font-semibold">{category.name}</h3>
+                <div className={'flex gap-2'}>
+                    <Button
+                        size={'icon'}
+                        variant={'outline'}
+                        className={'cursor-pointer'}
+                        asChild
+                    >
+                        <Link href={servicesCategory.edit(+category.id).url}>
+                            <Pencil />
+                        </Link>
+                    </Button>
+                    <DeleteConfirmDialog
+                        deleteFunc={() =>
+                            destroy(
+                                servicesCategory.destroy.url(+category.id),
+                                {
+                                    preserveScroll: true,
+                                    onSuccess: () => {
+                                        handleDeleteCategory(category.id);
+                                        toast.success(
+                                            'Usunięcie powiodło się.',
+                                        );
+                                    },
+                                },
+                            )
+                        }
+                        processing={processing}
+                    />
+                </div>
             </div>
             <Button
                 asChild
@@ -179,7 +224,13 @@ const SortableCategorySection = ({
                     strategy={verticalListSortingStrategy}
                 >
                     {category.services.map((item) => (
-                        <SortableServiceItem key={item.id} item={item} />
+                        <SortableServiceItem
+                            key={item.id}
+                            item={item}
+                            onDelete={(serviceId) =>
+                                onDeleteService(category.id, serviceId)
+                            }
+                        />
                     ))}
                 </SortableContext>
             </DndContext>
@@ -247,6 +298,26 @@ const Index = ({
         );
     };
 
+    const handleDeleteService = (categoryId: number, serviceId: number) => {
+        setCategories((prev) =>
+            prev.map((category) =>
+                category.id === categoryId
+                    ? {
+                          ...category,
+                          services: category.services.filter(
+                              (service) => +service.id !== serviceId,
+                          ),
+                      }
+                    : category,
+            ),
+        );
+    };
+
+    const handleDeleteCategory = (categoryId: number) => {
+        setCategories((prev) =>
+            prev.filter((category) => category.id !== categoryId),
+        );
+    };
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Usługi" />
@@ -278,6 +349,8 @@ const Index = ({
                                     key={category.id}
                                     category={category}
                                     onReorderServices={handleReorderServices}
+                                    onDeleteService={handleDeleteService}
+                                    handleDeleteCategory={handleDeleteCategory}
                                 />
                             ))}
                         </SortableContext>

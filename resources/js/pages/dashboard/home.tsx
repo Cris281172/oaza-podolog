@@ -1,8 +1,8 @@
-import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
-import { Head } from '@inertiajs/react';
-import { BreadcrumbItem } from '@/types';
 import dashboard from '@/routes/dashboard';
+import { BreadcrumbItem } from '@/types';
+import { Head } from '@inertiajs/react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -11,29 +11,103 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface DashboardStats {
+    services: number;
+    serviceCategories: number;
+    pricing: number;
+    pricingItems: number;
+    faq: number;
+}
 
-const Home = () => {
+interface AuthUser {
+    id: number;
+    name: string;
+    email: string;
+}
+
+interface Props {
+    stats: DashboardStats;
+    auth: {
+        user: AuthUser;
+    };
+}
+
+const Home = ({ stats, auth }: Props) => {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Home" />
-            <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
-                <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
+            <Head title="Strona główna" />
+
+            <div className="mx-10 mt-8">
+                <div className="mb-8">
+                    <h1 className="text-3xl font-bold tracking-tight">
+                        Witaj, {auth.user.name}! 👋
+                    </h1>
+
+                    <p className="mt-2 text-muted-foreground">
+                        Miło Cię widzieć. Oto podsumowanie Twojej strony.
+                    </p>
                 </div>
-                <div className="relative min-h-[100vh] flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border">
-                    <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
+
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Usługi</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-3xl font-bold">
+                                {stats.services}
+                            </div>
+                            <p className="text-sm text-muted-foreground">
+                                aktywnych usług
+                            </p>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Kategorie usług</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-3xl font-bold">
+                                {stats.serviceCategories}
+                            </div>
+                            <p className="text-sm text-muted-foreground">
+                                kategorii
+                            </p>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Cennik</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-3xl font-bold">
+                                {stats.pricingItems}
+                            </div>
+                            <p className="text-sm text-muted-foreground">
+                                pozycji cennika
+                            </p>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>FAQ</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-3xl font-bold">
+                                {stats.faq}
+                            </div>
+                            <p className="text-sm text-muted-foreground">
+                                pytań i odpowiedzi
+                            </p>
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
         </AppLayout>
     );
-}
+};
 
 export default Home;

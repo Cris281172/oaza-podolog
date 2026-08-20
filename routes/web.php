@@ -32,12 +32,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/reorder', [PricingController::class, 'reorder'])->name('reorder');
             Route::get('/{id}/edit', [PricingController::class, 'edit'])->name('edit');
             Route::patch('/{id}', [PricingController::class, 'update'])->name('update');
+            Route::delete('/{pricing}', [PricingController::class, 'destroy'])->name('destroy');
 
             Route::prefix('items')->name('items.')->group(function () {
 
                 Route::get('/create/{id}', [PricingItemController::class, 'create'])->name('create');
                 Route::post('/', [PricingItemController::class, 'store'])->name('store');
+                Route::get('/{id}/edit', [PricingItemController::class, 'edit'])->name('edit');
+                Route::patch('/{id}', [PricingItemController::class, 'update'])->name('update');
                 Route::post('/reorder', [PricingItemController::class, 'reorder'])->name('reorder');
+                Route::delete('/{id}', [PricingItemController::class, 'destroy'])->name('destroy');
 
             });
 
@@ -65,12 +69,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::delete('/{service}', [ServiceController::class, 'destroy'])->name('destroy');
 
             Route::prefix('categories')->name('services-category.')->group(function () {
+
                 Route::get('/create', [ServiceCategoryController::class, 'create'])->name('create');
+                Route::post('/', [ServiceCategoryController::class, 'store'])->name('store');
+                Route::get('/{id}/edit', [ServiceCategoryController::class, 'edit'])->name('edit');
+                Route::patch('/{id}', [ServiceCategoryController::class, 'update'])->name('update');
+                Route::delete('/{serviceCategory}', [ServiceCategoryController::class, 'destroy'])->name('destroy');
+
             });
 
         });
-
-
 
         Route::prefix('blog')->name('blog.')->group(function () {
             Route::get('/', [BlogController::class, 'index'])->name('index');
@@ -79,7 +87,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::delete('/{blog}', [BlogController::class, 'destroy'])->name('destroy');
             Route::get('/{blog}/edit', [BlogController::class, 'edit'])->name('edit');
             Route::patch('/{blog}', [BlogController::class, 'update'])->name('update');
-        });;
+        });
     });
 
 

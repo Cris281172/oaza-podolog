@@ -9,18 +9,13 @@ const sidebarNavItems: NavItem[] = [
         href: index(),
         icon: null,
     },
-    {
-        title: 'Tworzenie',
-        href: '',
-        icon: null,
-    },
 ];
 
 export default function ServicesLayout({ children }: PropsWithChildren) {
     return (
         <DashboardContentLayout
-            title={'test'}
-            desc={'test'}
+            title={'Usługi'}
+            desc={'Zarządzaj usługami i kategoriami usług.'}
             navItems={sidebarNavItems}
         >
             {children}

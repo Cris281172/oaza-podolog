@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/app-layout';
 import PricingLayout from '@/layouts/dashboard/pricing/layout';
+import pricing from '@/routes/dashboard/pricing';
 import pricingItems from '@/routes/dashboard/pricing/items';
 import { BreadcrumbItem } from '@/types';
 import { useForm } from '@inertiajs/react';
@@ -12,8 +13,8 @@ import React from 'react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'FAQ',
-        href: '',
+        title: 'Cennik',
+        href: pricing.index.url(),
     },
     {
         title: 'Tworzenie',
@@ -41,8 +42,8 @@ const Create = ({ id }: PropsI) => {
         <AppLayout breadcrumbs={breadcrumbs}>
             <PricingLayout>
                 <HeadingSmall
-                    title="Profile information"
-                    description="Update your name and email address"
+                    title="Dodaj pozycję do cennika"
+                    description="Dodaj nową pozycję do cennika usług"
                 />
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid gap-2">
@@ -62,12 +63,15 @@ const Create = ({ id }: PropsI) => {
 
                         <Input
                             id="price"
-                            type={'number'}
                             value={data.price}
                             onChange={(e) => setData('price', e.target.value)}
                             placeholder="Podaj cene w cenniku"
                             className="mt-1"
                         />
+                        <span className="text-sm text-muted-foreground">
+                            Podaj cenę w złotych, np. 250 lub od 250 (bez "zł"
+                            na końcu)
+                        </span>
                         <InputError className="mt-2" message={errors.price} />
                     </div>
                     <Button type={'submit'} disabled={processing}>

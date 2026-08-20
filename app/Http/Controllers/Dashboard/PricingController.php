@@ -16,7 +16,7 @@ class PricingController extends Controller
      */
     public function index()
     {
-        $pricing = Pricing::orderBy('order', 'asc')->with('items')->paginate(5);
+        $pricing = Pricing::orderBy('order', 'asc')->with('items')->get();
         return Inertia::render('dashboard/pricing/index', compact('pricing'));
     }
 
@@ -37,7 +37,6 @@ class PricingController extends Controller
 
         Pricing::create([
             "title" => $data["title"],
-            "description" => $data["description"],
             "order" => Pricing::max('order') + 1,
         ]);
 
@@ -69,7 +68,6 @@ class PricingController extends Controller
         $data = $request->validated();
         Pricing::where('id', $request->pricingID)->update([
             "title" => $data["title"],
-            "description" => $data["description"],
         ]);
 
         return back();
@@ -80,7 +78,8 @@ class PricingController extends Controller
      */
     public function destroy(Pricing $pricing)
     {
-        //
+        $pricing->delete();
+        return redirect()->back();
     }
     public function reorder(Request $request){
         $ids = $request->input('ids');

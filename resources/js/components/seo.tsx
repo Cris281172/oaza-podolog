@@ -5,6 +5,7 @@ interface PropsI {
     desc?: string;
     canonicalUrl?: string;
     image?: string;
+    noindex?: boolean;
 }
 
 const SEO = ({
@@ -12,13 +13,14 @@ const SEO = ({
     desc = 'Podolog Kielce OAZA – leczenie wrastających paznokci, odcisków, brodawek i problemów stóp. Umów konsultację podologiczną w Kielcach.',
     canonicalUrl,
     image = '/og-image.jpg',
+    noindex,
 }: PropsI) => {
     const appURL = import.meta.env.VITE_APP_URL || '';
     const finalUrl = canonicalUrl ?? `${appURL}${window.location.pathname}`;
     return (
         <Head>
             <title>{title}</title>
-
+            {noindex && <meta name="robots" content="noindex" />}
             <meta name="robots" content="index, follow" />
             <meta name="description" content={desc} />
 

@@ -1,1 +1,0 @@
-import{c as i,j as n}from"./app-Bsx06887.js";import{D as r}from"./layout-B9yB-b7I.js";const c=[{title:"Wszystkie",href:"",icon:null},{title:"Tworzenie",href:"",icon:null}];function m(o){const t=i.c(2),{children:s}=o;let e;return t[0]!==s?(e=n.jsx(r,{title:"test",desc:"test",navItems:c,children:s}),t[0]=s,t[1]=e):e=t[1],e}export{m as P};
