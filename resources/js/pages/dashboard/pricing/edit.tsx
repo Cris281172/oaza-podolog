@@ -31,7 +31,7 @@ const Edit = ({ pricing }: PropsI) => {
     });
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        patch(pricingRoutes.update.url(pricing.id), {
+        patch(pricingRoutes.update.url(+pricing.id), {
             preserveScroll: true,
             onSuccess: () => toast.success('Edytowano pozycje w cenniku.'),
         });

@@ -21,6 +21,7 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 const Edit = ({ pricingItem }: { pricingItem: PricingItem }) => {
+    console.log(pricingItem);
     const { data, setData, errors, processing, patch } = useForm({
         name: pricingItem.name ?? '',
         price: pricingItem.price ?? '',

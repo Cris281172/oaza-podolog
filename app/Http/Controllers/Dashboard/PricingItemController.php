@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Pricing\PricingItemCreateRequest;
+use App\Http\Requests\Dashboard\Pricing\PricingItemUpdateRequest;
 use App\Models\PricingItem;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -52,22 +53,22 @@ class PricingItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PricingItem $pricingItem)
+    public function edit(string $id)
     {
+        $pricingItem = PricingItem::findOrFail($id);
         return Inertia::render('dashboard/pricing/item/edit', compact('pricingItem'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PricingItem $pricingItem)
+    public function update(PricingItemUpdateRequest $request, string $id)
     {
-        $data = $request->validate([
-            "name" => 'required|string',
-            "price" => 'required|numeric|min:0',
+        $data = $request->validated();
+        PricingItem::where('id', $id)->update([
+            "name" => $data["name"],
+            "price" => $data["price"],
         ]);
-
-        $pricingItem->update($data);
         return back();
     }
 

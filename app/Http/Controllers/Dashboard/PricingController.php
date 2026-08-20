@@ -63,10 +63,10 @@ class PricingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PricingUpdateRequest $request, Pricing $pricing)
+    public function update(string $id, PricingUpdateRequest $request)
     {
         $data = $request->validated();
-        Pricing::where('id', $request->pricingID)->update([
+        Pricing::where('id', $id)->update([
             "title" => $data["title"],
         ]);
 
