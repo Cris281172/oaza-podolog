@@ -26,7 +26,6 @@ const itemVariants: Variants = {
 };
 
 const Services = ({ categories }: { categories: ServiceCategory[] }) => {
-    console.log(categories);
     const isMobile = useIsMobile();
     let globalIndex = 0;
 

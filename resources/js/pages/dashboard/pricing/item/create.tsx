@@ -65,7 +65,7 @@ const Create = ({ id }: PropsI) => {
                             id="price"
                             value={data.price}
                             onChange={(e) => setData('price', e.target.value)}
-                            placeholder="Podaj cene w cenniku"
+                            placeholder="Podaj cenę w cenniku"
                             className="mt-1"
                         />
                         <span className="text-sm text-muted-foreground">

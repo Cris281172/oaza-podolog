@@ -1,5 +1,6 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import CTASection from '@/components/cta-section';
+import SEO from '@/components/seo';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/layouts/page-layout';
 import { service as serviceRoute } from '@/routes';
@@ -13,6 +14,10 @@ interface StepI {
 
 interface ServiceI {
     slug: string;
+    seo: {
+        title: string;
+        description: string;
+    };
     hero: {
         title: string;
         titleSecond?: string;
@@ -32,9 +37,13 @@ interface PropsI {
 }
 
 const SingleServicePage = ({ service, crossSell }: PropsI) => {
-    console.log(crossSell);
     return (
         <PageLayout>
+            <SEO
+                title={service.seo.title}
+                desc={service.seo.description}
+                canonicalUrl={`https://gabinetpodologicznaoaza.pl/uslugi/${service.slug}`}
+            />
             <main className="flex-1 bg-background">
                 {/* HERO */}
                 <section className="py-20 md:py-28">

@@ -1,15 +1,9 @@
 import { useIsMobile } from '@/hooks/use-mobile';
+import { PricingItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-const pricingPreview = [
-    { name: 'Pedicure podologiczny', price: 'od 170 zł' },
-    { name: 'Wrastający paznokieć', price: 'od 100 zł' },
-    { name: 'Usuwanie odcisków / modzeli', price: 'od 100 zł' },
-    { name: 'Brodawki wirusowe (kurzajki)', price: 'od 150 zł' },
-];
-
-const PricingSection = () => {
+const PricingSection = ({ items }: { items: PricingItem[] }) => {
     const isMobile = useIsMobile();
     return (
         <section className="overflow-hidden bg-background py-12 md:py-24">
@@ -36,9 +30,9 @@ const PricingSection = () => {
                     transition={{ duration: 0.6, ease: 'easeOut' }}
                     className="mx-auto max-w-3xl space-y-3"
                 >
-                    {pricingPreview.map((item, index) => (
+                    {items.map((item) => (
                         <div
-                            key={index}
+                            key={item.id}
                             className="group flex cursor-default items-center justify-between rounded-2xl border border-slate-100 bg-slate-50 p-4 transition-all duration-200 hover:border-primary/20 hover:bg-white hover:shadow-lg md:p-6"
                         >
                             <span className="text-base font-medium text-slate-800 transition-colors group-hover:text-primary">
@@ -46,7 +40,7 @@ const PricingSection = () => {
                             </span>
                             <div className="flex items-center gap-4">
                                 <span className="text-xl font-bold text-primary">
-                                    {item.price}
+                                    {item.price} zł
                                 </span>
                             </div>
                         </div>

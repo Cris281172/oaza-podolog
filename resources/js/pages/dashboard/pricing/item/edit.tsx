@@ -21,7 +21,6 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 const Edit = ({ pricingItem }: { pricingItem: PricingItem }) => {
-    console.log(pricingItem);
     const { data, setData, errors, processing, patch } = useForm({
         name: pricingItem.name ?? '',
         price: pricingItem.price ?? '',
@@ -61,7 +60,7 @@ const Edit = ({ pricingItem }: { pricingItem: PricingItem }) => {
                             id="price"
                             value={data.price}
                             onChange={(e) => setData('price', e.target.value)}
-                            placeholder="Podaj cene w cenniku"
+                            placeholder="Podaj cenę w cenniku"
                             className="mt-1"
                         />
                         <span className="text-sm text-muted-foreground">

@@ -82,7 +82,7 @@ const PriceList = ({ pricingList }: PropsI) => {
                 <CTASection
                     title="Dobierz odpowiedni zabieg."
                     subtitle="Umów konsultację."
-                    description="Nie wiesz, która usługa będzie najlepsza? Podolog oceni problem i zaproponuje skuteczną terapię."
+                    description="Nie wiesz, która usługa będzie najlepsza? Podolog oceni problem i zaproponuje terapię dopasowaną do Twoich potrzeb."
                 />
             </main>
         </PageLayout>

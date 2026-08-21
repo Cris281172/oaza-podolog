@@ -41,6 +41,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::get('/{id}/edit', [PricingItemController::class, 'edit'])->name('edit');
                 Route::patch('/{id}', [PricingItemController::class, 'update'])->name('update');
                 Route::post('/reorder', [PricingItemController::class, 'reorder'])->name('reorder');
+                Route::post('/home-preview', [PricingItemController::class, 'updateHomePreview'])->name('homePreview');
                 Route::delete('/{id}', [PricingItemController::class, 'destroy'])->name('destroy');
 
             });
@@ -89,7 +90,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::patch('/{blog}', [BlogController::class, 'update'])->name('update');
         });
     });
-
 
 });
 

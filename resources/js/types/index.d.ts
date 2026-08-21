@@ -102,4 +102,6 @@ export interface PricingItem {
     name: string;
     order: number;
     price: string;
+    show_on_home: boolean;
+    home_order: number | null;
 }

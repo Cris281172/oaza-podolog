@@ -18,7 +18,7 @@ const Contact = () => {
                     'Skontaktuj się z gabinetem podologicznym w Kielcach i umów wizytę. Sprawdź dane kontaktowe, lokalizację gabinetu oraz dostępne formy kontaktu.'
                 }
             />
-            <main className="bg-white">
+            <main className="bg-background">
                 <HeaderPage
                     overline="Kontakt"
                     title="Umów "
@@ -33,9 +33,9 @@ const Contact = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{ duration: 0.6 }}
-                            className="mx-auto max-w-xl"
+                            className="mx-auto max-w-5xl"
                         >
-                            <div className="space-y-6 rounded-3xl border border-slate-100 bg-white p-8 shadow-xl shadow-black/[0.03]">
+                            <div className="grid gap-4 md:grid-cols-3">
                                 {[
                                     {
                                         icon: MapPin,
@@ -58,37 +58,38 @@ const Contact = () => {
                                 ].map((item, i) => (
                                     <div
                                         key={i}
-                                        className="group flex items-start gap-4"
+                                        className="group rounded-3xl border border-slate-100 bg-slate-50/50 p-6 transition-all duration-300 hover:border-primary/20 hover:bg-white hover:shadow-xl hover:shadow-primary/5"
                                     >
-                                        <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-primary/10 bg-primary/5 text-primary transition group-hover:bg-primary group-hover:text-white">
+                                        <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl border border-primary/10 bg-primary/5 text-primary transition group-hover:bg-primary group-hover:text-white">
                                             <item.icon className="h-5 w-5" />
                                         </div>
 
                                         <div>
-                                            <h3 className="mb-1 text-xs font-bold tracking-wider text-slate-900 uppercase">
+                                            <h3 className="mb-2 text-xs font-bold tracking-wider text-primary uppercase">
                                                 {item.title}
                                             </h3>
 
                                             {item.link ? (
                                                 <a
                                                     href={item.link}
-                                                    className="text-lg font-medium text-slate-700 transition hover:text-primary"
+                                                    className="text-lg font-semibold text-slate-800 transition hover:text-primary"
                                                 >
                                                     {item.content}
                                                 </a>
                                             ) : (
-                                                <p className="text-base font-light whitespace-pre-line text-slate-600">
+                                                <p className="text-base leading-relaxed font-light whitespace-pre-line text-muted-foreground">
                                                     {item.content}
                                                 </p>
                                             )}
                                         </div>
                                     </div>
                                 ))}
-
+                            </div>
+                            <div className="mt-8 flex justify-center">
                                 <Button
                                     asChild
                                     size="lg"
-                                    className="mt-6 w-full rounded-xl shadow-lg shadow-primary/20"
+                                    className="w-full rounded-full px-8 shadow-lg shadow-primary/20 sm:w-auto"
                                 >
                                     <a href="tel:505849060">
                                         Zadzwoń i zarezerwuj termin
@@ -104,11 +105,11 @@ const Contact = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="mx-auto mt-16 h-96 max-w-5xl overflow-hidden rounded-3xl border border-slate-100 shadow-inner"
+                            className="mx-auto mt-12 h-80 max-w-5xl overflow-hidden rounded-3xl border border-slate-100 bg-slate-50 shadow-xl shadow-primary/5 md:h-[28rem]"
                         >
                             <iframe
                                 title="Lokalizacja gabinetu podologicznego OAZA w Kielcach"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2515.362!2d20.6282!3d50.8661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDUxJzU4LjAiTiAyMMKwMzcnNDEuNSJF!5e0!3m2!1spl!2spl!4v1234567890"
+                                src="https://www.google.com/maps?q=Gabinet%20Podologiczny%20OAZA%2C%20Mieczys%C5%82awy%20%C4%86wikli%C5%84skiej%201E%2C%2025-437%20Kielce&output=embed"
                                 width="100%"
                                 height="100%"
                                 style={{

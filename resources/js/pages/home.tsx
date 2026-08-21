@@ -6,13 +6,14 @@ import PricingSection from '@/components/sections/home/PricingSection';
 import ServicesSection from '@/components/sections/home/ServicesSection';
 import SEO from '@/components/seo';
 import PageLayout from '@/layouts/page-layout';
-import { Faq } from '@/types';
+import { Faq, PricingItem } from '@/types';
 
 interface PropsI {
     faqs: Faq[];
+    homePricingItems: PricingItem[];
 }
 
-const Home = ({ faqs }: PropsI) => {
+const Home = ({ faqs, homePricingItems }: PropsI) => {
     return (
         <PageLayout>
             <SEO
@@ -25,7 +26,7 @@ const Home = ({ faqs }: PropsI) => {
                 <HeroSection />
                 <ServicesSection />
                 <AboutMeSection />
-                <PricingSection />
+                <PricingSection items={homePricingItems} />
                 <ContactFaqSection faqs={faqs} />
                 <CTASection />
             </main>
