@@ -1,4 +1,3 @@
-import logo from '@/assets/logo.png';
 import { Head } from '@inertiajs/react';
 
 interface PropsI {
@@ -7,14 +6,16 @@ interface PropsI {
     canonicalUrl?: string;
     image?: string;
     noindex?: boolean;
+    structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const SEO = ({
     title = 'Podolog Kielce – Leczenie Wrastających Paznokci | OAZA',
     desc = 'Podolog Kielce OAZA – leczenie wrastających paznokci, odcisków, brodawek i problemów stóp. Umów konsultację podologiczną w Kielcach.',
     canonicalUrl,
-    image = logo,
+    image = '/og-image.jpg',
     noindex = false,
+    structuredData = [],
 }: PropsI) => {
     const configuredUrl = (import.meta.env.VITE_APP_URL || '').replace(
         /\/$/,
@@ -48,6 +49,10 @@ const SEO = ({
             name: 'Kielce',
         },
     };
+    const schemas = [
+        localBusinessSchema,
+        ...(Array.isArray(structuredData) ? structuredData : [structuredData]),
+    ];
 
     return (
         <Head>
@@ -98,9 +103,15 @@ const SEO = ({
                 content={imageUrl}
             />
 
-            <script type="application/ld+json">
-                {JSON.stringify(localBusinessSchema)}
-            </script>
+            {schemas.map((schema, index) => (
+                <script
+                    key={index}
+                    head-key={`structured-data-${index}`}
+                    type="application/ld+json"
+                >
+                    {JSON.stringify(schema)}
+                </script>
+            ))}
         </Head>
     );
 };

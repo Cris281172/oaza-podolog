@@ -48,12 +48,65 @@ class SeoMeta
 
         $meta = array_merge($defaults, $pages[$routeName] ?? []);
         $meta['canonical'] = url()->current();
-        $meta['image'] = asset('apple-touch-icon.png');
+        $meta['image'] = asset('og-image.jpg');
 
         if ($request->is('dashboard/*', 'settings/*', 'login', 'register', 'forgot-password', 'reset-password/*')) {
             $meta['robots'] = 'noindex, nofollow';
         }
 
         return $meta;
+    }
+
+    public static function structuredData(Request $request, array $page): array
+    {
+        $schemas = [[
+            '@context' => 'https://schema.org',
+            '@type' => 'MedicalBusiness',
+            'name' => 'Gabinet Podologiczny OAZA',
+            'url' => rtrim((string) config('app.url'), '/'),
+            'image' => asset('og-image.jpg'),
+            'telephone' => '+48 505 849 060',
+            'address' => [
+                '@type' => 'PostalAddress',
+                'streetAddress' => 'ul. Mieczysławy Ćwiklińskiej 1E',
+                'postalCode' => '25-437',
+                'addressLocality' => 'Kielce',
+                'addressCountry' => 'PL',
+            ],
+            'areaServed' => ['@type' => 'City', 'name' => 'Kielce'],
+        ]];
+
+        if ($request->route()?->getName() === 'faq') {
+            $schemas[] = [
+                '@context' => 'https://schema.org',
+                '@type' => 'FAQPage',
+                'mainEntity' => collect(data_get($page, 'props.faqs', []))->map(fn ($faq) => [
+                    '@type' => 'Question',
+                    'name' => data_get($faq, 'question'),
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => data_get($faq, 'answer'),
+                    ],
+                ])->values()->all(),
+            ];
+        }
+
+        if ($request->route()?->getName() === 'service') {
+            $service = data_get($page, 'props.service');
+            $title = trim(data_get($service, 'hero.title', '').' '.data_get($service, 'hero.titleSecond', ''));
+            $serviceUrl = route('service', ['slug' => data_get($service, 'slug')]);
+
+            $schemas[] = [
+                '@context' => 'https://schema.org',
+                '@type' => 'BreadcrumbList',
+                'itemListElement' => [
+                    ['@type' => 'ListItem', 'position' => 1, 'name' => 'Strona główna', 'item' => route('home')],
+                    ['@type' => 'ListItem', 'position' => 2, 'name' => 'Usługi', 'item' => route('services')],
+                    ['@type' => 'ListItem', 'position' => 3, 'name' => $title, 'item' => $serviceUrl],
+                ],
+            ];
+        }
+
+        return $schemas;
     }
 }

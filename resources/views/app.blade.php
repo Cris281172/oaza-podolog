@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ($appearance ?? 'system') == 'dark'])>
     <head>
         @php($seo = \App\Support\SeoMeta::forRequest(request()))
+        @php($structuredData = \App\Support\SeoMeta::structuredData(request(), $page))
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title inertia>{{ $seo['title'] }}</title>
@@ -19,6 +20,9 @@
         <meta inertia="twitter:title" name="twitter:title" content="{{ $seo['title'] }}">
         <meta inertia="twitter:description" name="twitter:description" content="{{ $seo['description'] }}">
         <meta inertia="twitter:image" name="twitter:image" content="{{ $seo['image'] }}">
+        @foreach ($structuredData as $index => $schema)
+            <script inertia="structured-data-{{ $index }}" type="application/ld+json">{!! json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) !!}</script>
+        @endforeach
 
         {{-- Inline script to detect system dark mode preference and apply it immediately --}}
         <script>

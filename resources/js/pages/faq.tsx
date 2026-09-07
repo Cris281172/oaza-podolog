@@ -22,6 +22,18 @@ const Faq = ({ faqs }: PropsI) => {
                 desc={
                     'Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące wizyt u podologa, zabiegów podologicznych, przygotowania do wizyty oraz terapii problemów stóp i paznokci.'
                 }
+                structuredData={{
+                    '@context': 'https://schema.org',
+                    '@type': 'FAQPage',
+                    mainEntity: faqs.map((faq) => ({
+                        '@type': 'Question',
+                        name: faq.question,
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: faq.answer,
+                        },
+                    })),
+                }}
             />
             <main className="bg-background">
                 <HeaderPage

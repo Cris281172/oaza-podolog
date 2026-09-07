@@ -43,6 +43,30 @@ const SingleServicePage = ({ service, crossSell }: PropsI) => {
                 title={service.seo.title}
                 desc={service.seo.description}
                 canonicalUrl={`https://gabinetpodologicznaoaza.pl/uslugi/${service.slug}`}
+                structuredData={{
+                    '@context': 'https://schema.org',
+                    '@type': 'BreadcrumbList',
+                    itemListElement: [
+                        {
+                            '@type': 'ListItem',
+                            position: 1,
+                            name: 'Strona główna',
+                            item: 'https://gabinetpodologicznaoaza.pl',
+                        },
+                        {
+                            '@type': 'ListItem',
+                            position: 2,
+                            name: 'Usługi',
+                            item: 'https://gabinetpodologicznaoaza.pl/uslugi',
+                        },
+                        {
+                            '@type': 'ListItem',
+                            position: 3,
+                            name: `${service.hero.title}${service.hero.titleSecond ? ` ${service.hero.titleSecond}` : ''}`,
+                            item: `https://gabinetpodologicznaoaza.pl/uslugi/${service.slug}`,
+                        },
+                    ],
+                }}
             />
             <main className="flex-1 bg-background">
                 {/* HERO */}
