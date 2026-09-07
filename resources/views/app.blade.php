@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ($appearance ?? 'system') == 'dark'])>
     <head>
+        @php($seo = \App\Support\SeoMeta::forRequest(request()))
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title inertia >OAZA Podolog Kielce</title>
+        <title inertia>{{ $seo['title'] }}</title>
+        <meta inertia="description" name="description" content="{{ $seo['description'] }}">
+        <meta inertia="robots" name="robots" content="{{ $seo['robots'] }}">
+        <link inertia="canonical" rel="canonical" href="{{ $seo['canonical'] }}">
+        <meta inertia="og:title" property="og:title" content="{{ $seo['title'] }}">
+        <meta inertia="og:description" property="og:description" content="{{ $seo['description'] }}">
+        <meta inertia="og:type" property="og:type" content="website">
+        <meta inertia="og:locale" property="og:locale" content="pl_PL">
+        <meta inertia="og:site_name" property="og:site_name" content="Gabinet Podologiczny OAZA">
+        <meta inertia="og:url" property="og:url" content="{{ $seo['canonical'] }}">
+        <meta inertia="og:image" property="og:image" content="{{ $seo['image'] }}">
+        <meta inertia="twitter:card" name="twitter:card" content="summary_large_image">
+        <meta inertia="twitter:title" name="twitter:title" content="{{ $seo['title'] }}">
+        <meta inertia="twitter:description" name="twitter:description" content="{{ $seo['description'] }}">
+        <meta inertia="twitter:image" name="twitter:image" content="{{ $seo['image'] }}">
 
         {{-- Inline script to detect system dark mode preference and apply it immediately --}}
         <script>
