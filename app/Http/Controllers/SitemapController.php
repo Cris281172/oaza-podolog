@@ -23,8 +23,22 @@ class SitemapController extends Controller
             ];
         }
 
-        return response()
-            ->view('sitemap', compact('urls'))
-            ->header('Content-Type', 'application/xml; charset=UTF-8');
+        $xml = '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
+        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'.PHP_EOL;
+
+        foreach ($urls as $url) {
+            $location = htmlspecialchars($url['loc'], ENT_XML1 | ENT_QUOTES, 'UTF-8');
+            $xml .= "    <url>\n";
+            $xml .= "        <loc>{$location}</loc>\n";
+            $xml .= "        <priority>{$url['priority']}</priority>\n";
+            $xml .= "    </url>\n";
+        }
+
+        $xml .= '</urlset>'.PHP_EOL;
+
+        return response($xml, 200, [
+            'Content-Type' => 'application/xml; charset=UTF-8',
+            'Cache-Control' => 'public, max-age=3600',
+        ]);
     }
 }
