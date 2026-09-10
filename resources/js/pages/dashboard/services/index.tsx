@@ -1,3 +1,4 @@
+import { SortArrowButtons } from '@/components/dashboard/sort-arrow-buttons';
 import DeleteConfirmDialog from '@/components/deleteConfirmDialog';
 import HeadingSmall from '@/components/heading-small';
 import { Button } from '@/components/ui/button';
@@ -12,7 +13,8 @@ import {
     DndContext,
     DragEndEvent,
     KeyboardSensor,
-    PointerSensor,
+    MouseSensor,
+    TouchSensor,
     useSensor,
     useSensors,
 } from '@dnd-kit/core';
@@ -40,9 +42,15 @@ const breadcrumbs: BreadcrumbItem[] = [
 const SortableServiceItem = ({
     item,
     onDelete,
+    onMove,
+    canMoveUp,
+    canMoveDown,
 }: {
     item: ServiceItem;
     onDelete: (itemId: number) => void;
+    onMove: (offset: -1 | 1) => void;
+    canMoveUp: boolean;
+    canMoveDown: boolean;
 }) => {
     const { attributes, listeners, setNodeRef, transform, transition } =
         useSortable({ id: item.id });
@@ -59,10 +67,17 @@ const SortableServiceItem = ({
                         <div
                             {...attributes}
                             {...listeners}
-                            className="cursor-grab text-muted-foreground active:cursor-grabbing"
+                            className="cursor-grab touch-none text-muted-foreground select-none active:cursor-grabbing"
                         >
                             <GripVertical size={20} />
                         </div>
+                        <SortArrowButtons
+                            label={item.name}
+                            onMoveUp={() => onMove(-1)}
+                            onMoveDown={() => onMove(1)}
+                            canMoveUp={canMoveUp}
+                            canMoveDown={canMoveDown}
+                        />
                         <div className="flex-1">
                             <p>Zabieg podologiczny 0{item.order}</p>
                             <p className="font-medium">{item.name}</p>
@@ -106,11 +121,17 @@ const SortableCategorySection = ({
     onReorderServices,
     onDeleteService,
     handleDeleteCategory,
+    onMoveCategory,
+    canMoveUp,
+    canMoveDown,
 }: {
     category: ServiceCategory;
     onReorderServices: (categoryID: number, newItems: ServiceItem[]) => void;
     onDeleteService: (categoryID: number, serviceID: number) => void;
     handleDeleteCategory: (categoryID: number) => void;
+    onMoveCategory: (offset: -1 | 1) => void;
+    canMoveUp: boolean;
+    canMoveDown: boolean;
 }) => {
     const { delete: destroy, processing } = useForm();
 
@@ -122,7 +143,12 @@ const SortableCategorySection = ({
     };
 
     const sensors = useSensors(
-        useSensor(PointerSensor),
+        useSensor(MouseSensor, {
+            activationConstraint: { distance: 5 },
+        }),
+        useSensor(TouchSensor, {
+            activationConstraint: { delay: 200, tolerance: 5 },
+        }),
         useSensor(KeyboardSensor, {
             coordinateGetter: sortableKeyboardCoordinates,
         }),
@@ -166,10 +192,17 @@ const SortableCategorySection = ({
                     <div
                         {...attributes}
                         {...listeners}
-                        className="cursor-grab text-muted-foreground active:cursor-grabbing"
+                        className="cursor-grab touch-none text-muted-foreground select-none active:cursor-grabbing"
                     >
                         <GripVertical size={18} />
                     </div>
+                    <SortArrowButtons
+                        label={category.name}
+                        onMoveUp={() => onMoveCategory(-1)}
+                        onMoveDown={() => onMoveCategory(1)}
+                        canMoveUp={canMoveUp}
+                        canMoveDown={canMoveDown}
+                    />
                     <h3 className="font-semibold">{category.name}</h3>
                 </div>
                 <div className={'flex gap-2'}>
@@ -223,13 +256,29 @@ const SortableCategorySection = ({
                     items={category.services}
                     strategy={verticalListSortingStrategy}
                 >
-                    {category.services.map((item) => (
+                    {category.services.map((item, index) => (
                         <SortableServiceItem
                             key={item.id}
                             item={item}
                             onDelete={(serviceId) =>
                                 onDeleteService(category.id, serviceId)
                             }
+                            onMove={(offset) => {
+                                const newOrder = arrayMove(
+                                    category.services,
+                                    index,
+                                    index + offset,
+                                ).map((service, order) => ({
+                                    ...service,
+                                    order: order + 1,
+                                }));
+                                onReorderServices(category.id, newOrder);
+                                router.post(services.reorder().url, {
+                                    ids: newOrder.map((service) => service.id),
+                                });
+                            }}
+                            canMoveUp={index > 0}
+                            canMoveDown={index < category.services.length - 1}
                         />
                     ))}
                 </SortableContext>
@@ -247,7 +296,12 @@ const Index = ({
         useState<ServiceCategory[]>(initialCategories);
 
     const categorySensors = useSensors(
-        useSensor(PointerSensor),
+        useSensor(MouseSensor, {
+            activationConstraint: { distance: 5 },
+        }),
+        useSensor(TouchSensor, {
+            activationConstraint: { delay: 200, tolerance: 5 },
+        }),
         useSensor(KeyboardSensor, {
             coordinateGetter: sortableKeyboardCoordinates,
         }),
@@ -344,13 +398,38 @@ const Index = ({
                             items={categories.map((c) => `category-${c.id}`)}
                             strategy={verticalListSortingStrategy}
                         >
-                            {categories.map((category) => (
+                            {categories.map((category, index) => (
                                 <SortableCategorySection
                                     key={category.id}
                                     category={category}
                                     onReorderServices={handleReorderServices}
                                     onDeleteService={handleDeleteService}
                                     handleDeleteCategory={handleDeleteCategory}
+                                    onMoveCategory={(offset) => {
+                                        const newOrder = arrayMove(
+                                            categories,
+                                            index,
+                                            index + offset,
+                                        ).map((entry, order) => ({
+                                            ...entry,
+                                            order: order + 1,
+                                        }));
+                                        setCategories(newOrder);
+                                        router.post(
+                                            services.reorderCategories().url,
+                                            {
+                                                ids: newOrder.map(
+                                                    (entry) => entry.id,
+                                                ),
+                                            },
+                                            {
+                                                preserveScroll: true,
+                                                preserveState: true,
+                                            },
+                                        );
+                                    }}
+                                    canMoveUp={index > 0}
+                                    canMoveDown={index < categories.length - 1}
                                 />
                             ))}
                         </SortableContext>

@@ -47,6 +47,16 @@ export interface Faq {
     order: number;
     question: string;
     id: number;
+    show_on_home: boolean;
+    home_order: number | null;
+}
+
+export interface Certificate {
+    id: number;
+    title: string;
+    image_path: string;
+    thumbnail_path: string;
+    order: number;
 }
 
 export interface Blog {

@@ -48,7 +48,7 @@ const CTASection = ({
                                 href="/kontakt"
                                 className="flex items-center gap-2"
                             >
-                                <span>Umów wizytę online</span>
+                                <span>Umów wizytę</span>
                                 <ArrowRight className="h-4 w-4" />
                             </Link>
                         </Button>
@@ -70,7 +70,7 @@ const CTASection = ({
                     </div>
 
                     <p className="mt-10 text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase">
-                        Oaza Kielce • Gabinet Podologiczny
+                        Podologiczna Oaza • Kielce
                     </p>
                 </motion.div>
             </div>

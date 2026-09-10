@@ -37,10 +37,10 @@ const Faq = ({ faqs }: PropsI) => {
             />
             <main className="bg-background">
                 <HeaderPage
-                    overline="Oaza Kielce"
+                    overline="Podologiczna Oaza Kielce"
                     title="Najczęściej"
                     titleSecondary="zadawane pytania"
-                    text="Znajdź odpowiedzi na najczęstsze pytania dotyczące wizyt, terapii, zapisów oraz przebiegu leczenia w Oaza Kielce."
+                    text="Znajdź odpowiedzi na najczęstsze pytania dotyczące wizyt, terapii, zapisów oraz przebiegu leczenia w Podologicznej Oazie w Kielcach."
                 />
                 <section className="py-16 md:py-24">
                     <div className="container mx-auto px-4">

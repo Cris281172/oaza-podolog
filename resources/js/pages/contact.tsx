@@ -1,4 +1,5 @@
 import CTASection from '@/components/cta-section';
+import ExternalMap from '@/components/external-map';
 import HeaderPage from '@/components/header-page';
 import Seo from '@/components/seo';
 import { Button } from '@/components/ui/button';
@@ -107,18 +108,7 @@ const Contact = () => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="mx-auto mt-12 h-80 max-w-5xl overflow-hidden rounded-3xl border border-slate-100 bg-slate-50 shadow-xl shadow-primary/5 md:h-[28rem]"
                         >
-                            <iframe
-                                title="Lokalizacja gabinetu podologicznego OAZA w Kielcach"
-                                src="https://www.google.com/maps?q=Gabinet%20Podologiczny%20OAZA%2C%20Mieczys%C5%82awy%20%C4%86wikli%C5%84skiej%201E%2C%2025-437%20Kielce&output=embed"
-                                width="100%"
-                                height="100%"
-                                style={{
-                                    border: 0,
-                                    filter: 'grayscale(0.2) contrast(1.1)',
-                                }}
-                                allowFullScreen
-                                loading="lazy"
-                            ></iframe>
+                            <ExternalMap />
                         </motion.div>
                     </div>
                 </section>

@@ -10,6 +10,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import certificates from '@/routes/dashboard/certificates';
 import faq from '@/routes/dashboard/faq';
 import dashboard from '@/routes/dashboard/index';
 import pricing from '@/routes/dashboard/pricing';
@@ -17,9 +18,12 @@ import services from '@/routes/dashboard/services';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import {
+    Award,
+    ExternalLink,
     Folder,
     LayoutGrid,
     MessageCircleQuestionIcon,
+    ShieldCheck,
     Wallet,
 } from 'lucide-react';
 import AppLogo from './app-logo';
@@ -45,9 +49,24 @@ const mainNavItems: NavItem[] = [
         href: services.index.url(),
         icon: Folder,
     },
+    {
+        title: 'Certyfikaty',
+        href: certificates.index.url(),
+        icon: Award,
+    },
+    {
+        title: 'Polityka prywatności',
+        href: '/dashboard/privacy-policy',
+        icon: ShieldCheck,
+    },
 ];
 
 const footerNavItems: NavItem[] = [
+    {
+        title: 'Zobacz stronę',
+        href: '/',
+        icon: ExternalLink,
+    },
     {
         title: 'Repozytorium ',
         href: 'https://github.com/Cris281172/oaza-podolog',

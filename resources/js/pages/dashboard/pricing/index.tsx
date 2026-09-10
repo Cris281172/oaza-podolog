@@ -1,3 +1,4 @@
+import { SortArrowButtons } from '@/components/dashboard/sort-arrow-buttons';
 import DeleteConfirmDialog from '@/components/deleteConfirmDialog';
 import HeadingSmall from '@/components/heading-small';
 import { Button } from '@/components/ui/button';
@@ -14,7 +15,8 @@ import {
     DndContext,
     DragEndEvent,
     KeyboardSensor,
-    PointerSensor,
+    MouseSensor,
+    TouchSensor,
     useSensor,
     useSensors,
 } from '@dnd-kit/core';
@@ -47,11 +49,17 @@ const SortableSubItem = ({
     onDelete,
     isHomeSelected,
     onHomeToggle,
+    onMove,
+    canMoveUp,
+    canMoveDown,
 }: {
     subItem: PricingItem;
     onDelete: (id: number) => void;
     isHomeSelected: boolean;
     onHomeToggle: (item: PricingItem) => void;
+    onMove: (offset: -1 | 1) => void;
+    canMoveUp: boolean;
+    canMoveDown: boolean;
 }) => {
     const { attributes, listeners, setNodeRef, transform, transition } =
         useSortable({ id: `sub-${subItem.id}` });
@@ -67,9 +75,20 @@ const SortableSubItem = ({
             style={style}
             className="mb-1 flex items-center gap-2 rounded-md bg-secondary/50 p-2 text-sm"
         >
-            <div {...attributes} {...listeners} className="cursor-grab">
+            <div
+                {...attributes}
+                {...listeners}
+                className="cursor-grab touch-none select-none active:cursor-grabbing"
+            >
                 <GripVertical size={14} />
             </div>
+            <SortArrowButtons
+                label={subItem.name}
+                onMoveUp={() => onMove(-1)}
+                onMoveDown={() => onMove(1)}
+                canMoveUp={canMoveUp}
+                canMoveDown={canMoveDown}
+            />
             <div className={'flex w-full items-center justify-between'}>
                 <span className="flex-1">
                     {subItem.name} - {subItem.price} zł
@@ -124,6 +143,17 @@ const PricingSubItemsList = ({
     onHomeRemove: (id: number) => void;
 }) => {
     const [subItems, setSubItems] = useState(initialItems);
+    const sensors = useSensors(
+        useSensor(MouseSensor, {
+            activationConstraint: { distance: 5 },
+        }),
+        useSensor(TouchSensor, {
+            activationConstraint: { delay: 200, tolerance: 5 },
+        }),
+        useSensor(KeyboardSensor, {
+            coordinateGetter: sortableKeyboardCoordinates,
+        }),
+    );
 
     const handleDelete = (id: number) => {
         router.delete(pricingItemRoutes.destroy.url(id), {
@@ -162,8 +192,19 @@ const PricingSubItemsList = ({
         }
     };
 
+    const moveSubItem = (index: number, offset: -1 | 1) => {
+        const newOrder = arrayMove(subItems, index, index + offset);
+        setSubItems(newOrder);
+        router.post(
+            pricingItemRoutes.reorder().url,
+            { ids: newOrder.map((item) => item.id) },
+            { preserveScroll: true, preserveState: true },
+        );
+    };
+
     return (
         <DndContext
+            sensors={sensors}
             collisionDetection={closestCenter}
             onDragEnd={handleSubDragEnd}
         >
@@ -172,13 +213,16 @@ const PricingSubItemsList = ({
                 strategy={verticalListSortingStrategy}
             >
                 <div className="mt-3 space-y-1">
-                    {subItems.map((sub) => (
+                    {subItems.map((sub, index) => (
                         <SortableSubItem
                             key={sub.id}
                             subItem={sub}
                             onDelete={handleDelete}
                             isHomeSelected={selectedHomeIds.has(sub.id)}
                             onHomeToggle={onHomeToggle}
+                            onMove={(offset) => moveSubItem(index, offset)}
+                            canMoveUp={index > 0}
+                            canMoveDown={index < subItems.length - 1}
                         />
                     ))}
                 </div>
@@ -193,12 +237,18 @@ const SortablePricingItem = ({
     selectedHomeIds,
     onHomeToggle,
     onHomeRemove,
+    onMove,
+    canMoveUp,
+    canMoveDown,
 }: {
     item: Pricings;
     onDelete: (id: number) => void;
     selectedHomeIds: Set<number>;
     onHomeToggle: (item: PricingItem) => void;
     onHomeRemove: (id: number) => void;
+    onMove: (offset: -1 | 1) => void;
+    canMoveUp: boolean;
+    canMoveDown: boolean;
 }) => {
     const { attributes, listeners, setNodeRef, transform, transition } =
         useSortable({ id: item.id });
@@ -218,10 +268,17 @@ const SortablePricingItem = ({
                         <div
                             {...attributes}
                             {...listeners}
-                            className="cursor-grab text-muted-foreground active:cursor-grabbing"
+                            className="cursor-grab touch-none text-muted-foreground select-none active:cursor-grabbing"
                         >
                             <GripVertical size={20} />
                         </div>
+                        <SortArrowButtons
+                            label={item.title}
+                            onMoveUp={() => onMove(-1)}
+                            onMoveDown={() => onMove(1)}
+                            canMoveUp={canMoveUp}
+                            canMoveDown={canMoveDown}
+                        />
                         <div className="flex-1">
                             <p className="font-medium">{item.title}</p>
                         </div>
@@ -273,7 +330,17 @@ const SortablePricingItem = ({
     );
 };
 
-const SortableHomeItem = ({ item }: { item: PricingItem }) => {
+const SortableHomeItem = ({
+    item,
+    onMove,
+    canMoveUp,
+    canMoveDown,
+}: {
+    item: PricingItem;
+    onMove: (offset: -1 | 1) => void;
+    canMoveUp: boolean;
+    canMoveDown: boolean;
+}) => {
     const { attributes, listeners, setNodeRef, transform, transition } =
         useSortable({ id: `home-${item.id}` });
 
@@ -287,11 +354,18 @@ const SortableHomeItem = ({ item }: { item: PricingItem }) => {
                 type="button"
                 {...attributes}
                 {...listeners}
-                className="cursor-grab text-muted-foreground active:cursor-grabbing"
+                className="cursor-grab touch-none text-muted-foreground select-none active:cursor-grabbing"
                 aria-label={`Zmień kolejność: ${item.name}`}
             >
                 <GripVertical size={18} />
             </button>
+            <SortArrowButtons
+                label={item.name}
+                onMoveUp={() => onMove(-1)}
+                onMoveDown={() => onMove(1)}
+                canMoveUp={canMoveUp}
+                canMoveDown={canMoveDown}
+            />
             <span className="flex-1 text-sm font-medium">{item.name}</span>
             <span className="text-sm font-semibold text-primary">
                 {item.price} zł
@@ -309,7 +383,12 @@ const Index = ({ pricing }: PropsI) => {
             .sort((a, b) => (a.home_order ?? 0) - (b.home_order ?? 0)),
     );
     const sensors = useSensors(
-        useSensor(PointerSensor),
+        useSensor(MouseSensor, {
+            activationConstraint: { distance: 5 },
+        }),
+        useSensor(TouchSensor, {
+            activationConstraint: { delay: 200, tolerance: 5 },
+        }),
         useSensor(KeyboardSensor, {
             coordinateGetter: sortableKeyboardCoordinates,
         }),
@@ -443,10 +522,23 @@ const Index = ({ pricing }: PropsI) => {
                                     strategy={verticalListSortingStrategy}
                                 >
                                     <div className="space-y-2">
-                                        {homeItems.map((item) => (
+                                        {homeItems.map((item, index) => (
                                             <SortableHomeItem
                                                 key={item.id}
                                                 item={item}
+                                                onMove={(offset) =>
+                                                    saveHomeItems(
+                                                        arrayMove(
+                                                            homeItems,
+                                                            index,
+                                                            index + offset,
+                                                        ),
+                                                    )
+                                                }
+                                                canMoveUp={index > 0}
+                                                canMoveDown={
+                                                    index < homeItems.length - 1
+                                                }
                                             />
                                         ))}
                                     </div>
@@ -469,7 +561,7 @@ const Index = ({ pricing }: PropsI) => {
                         strategy={verticalListSortingStrategy}
                     >
                         <div className="mx-auto max-w-2xl py-6">
-                            {items.map((item) => (
+                            {items.map((item, index) => (
                                 <SortablePricingItem
                                     key={item.id}
                                     item={item}
@@ -477,6 +569,28 @@ const Index = ({ pricing }: PropsI) => {
                                     selectedHomeIds={selectedHomeIds}
                                     onHomeToggle={handleHomeToggle}
                                     onHomeRemove={handleHomeRemove}
+                                    onMove={(offset) => {
+                                        const newOrder = arrayMove(
+                                            items,
+                                            index,
+                                            index + offset,
+                                        );
+                                        setItems(newOrder);
+                                        router.post(
+                                            pricingRoutes.reorder().url,
+                                            {
+                                                ids: newOrder.map(
+                                                    (entry) => entry.id,
+                                                ),
+                                            },
+                                            {
+                                                preserveScroll: true,
+                                                preserveState: true,
+                                            },
+                                        );
+                                    }}
+                                    canMoveUp={index > 0}
+                                    canMoveDown={index < items.length - 1}
                                 />
                             ))}
                         </div>

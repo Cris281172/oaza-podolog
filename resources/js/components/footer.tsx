@@ -2,25 +2,24 @@ import { Link } from '@inertiajs/react';
 import { Clock, Facebook, MapPin, Phone } from 'lucide-react';
 const Footer = () => {
     return (
-        <footer className="border-t border-border bg-secondary">
-            <div className="container mx-auto px-4 py-12">
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <footer className="border-t border-slate-100 bg-muted/50">
+            <div className="container mx-auto max-w-6xl px-4 py-14 md:py-16">
+                <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-12">
                     <div>
-                        <h3 className="mb-4 text-lg font-bold text-primary">
+                        <h3 className="mb-4 text-lg font-bold text-slate-900">
                             GABINET PODOLOGICZNA OAZA
                         </h3>
                         <p className="mb-4 text-sm text-muted-foreground">
                             Profesjonalna opieka podologiczna w Kielcach. Dbamy
                             o zdrowie Twoich stóp.
                         </p>
-                        <div className={'flex gap-1'}>
+                        <div className="flex gap-2">
                             <a
-                                aria-label="Odwiedź profil OAZA na TikToku"
-                                href={
-                                    'https://www.tiktok.com/@podolog_kielce?_r=1&_d=secCgYIASAHKAESPgo8mcv4a2yEc4%2BHvW94vijmNuCl8JRmbRNGJK37EMZQ2eF6SrcxOuMK2ZEmMLHh6s2i4RqRI7XercGimkUzGgA%3D&_svg=2&checksum=cabb966a06978a72d6ea4acebc4d8d5d2e6d98e8ac9a00f6b74aa4b619f1b91c&item_author_type=1&reflow_sign_scene=7&rgssign=8.1.DlVUoObundwROICFwl8kFw&sec_uid=MS4wLjABAAAAeBBnzo0lMdE8e9jIXIVcsm3XWKFaK6lgwY6K83dN4olpMbIDJtp3wx2SXkxpqogu&sec_user_id=MS4wLjABAAAAeBBnzo0lMdE8e9jIXIVcsm3XWKFaK6lgwY6K83dN4olpMbIDJtp3wx2SXkxpqogu&share_app_id=1233&share_author_id=7597363463048250390&share_link_id=9BCA3EEF-39E3-4B0A-89B9-5E75BCB641A6&share_region=PL&share_scene=1&sharer_language=pl&social_share_type=4&source=h5_m&timestamp=1784786530&tt_from=copy&u_code=f1feh8dbahbmi8&ug_btm=b8727%2Cb0&user_id=7597363463048250390&utm_campaign=client_share&utm_medium=ios&utm_source=copy'
-                                }
+                                aria-label="Odwiedź profil Podologicznej Oazy na TikToku"
+                                href="https://www.tiktok.com/@podolog_kielce"
                                 target={'_blank'}
-                                className={'rounded-full bg-primary p-2'}
+                                rel="noopener noreferrer"
+                                className="rounded-full bg-primary p-2 transition-transform hover:-translate-y-0.5"
                             >
                                 <img
                                     src="/images/tiktok.svg"
@@ -32,12 +31,11 @@ const Footer = () => {
                                 />
                             </a>
                             <a
-                                href={
-                                    'https://www.facebook.com/profile.php?id=61566252414011'
-                                }
+                                href="https://www.facebook.com/people/Gabinet-Podologiczna-Oaza-Podolog-Kielce/61566252414011/"
                                 target={'_blank'}
-                                aria-label="Odwiedź profil OAZA na Facebooku"
-                                className={'rounded-full bg-primary p-2'}
+                                rel="noopener noreferrer"
+                                aria-label="Odwiedź profil Podologicznej Oazy na Facebooku"
+                                className="rounded-full bg-primary p-2 transition-transform hover:-translate-y-0.5"
                             >
                                 <Facebook
                                     className={'text-gray-100'}
@@ -49,10 +47,12 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h4 className="mb-4 text-sm font-semibold">Kontakt</h4>
+                        <h4 className="mb-4 text-sm font-bold tracking-wider text-slate-900 uppercase">
+                            Kontakt
+                        </h4>
                         <div className="space-y-2 text-sm text-muted-foreground">
                             <div className="flex items-center space-x-2">
-                                <MapPin className="h-4 w-4" />
+                                <MapPin className="h-4 w-4 shrink-0 text-primary" />
                                 <span>
                                     ul. Mieczysławy Ćwiklińskiej 1E
                                     <br />
@@ -60,7 +60,7 @@ const Footer = () => {
                                 </span>
                             </div>
                             <div className="flex items-center space-x-2">
-                                <Phone className="h-4 w-4" />
+                                <Phone className="h-4 w-4 shrink-0 text-primary" />
                                 <a
                                     href="tel:505849060"
                                     className="transition-colors hover:text-primary"
@@ -69,7 +69,7 @@ const Footer = () => {
                                 </a>
                             </div>
                             <div className="flex items-start space-x-2">
-                                <Clock className="h-4 w-4" />
+                                <Clock className="h-4 w-4 shrink-0 text-primary" />
                                 <div className={'flex flex-col'}>
                                     <span>Pon-Czw: 16:00 - 20:00</span>
                                     <span>Pt: 14:00 - 20:00</span>
@@ -81,7 +81,9 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h4 className="mb-4 text-sm font-semibold">Menu</h4>
+                        <h4 className="mb-4 text-sm font-bold tracking-wider text-slate-900 uppercase">
+                            Menu
+                        </h4>
                         <nav className="space-y-2 text-sm">
                             <Link
                                 href="/"
@@ -108,14 +110,20 @@ const Footer = () => {
                             >
                                 Kontakt
                             </Link>
+                            <Link
+                                href="/polityka-prywatnosci"
+                                className="block text-muted-foreground transition-colors hover:text-primary"
+                            >
+                                Polityka prywatności i cookies
+                            </Link>
                         </nav>
                     </div>
                 </div>
 
-                <div className="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">
+                <div className="mt-10 border-t border-slate-200/70 pt-7 text-center text-xs text-muted-foreground">
                     <p>
                         &copy; {new Date().getFullYear()} Gabinet Podologiczny
-                        OAZA. Wszelkie prawa zastrzeżone.
+                        Podologiczna Oaza. Wszelkie prawa zastrzeżone.
                     </p>
                 </div>
             </div>

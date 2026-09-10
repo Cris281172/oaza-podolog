@@ -2,6 +2,7 @@
 
 namespace App\Support;
 
+use App\Services\PodologyService;
 use Illuminate\Http\Request;
 
 class SeoMeta
@@ -10,33 +11,37 @@ class SeoMeta
     {
         $routeName = $request->route()?->getName();
         $defaults = [
-            'title' => 'Podolog Kielce – Gabinet Podologiczny OAZA',
-            'description' => 'Gabinet podologiczny OAZA w Kielcach. Profesjonalna pomoc przy wrastających paznokciach, odciskach, brodawkach, modzelach i innych problemach stóp.',
+            'title' => 'Podolog Kielce – Gabinet Podologiczna Oaza',
+            'description' => 'Gabinet Podologiczna Oaza w Kielcach. Profesjonalna pomoc przy wrastających paznokciach, odciskach, brodawkach, modzelach i innych problemach stóp.',
             'robots' => 'index, follow',
         ];
 
         $pages = [
             'home' => $defaults,
             'services' => [
-                'title' => 'Usługi podologiczne Kielce | OAZA',
-                'description' => 'Poznaj usługi podologiczne w gabinecie OAZA w Kielcach. Terapia wrastających paznokci, odcisków, modzeli i brodawek oraz pielęgnacja stóp.',
+                'title' => 'Usługi podologiczne Kielce | Podologiczna Oaza',
+                'description' => 'Poznaj usługi w gabinecie Podologiczna Oaza w Kielcach. Terapia wrastających paznokci, odcisków, modzeli i brodawek oraz pielęgnacja stóp.',
             ],
             'priceList' => [
-                'title' => 'Cennik usług podologicznych Kielce | OAZA',
-                'description' => 'Sprawdź cennik usług podologicznych w gabinecie OAZA w Kielcach: konsultacje, pedicure podologiczny i terapie problemów stóp oraz paznokci.',
+                'title' => 'Cennik usług podologicznych Kielce | Podologiczna Oaza',
+                'description' => 'Sprawdź cennik usług gabinetu Podologiczna Oaza w Kielcach: konsultacje, pedicure podologiczny i terapie problemów stóp oraz paznokci.',
             ],
             'contact' => [
-                'title' => 'Kontakt – Podolog Kielce | OAZA',
-                'description' => 'Skontaktuj się z gabinetem podologicznym OAZA w Kielcach, sprawdź adres, godziny otwarcia i umów wizytę telefonicznie.',
+                'title' => 'Kontakt – Podolog Kielce | Podologiczna Oaza',
+                'description' => 'Skontaktuj się z gabinetem Podologiczna Oaza w Kielcach, sprawdź adres, godziny otwarcia i umów wizytę telefonicznie.',
             ],
             'faq' => [
-                'title' => 'FAQ – pytania do podologa | OAZA Kielce',
+                'title' => 'FAQ – pytania do podologa | Podologiczna Oaza Kielce',
                 'description' => 'Odpowiedzi na najczęstsze pytania dotyczące wizyt u podologa, zabiegów, przygotowania do wizyty oraz terapii problemów stóp i paznokci.',
+            ],
+            'privacyPolicy' => [
+                'title' => 'Polityka prywatności i cookies | Podologiczna Oaza',
+                'description' => 'Informacje o ochronie danych osobowych, plikach cookies i usługach zewnętrznych na stronie gabinetu Podologiczna Oaza.',
             ],
         ];
 
         if ($routeName === 'service') {
-            $service = config('podology_services.'.$request->route('slug').'.seo');
+            $service = PodologyService::resolve((string) $request->route('slug'))['seo'] ?? null;
 
             if ($service) {
                 $pages['service'] = [
@@ -62,7 +67,7 @@ class SeoMeta
         $schemas = [[
             '@context' => 'https://schema.org',
             '@type' => 'MedicalBusiness',
-            'name' => 'Gabinet Podologiczny OAZA',
+            'name' => 'Gabinet Podologiczna Oaza',
             'url' => rtrim((string) config('app.url'), '/'),
             'image' => asset('og-image.jpg'),
             'telephone' => '+48 505 849 060',

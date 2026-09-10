@@ -1,0 +1,1 @@
+import{r as t}from"./app-CKd-s57d.js";const r=768,e=window.matchMedia(`(max-width: ${r-1}px)`);function i(n){return e.addEventListener("change",n),()=>{e.removeEventListener("change",n)}}function o(){return e.matches}function s(){return t.useSyncExternalStore(i,o)}export{s as u};

@@ -10,8 +10,8 @@ interface PropsI {
 }
 
 const SEO = ({
-    title = 'Podolog Kielce – Leczenie Wrastających Paznokci | OAZA',
-    desc = 'Podolog Kielce OAZA – leczenie wrastających paznokci, odcisków, brodawek i problemów stóp. Umów konsultację podologiczną w Kielcach.',
+    title = 'Podolog Kielce – Leczenie Wrastających Paznokci | Podologiczna Oaza',
+    desc = 'Podologiczna Oaza w Kielcach – pomoc przy wrastających paznokciach, odciskach, brodawkach i problemach stóp. Umów konsultację podologiczną.',
     canonicalUrl,
     image = '/og-image.jpg',
     noindex = false,
@@ -33,7 +33,7 @@ const SEO = ({
     const localBusinessSchema = {
         '@context': 'https://schema.org',
         '@type': 'MedicalBusiness',
-        name: 'Gabinet Podologiczny OAZA',
+        name: 'Gabinet Podologiczna Oaza',
         url: appUrl,
         image: imageUrl,
         telephone: '+48 505 849 060',
@@ -73,13 +73,13 @@ const SEO = ({
             <meta
                 head-key="og:site_name"
                 property="og:site_name"
-                content="Gabinet Podologiczny OAZA"
+                content="Gabinet Podologiczna Oaza"
             />
             <meta head-key="og:url" property="og:url" content={finalUrl} />
             <meta head-key="og:image" property="og:image" content={imageUrl} />
             <meta
                 property="og:image:alt"
-                content="Gabinet Podologiczny OAZA w Kielcach"
+                content="Gabinet Podologiczna Oaza w Kielcach"
             />
 
             <meta

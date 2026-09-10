@@ -1,5 +1,6 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { motion } from 'framer-motion';
+import { ReactNode } from 'react';
 
 interface BreadcrumbItemI {
     title: string;
@@ -12,6 +13,7 @@ interface PropsI {
     titleSecondary?: string;
     text?: string;
     breadcrumbs?: BreadcrumbItemI[];
+    children?: ReactNode;
 }
 
 const HeaderPage = ({
@@ -20,6 +22,7 @@ const HeaderPage = ({
     titleSecondary,
     text,
     breadcrumbs,
+    children,
 }: PropsI) => {
     return (
         <section className="border-b border-slate-100 bg-muted/50 py-16 md:py-24">
@@ -54,6 +57,8 @@ const HeaderPage = ({
                             {text}
                         </p>
                     )}
+
+                    {children && <div className="mt-6">{children}</div>}
                 </motion.div>
             </div>
         </section>

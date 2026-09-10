@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Response;
+use Throwable;
 
 class SitemapController extends Controller
 {
@@ -14,9 +16,21 @@ class SitemapController extends Controller
             ['loc' => route('priceList'), 'priority' => '0.8'],
             ['loc' => route('contact'), 'priority' => '0.7'],
             ['loc' => route('faq'), 'priority' => '0.7'],
+            ['loc' => route('privacyPolicy'), 'priority' => '0.3'],
         ];
 
-        foreach (array_keys(config('podology_services', [])) as $slug) {
+        $serviceSlugs = array_keys(config('podology_services', []));
+
+        try {
+            $serviceSlugs = array_values(array_unique([
+                ...$serviceSlugs,
+                ...Service::query()->pluck('slug')->all(),
+            ]));
+        } catch (Throwable) {
+            // The configured pages remain available if the database is temporarily unavailable.
+        }
+
+        foreach ($serviceSlugs as $slug) {
             $urls[] = [
                 'loc' => route('service', ['slug' => $slug]),
                 'priority' => '0.8',

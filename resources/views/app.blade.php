@@ -13,7 +13,7 @@
         <meta inertia="og:description" property="og:description" content="{{ $seo['description'] }}">
         <meta inertia="og:type" property="og:type" content="website">
         <meta inertia="og:locale" property="og:locale" content="pl_PL">
-        <meta inertia="og:site_name" property="og:site_name" content="Gabinet Podologiczny OAZA">
+        <meta inertia="og:site_name" property="og:site_name" content="Gabinet Podologiczna Oaza">
         <meta inertia="og:url" property="og:url" content="{{ $seo['canonical'] }}">
         <meta inertia="og:image" property="og:image" content="{{ $seo['image'] }}">
         <meta inertia="twitter:card" name="twitter:card" content="summary_large_image">

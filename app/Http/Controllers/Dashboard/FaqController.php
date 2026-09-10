@@ -14,10 +14,10 @@ class FaqController extends Controller
     /**
      * Display a listing of the resource.
      */
-
     public function index()
     {
         $faqs = Faq::orderBy('order', 'asc')->get();
+
         return Inertia::render('dashboard/faq/index', compact('faqs'));
     }
 
@@ -80,11 +80,37 @@ class FaqController extends Controller
 
         return back();
     }
-    public function reorder(Request $request){
-        $ids = $request->input('ids');
-        foreach ($ids as $index => $id) {
+
+    public function reorder(Request $request)
+    {
+        $validated = $request->validate([
+            'ids' => ['required', 'array'],
+            'ids.*' => ['integer', 'exists:faqs,id'],
+        ]);
+
+        foreach ($validated['ids'] as $index => $id) {
             Faq::where('id', $id)->update(['order' => $index]);
         }
+
+        return back();
+    }
+
+    public function updateHomePreview(Request $request)
+    {
+        $validated = $request->validate([
+            'ids' => ['present', 'array'],
+            'ids.*' => ['integer', 'distinct', 'exists:faqs,id'],
+        ]);
+
+        Faq::query()->update(['show_on_home' => false, 'home_order' => null]);
+
+        foreach ($validated['ids'] as $index => $id) {
+            Faq::whereKey($id)->update([
+                'show_on_home' => true,
+                'home_order' => $index,
+            ]);
+        }
+
         return back();
     }
 }

@@ -5,7 +5,7 @@ return [
         'slug' => 'bezplatna-konsultacja-z-ulotka',
 
         'seo' => [
-            'title' => 'Bezpłatna konsultacja podologiczna Kielce | OAZA',
+            'title' => 'Bezpłatna konsultacja podologiczna Kielce | Podologiczna Oaza',
             'description' => 'Bezpłatna konsultacja podologiczna w Kielcach z ulotką informacyjną. Wstępna ocena stanu stóp i dobór dalszej terapii.',
         ],
 
@@ -13,7 +13,6 @@ return [
             'title' => 'Bezpłatna konsultacja',
             'titleSecond' => 'z ulotką',
             'text' => 'Wstępna konsultacja podologiczna wraz z materiałami informacyjnymi. Oceniamy stan stóp i wskazujemy możliwe kierunki dalszego leczenia.',
-            'price_from' => '0 zł',
         ],
 
         'symptoms' => [
@@ -59,7 +58,7 @@ return [
         'slug' => 'bezplatna-konsultacja-w-ramach-zabiegu',
 
         'seo' => [
-            'title' => 'Konsultacja podologiczna w trakcie zabiegu | OAZA Kielce',
+            'title' => 'Konsultacja podologiczna w trakcie zabiegu | Podologiczna Oaza Kielce',
             'description' => 'Bezpłatna konsultacja podologiczna w ramach wykonywanego zabiegu w Kielcach. Ocena stanu stóp i plan terapii.',
         ],
 
@@ -67,7 +66,6 @@ return [
             'title' => 'Konsultacja',
             'titleSecond' => 'w ramach zabiegu',
             'text' => 'Konsultacja podologiczna wykonywana podczas zabiegu. Obejmuje diagnostykę oraz dobór odpowiedniej terapii bez dodatkowych kosztów.',
-            'price_from' => '0 zł',
         ],
 
         'symptoms' => [
@@ -114,7 +112,7 @@ return [
         'slug' => 'konsultacja-podologiczna-w-gabinecie',
 
         'seo' => [
-            'title' => 'Konsultacja podologiczna Kielce 100 zł | OAZA',
+            'title' => 'Konsultacja podologiczna Kielce | Podologiczna Oaza',
             'description' => 'Profesjonalna konsultacja podologiczna w Kielcach. Ocena stanu stóp, plan terapii i indywidualne zalecenia.',
         ],
 
@@ -122,7 +120,6 @@ return [
             'title' => 'Konsultacja podologiczna',
             'titleSecond' => 'w gabinecie',
             'text' => 'Szczegółowa konsultacja podologiczna obejmująca diagnostykę, ocenę stanu stóp oraz przygotowanie indywidualnego planu terapii.',
-            'price_from' => '100 zł',
         ],
 
         'symptoms' => [
@@ -171,7 +168,7 @@ return [
         'slug' => 'pedicure-dla-zdrowych-stop',
 
         'seo' => [
-            'title' => 'Pedicure podologiczny Kielce | Zdrowe stopy | Podolog OAZA',
+            'title' => 'Pedicure podologiczny Kielce | Zdrowe stopy | Podologiczna Oaza',
             'description' => 'Pedicure podologiczny dla zdrowych stóp w Kielcach. Opracowanie paznokci, wałów okołopaznokciowych, podeszwy oraz profesjonalna pielęgnacja.',
         ],
 
@@ -179,7 +176,6 @@ return [
             'title' => 'Pedicure',
             'titleSecond' => 'podologiczny',
             'text' => 'Zabieg dla zdrowych stóp i paznokci obejmujący konsultację, skrócenie i opracowanie paznokci, opracowanie wałów, wygładzenie podeszwy oraz zastosowanie preparatów pielęgnacyjnych.',
-            'price_from' => '170 zł',
         ],
 
         'symptoms' => [
@@ -227,7 +223,7 @@ return [
         'slug' => 'stopa-cukrzycowa-i-luszczycowa',
 
         'seo' => [
-            'title' => 'Stopa cukrzycowa i łuszczycowa Kielce | Podolog OAZA',
+            'title' => 'Stopa cukrzycowa i łuszczycowa Kielce | Podologiczna Oaza',
             'description' => 'Specjalistyczne opracowanie stopy cukrzycowej i łuszczycowej w Kielcach. Profilaktyka powikłań, pielęgnacja i terapia podologiczna.',
         ],
 
@@ -235,7 +231,6 @@ return [
             'title' => 'Stopa cukrzycowa',
             'titleSecond' => 'i łuszczycowa',
             'text' => 'Specjalistyczny zabieg przeznaczony dla osób wymagających bezpiecznego opracowania podeszwy stopy zmienionej chorobowo, w tym stopy cukrzycowej i łuszczycowej.',
-            'price_from' => '150 zł',
         ],
 
         'symptoms' => [
@@ -285,7 +280,7 @@ return [
         'slug' => 'terapia-pekajacych-piet',
 
         'seo' => [
-            'title' => 'Terapia pękających pięt Kielce | Podolog OAZA',
+            'title' => 'Terapia pękających pięt Kielce | Podologiczna Oaza',
             'description' => 'Leczenie pękających pięt w Kielcach. Opracowanie rozpadlin, usuwanie zrogowaceń i profesjonalna terapia podologiczna.',
         ],
 
@@ -293,7 +288,6 @@ return [
             'title' => 'Terapia',
             'titleSecond' => 'pękających pięt',
             'text' => 'Specjalistyczny zabieg podologiczny przeznaczony dla osób z bolesnymi rozpadlinami, pęknięciami i nadmiernym rogowaceniem skóry pięt.',
-            'price_from' => '180 zł',
         ],
 
         'symptoms' => [
@@ -343,7 +337,7 @@ return [
         'slug' => 'terapia-brodawki-wirusowej',
 
         'seo' => [
-            'title' => 'Usuwanie brodawek wirusowych stóp Kielce | Podolog OAZA',
+            'title' => 'Usuwanie brodawek wirusowych stóp Kielce | Podologiczna Oaza',
             'description' => 'Terapia brodawek wirusowych, czyli kurzajek, na stopach w Kielcach. Specjalistyczne opracowanie zmian i indywidualny plan terapii.',
         ],
 
@@ -351,7 +345,6 @@ return [
             'title' => 'Terapia brodawki',
             'titleSecond' => 'wirusowej',
             'text' => 'Specjalistyczna terapia podologiczna mająca na celu opracowanie brodawek wirusowych, zahamowanie ich rozwoju oraz zapobieganie nawrotom.',
-            'price_from' => '150 zł',
         ],
 
         'symptoms' => [
@@ -367,7 +360,7 @@ return [
             'paragraphs' => [
                 'Terapia rozpoczyna się od dokładnej oceny zmiany oraz potwierdzenia jej charakteru wirusowego.',
                 'Zabieg polega na miejscowym opracowaniu brodawki oraz zastosowaniu odpowiednio dobranej metody terapeutycznej.',
-                'Pierwsza brodawka wyceniana jest od 150 zł, a kolejna od 30 zł.',
+                'Zakres terapii i ostateczna cena zależą od liczby zmian oraz stopnia ich zaawansowania. Aktualne kwoty znajdują się w cenniku.',
             ],
         ],
 
@@ -413,7 +406,7 @@ return [
         'slug' => 'usuwanie-modzeli-i-odciskow',
 
         'seo' => [
-            'title' => 'Usuwanie modzeli i odcisków Kielce | Podolog OAZA',
+            'title' => 'Usuwanie modzeli i odcisków Kielce | Podologiczna Oaza',
             'description' => 'Profesjonalne usuwanie modzeli, odcisków i nagniotków w Kielcach. Skuteczna redukcja bólu, opracowanie zmian i profilaktyka nawrotów.',
         ],
 
@@ -421,7 +414,6 @@ return [
             'title' => 'Usuwanie modzeli',
             'titleSecond' => 'i odcisków',
             'text' => 'Specjalistyczny zabieg podologiczny polegający na bezpiecznym usunięciu modzeli, odcisków i nagniotków oraz eliminacji przyczyn ich powstawania.',
-            'price_from' => '100 zł',
         ],
 
         'symptoms' => [
@@ -437,7 +429,7 @@ return [
             'paragraphs' => [
                 'Zabieg rozpoczyna się od dokładnej oceny zmian oraz określenia przyczyny ich powstawania.',
                 'Podolog usuwa modzele, odciski lub nagniotki przy użyciu specjalistycznych narzędzi.',
-                'Pierwsza zmiana wyceniana jest od 100 zł, a kolejna od 30 zł.',
+                'Zakres zabiegu i ostateczna cena zależą od liczby zmian oraz stopnia ich zaawansowania. Aktualne kwoty znajdują się w cenniku.',
             ],
         ],
 
@@ -471,7 +463,7 @@ return [
         'slug' => 'obciecie-paznokci-zdrowych',
 
         'seo' => [
-            'title' => 'Obcięcie paznokci zdrowych Kielce | Podolog OAZA',
+            'title' => 'Obcięcie paznokci zdrowych Kielce | Podologiczna Oaza',
             'description' => 'Profesjonalne obcięcie zdrowych paznokci u stóp w Kielcach. Bezpieczna pielęgnacja w gabinecie podologicznym.',
         ],
 
@@ -479,7 +471,6 @@ return [
             'title' => 'Obcięcie paznokci',
             'titleSecond' => 'zdrowych',
             'text' => 'Profesjonalny zabieg podologiczny polegający na prawidłowym skróceniu zdrowych paznokci u stóp z zachowaniem pełnego bezpieczeństwa.',
-            'price_from' => '100 zł',
         ],
 
         'symptoms' => [
@@ -528,7 +519,7 @@ return [
         'slug' => 'opracowanie-paznokci-i-walow',
 
         'seo' => [
-            'title' => 'Opracowanie paznokci i wałów okołopaznokciowych Kielce | Podolog OAZA',
+            'title' => 'Opracowanie paznokci i wałów okołopaznokciowych Kielce | Podologiczna Oaza',
             'description' => 'Profesjonalne obcięcie i opracowanie zdrowych paznokci oraz wałów okołopaznokciowych w Kielcach.',
         ],
 
@@ -536,7 +527,6 @@ return [
             'title' => 'Opracowanie paznokci',
             'titleSecond' => 'i wałów',
             'text' => 'Specjalistyczny zabieg obejmujący obcięcie i opracowanie zdrowych paznokci oraz dokładne oczyszczenie wałów okołopaznokciowych.',
-            'price_from' => '150 zł',
         ],
 
         'symptoms' => [
@@ -585,7 +575,7 @@ return [
         'slug' => 'paznokcie-dystroficzne',
 
         'seo' => [
-            'title' => 'Leczenie paznokci dystroficznych Kielce | Podolog OAZA',
+            'title' => 'Leczenie paznokci dystroficznych Kielce | Podologiczna Oaza',
             'description' => 'Specjalistyczne opracowanie paznokci zmienionych chorobowo w Kielcach. Terapia, regeneracja i poprawa kondycji paznokci.',
         ],
 
@@ -593,7 +583,6 @@ return [
             'title' => 'Paznokcie',
             'titleSecond' => 'dystroficzne',
             'text' => 'Specjalistyczny zabieg ukierunkowany na opracowanie paznokci zmienionych chorobowo, dystroficznych, zgrubiałych lub zniekształconych.',
-            'price_from' => '200 zł',
         ],
 
         'symptoms' => [
@@ -642,7 +631,7 @@ return [
         'slug' => 'odbarczanie-krwiaka-podpaznokciowego',
 
         'seo' => [
-            'title' => 'Odbarczanie krwiaka podpaznokciowego Kielce | Podolog OAZA',
+            'title' => 'Odbarczanie krwiaka podpaznokciowego Kielce | Podologiczna Oaza',
             'description' => 'Pomoc przy paznokciu po urazie w Kielcach. Odbarczanie krwiaka podpaznokciowego, oczyszczenie i zabezpieczenie płytki.',
         ],
 
@@ -650,7 +639,6 @@ return [
             'title' => 'Odbarczanie krwiaka',
             'titleSecond' => 'podpaznokciowego',
             'text' => 'Zabieg przeznaczony dla paznokci po urazie, przy obecności krwiaka podpaznokciowego, bólu lub ucisku pod płytką paznokciową.',
-            'price_from' => '150 zł',
         ],
 
         'symptoms' => [
@@ -699,7 +687,7 @@ return [
         'slug' => 'terapia-grzybicy-paznokci-i-stop',
 
         'seo' => [
-            'title' => 'Terapia grzybicy paznokci i stóp Kielce | Podolog OAZA',
+            'title' => 'Terapia grzybicy paznokci i stóp Kielce | Podologiczna Oaza',
             'description' => 'Diagnostyka i terapia grzybicy paznokci oraz stóp w Kielcach. Badanie mykologiczne, opracowanie zmian i preparaty specjalistyczne.',
         ],
 
@@ -707,7 +695,6 @@ return [
             'title' => 'Terapia grzybicy',
             'titleSecond' => 'paznokci i stóp',
             'text' => 'Diagnostyka, badanie mykologiczne, opracowanie zmian grzybiczych oraz stosowanie odpowiednio dobranych preparatów.',
-            'price_from' => '200 zł',
         ],
 
         'symptoms' => [
@@ -769,7 +756,7 @@ return [
         'slug' => 'podstawowy-zabieg-podologiczny',
 
         'seo' => [
-            'title' => 'Podstawowy zabieg podologiczny Kielce | Podolog OAZA',
+            'title' => 'Podstawowy zabieg podologiczny Kielce | Podologiczna Oaza',
             'description' => 'Podstawowy zabieg podologiczny w Kielcach. Usunięcie mniejszych zrogowaceń, opracowanie paznokci i wałów oraz preparaty pielęgnacyjne.',
         ],
 
@@ -777,7 +764,6 @@ return [
             'title' => 'Podstawowy zabieg',
             'titleSecond' => 'podologiczny',
             'text' => 'Kompleksowy zabieg obejmujący usunięcie mniejszych fizjologicznych zrogowaceń, opracowanie paznokci i wałów okołopaznokciowych oraz nałożenie preparatów.',
-            'price_from' => '200 zł',
         ],
 
         'symptoms' => [
@@ -826,7 +812,7 @@ return [
         'slug' => 'rozszerzony-zabieg-podologiczny',
 
         'seo' => [
-            'title' => 'Rozszerzony zabieg podologiczny Kielce | Podolog OAZA',
+            'title' => 'Rozszerzony zabieg podologiczny Kielce | Podologiczna Oaza',
             'description' => 'Rozszerzony zabieg podologiczny w Kielcach. Usunięcie średnich zrogowaceń, opracowanie paznokci, wałów i pielęgnacja skóry.',
         ],
 
@@ -834,7 +820,6 @@ return [
             'title' => 'Rozszerzony zabieg',
             'titleSecond' => 'podologiczny',
             'text' => 'Kompleksowy zabieg obejmujący usunięcie średnich fizjologicznych zrogowaceń, opracowanie paznokci i wałów okołopaznokciowych oraz nałożenie preparatów.',
-            'price_from' => '300 zł',
         ],
 
         'symptoms' => [
@@ -883,15 +868,14 @@ return [
         'slug' => 'pomiar-poziomu-cukru',
 
         'seo' => [
-            'title' => 'Pomiar poziomu cukru Kielce | Podolog OAZA',
-            'description' => 'Szybkie i kontrolne oznaczenie poziomu glukozy we krwi, szczególnie istotne dla pacjentów z cukrzycą oraz przed zabiegami podologicznymi. Kielce, gabinet podologiczny OAZA.',
+            'title' => 'Pomiar poziomu cukru Kielce | Podologiczna Oaza',
+            'description' => 'Szybkie i kontrolne oznaczenie poziomu glukozy we krwi, szczególnie istotne dla pacjentów z cukrzycą oraz przed zabiegami podologicznymi. Kielce, gabinet Podologiczna Oaza.',
         ],
 
         'hero' => [
             'title' => 'Pomiar poziomu',
             'titleSecond' => 'cukru',
             'text' => 'Szybkie i kontrolne oznaczenie poziomu glukozy we krwi, szczególnie istotne dla pacjentów z cukrzycą oraz przed zabiegami podologicznymi.',
-            'price_from' => '50 zł',
         ],
 
         'symptoms' => [
@@ -940,15 +924,14 @@ return [
         'slug' => 'badanie-mykologiczne-bezposrednie',
 
         'seo' => [
-            'title' => 'Badanie mykologiczne bezpośrednie Kielce | Podolog OAZA',
-            'description' => 'Badanie mykologiczne bezpośrednie wykonywane w celu wykrycia nici grzyba w materiale pobranym ze skóry lub paznokcia. Kielce, gabinet podologiczny OAZA.',
+            'title' => 'Badanie mykologiczne bezpośrednie Kielce | Podologiczna Oaza',
+            'description' => 'Badanie mykologiczne bezpośrednie wykonywane w celu wykrycia nici grzyba w materiale pobranym ze skóry lub paznokcia. Kielce, gabinet Podologiczna Oaza.',
         ],
 
         'hero' => [
             'title' => 'Badanie mykologiczne',
             'titleSecond' => 'bezpośrednie',
             'text' => 'Badanie mykologiczne bezpośrednie wykonywane w celu wykrycia nici grzyba w materiale pobranym ze skóry lub paznokcia.',
-            'price_from' => '300 zł',
         ],
 
         'symptoms' => [
@@ -997,15 +980,14 @@ return [
         'slug' => 'badanie-mykologiczne-hodowla',
 
         'seo' => [
-            'title' => 'Badanie mykologiczne hodowla Kielce | Podolog OAZA',
-            'description' => 'Badanie mykologiczne w formie hodowli, wykonywane w celu identyfikacji gatunku grzyba odpowiedzialnego za infekcję. Kielce, gabinet podologiczny OAZA.',
+            'title' => 'Badanie mykologiczne hodowla Kielce | Podologiczna Oaza',
+            'description' => 'Badanie mykologiczne w formie hodowli, wykonywane w celu identyfikacji gatunku grzyba odpowiedzialnego za infekcję. Kielce, gabinet Podologiczna Oaza.',
         ],
 
         'hero' => [
             'title' => 'Badanie mykologiczne',
             'titleSecond' => 'hodowla',
             'text' => 'Badanie mykologiczne w formie hodowli, wykonywane w celu identyfikacji gatunku grzyba odpowiedzialnego za infekcję.',
-            'price_from' => '300 zł',
         ],
 
         'symptoms' => [
@@ -1054,15 +1036,14 @@ return [
         'slug' => 'badanie-mykologiczne-kompleksowe',
 
         'seo' => [
-            'title' => 'Badanie mykologiczne kompleksowe Kielce | Podolog OAZA',
-            'description' => 'Badanie obejmujące diagnostykę bezpośrednią oraz badanie mykologiczne wspierające dokładniejszą ocenę infekcji. Kielce, gabinet podologiczny OAZA.',
+            'title' => 'Badanie mykologiczne kompleksowe Kielce | Podologiczna Oaza',
+            'description' => 'Badanie obejmujące diagnostykę bezpośrednią oraz badanie mykologiczne wspierające dokładniejszą ocenę infekcji. Kielce, gabinet Podologiczna Oaza.',
         ],
 
         'hero' => [
             'title' => 'Badanie mykologiczne',
             'titleSecond' => 'kompleksowe',
             'text' => 'Badanie obejmujące diagnostykę bezpośrednią oraz badanie mykologiczne wspierające dokładniejszą ocenę infekcji.',
-            'price_from' => '350 zł',
         ],
 
         'symptoms' => [
@@ -1110,15 +1091,14 @@ return [
         'slug' => 'badanie-mikrobiologiczne-z-mykogramem',
 
         'seo' => [
-            'title' => 'Badanie mikrobiologiczne z mykogramem Kielce | Podolog OAZA',
-            'description' => 'Badanie mikrobiologiczne z mykogramem, wykonywane m.in. przy stanie zapalnym, wysięku lub podejrzeniu infekcji mieszanej. Kielce, gabinet podologiczny OAZA.',
+            'title' => 'Badanie mikrobiologiczne z mykogramem Kielce | Podologiczna Oaza',
+            'description' => 'Badanie mikrobiologiczne z mykogramem, wykonywane m.in. przy stanie zapalnym, wysięku lub podejrzeniu infekcji mieszanej. Kielce, gabinet Podologiczna Oaza.',
         ],
 
         'hero' => [
             'title' => 'Badanie mikrobiologiczne',
             'titleSecond' => 'z mykogramem',
             'text' => 'Badanie mikrobiologiczne z mykogramem, wykonywane m.in. przy stanie zapalnym, wysięku lub podejrzeniu infekcji mieszanej.',
-            'price_from' => '350 zł',
         ],
 
         'symptoms' => [
@@ -1167,8 +1147,8 @@ return [
         'slug' => 'badanie-genetyczne-hla-cw6',
 
         'seo' => [
-            'title' => 'Badanie genetyczne HLA-CW6 Kielce | Podolog OAZA',
-            'description' => 'Badanie genetyczne w kierunku łuszczycy, obejmujące oznaczenie genu HLA-CW6. Kielce, gabinet podologiczny OAZA.',
+            'title' => 'Badanie genetyczne HLA-CW6 Kielce | Podologiczna Oaza',
+            'description' => 'Badanie genetyczne w kierunku łuszczycy, obejmujące oznaczenie genu HLA-CW6. Kielce, gabinet Podologiczna Oaza.',
         ],
 
         'hero' => [
@@ -1223,7 +1203,7 @@ return [
         'slug' => 'terapia-wrastajacych-paznokci',
 
         'seo' => [
-            'title' => 'Terapia wrastających paznokci Kielce | Podolog OAZA',
+            'title' => 'Terapia wrastających paznokci Kielce | Podologiczna Oaza',
             'description' => 'Terapia wrastających paznokci w Kielcach. Opracowanie paznokcia i wałów, klamry ortonyksyjne, tamponada, taping i opatrunki.',
         ],
 
@@ -1231,7 +1211,6 @@ return [
             'title' => 'Terapia wrastających',
             'titleSecond' => 'paznokci',
             'text' => 'Ocena problemu, opracowanie paznokcia i wałów okołopaznokciowych, założenie klamry, odciążeń, tamponady, tapingu lub opatrunku.',
-            'price_from' => 'od 50 zł',
         ],
 
         'symptoms' => [
@@ -1293,15 +1272,14 @@ return [
         'slug' => 'klamry-ortonyksyjne',
 
         'seo' => [
-            'title' => 'Klamry ortonyksyjne Kielce | Podolog OAZA',
-            'description' => 'Specjalistyczna metoda korekcji wrastających i wkręcających się paznokci polegająca na zastosowaniu klamry ortonyksyjnej przywracającej prawidłowy tor wzrostu płytki. Gabinet podologiczny OAZA Kielce.',
+            'title' => 'Klamry ortonyksyjne Kielce | Podologiczna Oaza',
+            'description' => 'Specjalistyczna metoda korekcji wrastających i wkręcających się paznokci polegająca na zastosowaniu klamry ortonyksyjnej przywracającej prawidłowy tor wzrostu płytki. Gabinet Podologiczna Oaza w Kielcach.',
         ],
 
         'hero' => [
             'title' => 'Klamry',
             'titleSecond' => 'ortonyksyjne',
             'text' => 'Specjalistyczna metoda korekcji wrastających i wkręcających się paznokci polegająca na zastosowaniu klamry ortonyksyjnej przywracającej prawidłowy tor wzrostu płytki.',
-            'price_from' => '200 zł',
         ],
 
         'symptoms' => [
@@ -1349,15 +1327,14 @@ return [
         'slug' => 'przelozenie-klamry',
 
         'seo' => [
-            'title' => 'Przełożenie klamry Kielce | Podolog OAZA',
-            'description' => 'Wizyta kontrolna w trakcie terapii wrastającego paznokcia, obejmująca przełożenie lub korektę działania klamry ortonyksyjnej. Gabinet podologiczny OAZA Kielce.',
+            'title' => 'Przełożenie klamry Kielce | Podologiczna Oaza',
+            'description' => 'Wizyta kontrolna w trakcie terapii wrastającego paznokcia, obejmująca przełożenie lub korektę działania klamry ortonyksyjnej. Gabinet Podologiczna Oaza w Kielcach.',
         ],
 
         'hero' => [
             'title' => 'Przełożenie',
             'titleSecond' => 'klamry',
             'text' => 'Wizyta kontrolna w trakcie terapii wrastającego paznokcia, obejmująca przełożenie lub korektę działania klamry ortonyksyjnej.',
-            'price_from' => '150 zł',
         ],
 
         'symptoms' => [
@@ -1405,15 +1382,14 @@ return [
         'slug' => 'zdjecie-klamry-ortonyksyjnej',
 
         'seo' => [
-            'title' => 'Zdjęcie klamry ortonyksyjnej Kielce | Podolog OAZA',
-            'description' => 'Wizyta kontrolna obejmująca ocenę efektów terapii oraz bezpieczne zdjęcie klamry ortonyksyjnej z paznokcia. Gabinet podologiczny OAZA Kielce.',
+            'title' => 'Zdjęcie klamry ortonyksyjnej Kielce | Podologiczna Oaza',
+            'description' => 'Wizyta kontrolna obejmująca ocenę efektów terapii oraz bezpieczne zdjęcie klamry ortonyksyjnej z paznokcia. Gabinet Podologiczna Oaza w Kielcach.',
         ],
 
         'hero' => [
             'title' => 'Zdjęcie klamry',
             'titleSecond' => 'ortonyksyjnej',
             'text' => 'Wizyta kontrolna obejmująca ocenę efektów terapii oraz bezpieczne zdjęcie klamry ortonyksyjnej z paznokcia.',
-            'price_from' => '100 zł',
         ],
 
         'symptoms' => [
@@ -1461,15 +1437,14 @@ return [
         'slug' => 'tamponada',
 
         'seo' => [
-            'title' => 'Tamponada podologiczna Kielce | Podolog OAZA',
-            'description' => 'Delikatne zabezpieczenie wału okołopaznokciowego przy wrastającym paznokciu w celu zmniejszenia ucisku i bólu. Gabinet podologiczny OAZA Kielce.',
+            'title' => 'Tamponada podologiczna Kielce | Podologiczna Oaza',
+            'description' => 'Delikatne zabezpieczenie wału okołopaznokciowego przy wrastającym paznokciu w celu zmniejszenia ucisku i bólu. Gabinet Podologiczna Oaza w Kielcach.',
         ],
 
         'hero' => [
             'title' => 'Tamponada',
             'titleSecond' => 'podologiczna',
             'text' => 'Delikatne zabezpieczenie wału okołopaznokciowego przy wrastającym paznokciu w celu zmniejszenia ucisku i bólu.',
-            'price_from' => '50 zł',
         ],
 
         'symptoms' => [
@@ -1517,15 +1492,14 @@ return [
         'slug' => 'taping-podologiczny',
 
         'seo' => [
-            'title' => 'Taping podologiczny Kielce | Podolog OAZA',
-            'description' => 'Odciążenie i wsparcie tkanek przy pomocy tapingu podologicznego, stosowane m.in. przy wrastających paznokciach i dolegliwościach bólowych. Gabinet podologiczny OAZA Kielce.',
+            'title' => 'Taping podologiczny Kielce | Podologiczna Oaza',
+            'description' => 'Odciążenie i wsparcie tkanek przy pomocy tapingu podologicznego, stosowane m.in. przy wrastających paznokciach i dolegliwościach bólowych. Gabinet Podologiczna Oaza w Kielcach.',
         ],
 
         'hero' => [
             'title' => 'Taping',
             'titleSecond' => 'podologiczny',
             'text' => 'Odciążenie i wsparcie tkanek przy pomocy tapingu podologicznego, stosowane m.in. przy wrastających paznokciach i dolegliwościach bólowych.',
-            'price_from' => '50 zł',
         ],
 
         'symptoms' => [
@@ -1573,15 +1547,14 @@ return [
         'slug' => 'opatrunek-z-odciazeniem',
 
         'seo' => [
-            'title' => 'Opatrunek z odciążeniem Kielce | Podolog OAZA',
-            'description' => 'Specjalistyczny opatrunek z odciążeniem stosowany w celu ochrony bolesnego miejsca i poprawy komfortu chodzenia. Gabinet podologiczny OAZA Kielce.',
+            'title' => 'Opatrunek z odciążeniem Kielce | Podologiczna Oaza',
+            'description' => 'Specjalistyczny opatrunek z odciążeniem stosowany w celu ochrony bolesnego miejsca i poprawy komfortu chodzenia. Gabinet Podologiczna Oaza w Kielcach.',
         ],
 
         'hero' => [
             'title' => 'Opatrunek',
             'titleSecond' => 'z odciążeniem',
             'text' => 'Specjalistyczny opatrunek z odciążeniem stosowany w celu ochrony bolesnego miejsca i poprawy komfortu chodzenia.',
-            'price_from' => '100 zł',
         ],
 
         'symptoms' => [
@@ -1629,15 +1602,14 @@ return [
         'slug' => 'opatrunek-z-preparatem-specjalistycznym',
 
         'seo' => [
-            'title' => 'Opatrunek z preparatem Kielce | Podolog OAZA',
-            'description' => 'Specjalistyczny opatrunek z preparatem dobranym do problemu, wspierający regenerację i ochronę tkanek. Gabinet podologiczny OAZA Kielce.',
+            'title' => 'Opatrunek z preparatem Kielce | Podologiczna Oaza',
+            'description' => 'Specjalistyczny opatrunek z preparatem dobranym do problemu, wspierający regenerację i ochronę tkanek. Gabinet Podologiczna Oaza w Kielcach.',
         ],
 
         'hero' => [
             'title' => 'Opatrunek',
             'titleSecond' => 'z preparatem',
             'text' => 'Specjalistyczny opatrunek z preparatem dobranym do problemu, wspierający regenerację i ochronę tkanek.',
-            'price_from' => '100 zł',
         ],
 
         'symptoms' => [

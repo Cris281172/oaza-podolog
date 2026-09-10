@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Dashboard\BlogController;
+use App\Http\Controllers\Dashboard\CertificateController;
 use App\Http\Controllers\Dashboard\FaqController;
 use App\Http\Controllers\Dashboard\PricingController;
 use App\Http\Controllers\Dashboard\PricingItemController;
+use App\Http\Controllers\Dashboard\PrivacyPolicyController;
 use App\Http\Controllers\Dashboard\ServiceCategoryController;
 use App\Http\Controllers\Dashboard\ServiceController;
 use App\Http\Controllers\DashboardController;
@@ -17,6 +19,7 @@ Route::get('/uslugi/{slug}', [PageController::class, 'service'])->name('service'
 Route::get('/cennik', [PageController::class, 'priceList'])->name('priceList');
 Route::get('/kontakt', [PageController::class, 'contact'])->name('contact');
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+Route::get('/polityka-prywatnosci', [PageController::class, 'privacyPolicy'])->name('privacyPolicy');
 Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -55,10 +58,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/create', [FaqController::class, 'create'])->name('create');
             Route::post('/', [FaqController::class, 'store'])->name('store');
             Route::post('/reorder', [FaqController::class, 'reorder'])->name('reorder');
+            Route::post('/home-preview', [FaqController::class, 'updateHomePreview'])->name('homePreview');
             Route::delete('/{faq}', [FaqController::class, 'destroy'])->name('destroy');
             Route::get('/{faq}/edit', [FaqController::class, 'edit'])->name('edit');
             Route::patch('/{faq}', [FaqController::class, 'update'])->name('update');
         });
+
+        Route::prefix('certificates')->name('certificates.')->group(function () {
+            Route::get('/', [CertificateController::class, 'index'])->name('index');
+            Route::post('/', [CertificateController::class, 'store'])->name('store');
+            Route::post('/reorder', [CertificateController::class, 'reorder'])->name('reorder');
+            Route::delete('/{certificate}', [CertificateController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::get('/privacy-policy', [PrivacyPolicyController::class, 'edit'])->name('privacyPolicy.edit');
+        Route::patch('/privacy-policy', [PrivacyPolicyController::class, 'update'])->name('privacyPolicy.update');
 
         Route::prefix('services')->name('services.')->group(function () {
 

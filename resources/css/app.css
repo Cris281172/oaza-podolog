@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @tailwind utilities;
-@import "tw-animate-css";
+@import 'tw-animate-css';
 @config "../../tailwind.config.ts";
 
 @source '../views';
@@ -98,41 +98,54 @@
 }
 
 .tiptap {
-    @apply outline-none min-h-[300px] py-4 px-2;
+    @apply min-h-[300px] px-2 py-4 outline-none;
 
     /* Akapity */
     p {
-        @apply leading-relaxed mb-4;
+        @apply mb-4 leading-relaxed;
     }
 
     /* Listy - dodane bullety i numerowanie */
     ul {
-        @apply list-disc list-outside ml-6 mb-4 space-y-1;
+        @apply mb-4 ml-6 list-outside list-disc space-y-1;
     }
 
     ol {
-        @apply list-decimal list-outside ml-6 mb-4 space-y-1;
+        @apply mb-4 ml-6 list-outside list-decimal space-y-1;
     }
 
     /* Nagłówki - dopasowane do Twojej skali */
-    h1, h2, h3, h4, h5, h6 {
-        @apply font-bold text-foreground mb-4 mt-8 tracking-tight;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply mt-8 mb-4 font-bold tracking-tight text-foreground;
         line-height: 1.2;
     }
 
-    h1 { @apply text-3xl; }
-    h2 { @apply text-2xl; }
-    h3 { @apply text-xl; }
-    h4 { @apply text-lg; }
+    h1 {
+        @apply text-3xl;
+    }
+    h2 {
+        @apply text-2xl;
+    }
+    h3 {
+        @apply text-xl;
+    }
+    h4 {
+        @apply text-lg;
+    }
 
     /* Kod w linii */
     code {
-        @apply bg-muted text-primary rounded px-1.5 py-0.5 font-mono text-sm;
+        @apply rounded bg-muted px-1.5 py-0.5 font-mono text-sm text-primary;
     }
 
     /* Blok kodu */
     pre {
-        @apply bg-secondary text-secondary-foreground rounded-lg p-4 my-6 font-mono overflow-x-auto border border-border;
+        @apply my-6 overflow-x-auto rounded-lg border border-border bg-secondary p-4 font-mono text-secondary-foreground;
 
         code {
             @apply bg-transparent p-0 text-inherit;
@@ -141,32 +154,69 @@
 
     /* Cytaty - używamy Twojego koloru Primary jako akcentu */
     blockquote {
-        @apply border-l-4 border-primary pl-4 py-1 my-6 italic text-muted-foreground bg-muted/30 rounded-r;
+        @apply my-6 rounded-r border-l-4 border-primary bg-muted/30 py-1 pl-4 text-muted-foreground italic;
     }
 
     /* Linia pozioma */
     hr {
-        @apply border-t border-border my-8;
+        @apply my-8 border-t border-border;
     }
 
     /* Zdjęcia */
     img {
-        @apply rounded-lg border border-border my-6 transition-transform hover:scale-[1.01];
+        @apply my-6 rounded-lg border border-border transition-transform hover:scale-[1.01];
     }
 
     /* Linki */
     a {
-        @apply text-primary underline underline-offset-4 cursor-pointer hover:opacity-80;
+        @apply cursor-pointer text-primary underline underline-offset-4 hover:opacity-80;
     }
 
     /* Placeholder - gdy edytor jest pusty */
     p.is-editor-empty:first-child::before {
-        @apply text-muted-foreground float-left h-0 pointer-events-none;
+        @apply pointer-events-none float-left h-0 text-muted-foreground;
         content: attr(data-placeholder);
     }
 }
 
 /* Stylizacja MenuBar - dla przycisków w Twoim układzie */
 .button-group {
-    @apply flex flex-wrap gap-1 p-2 bg-muted/20 border-b border-border rounded-t-lg;
+    @apply flex flex-wrap gap-1 rounded-t-lg border-b border-border bg-muted/20 p-2;
+}
+
+.policy-content {
+    @apply text-base leading-8 text-slate-600 md:text-lg;
+}
+.policy-content h2 {
+    @apply mt-12 mb-4 text-2xl leading-tight font-bold text-slate-900 first:mt-0 md:text-3xl;
+}
+.policy-content h3 {
+    @apply mt-9 mb-3 text-xl font-bold text-slate-900;
+}
+.policy-content h4 {
+    @apply mt-7 mb-3 text-lg font-bold text-slate-900;
+}
+.policy-content p {
+    @apply mb-5;
+}
+.policy-content ul {
+    @apply mb-5 ml-6 list-disc space-y-2;
+}
+.policy-content ol {
+    @apply mb-5 ml-6 list-decimal space-y-2;
+}
+.policy-content a {
+    @apply font-medium text-primary underline underline-offset-4;
+}
+.policy-content blockquote {
+    @apply my-6 border-l-4 border-primary/40 pl-5 italic;
+}
+.policy-content hr {
+    @apply my-10 border-slate-200;
+}
+.policy-content code {
+    @apply rounded bg-muted px-1.5 py-0.5 text-sm;
+}
+.policy-content img {
+    @apply my-8 h-auto max-w-full rounded-2xl;
 }

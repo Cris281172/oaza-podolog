@@ -16,12 +16,12 @@ const PriceList = ({ pricingList }: PropsI) => {
         <PageLayout>
             <SEO
                 title="Cennik usług podologicznych Kielce"
-                desc="Sprawdź cennik usług podologicznych w gabinecie OAZA w Kielcach. Konsultacje, pedicure podologiczny, terapia wrastających paznokci, odcisków i brodawek."
+                desc="Sprawdź cennik usług gabinetu Podologiczna Oaza w Kielcach. Konsultacje, pedicure podologiczny, terapia wrastających paznokci, odcisków i brodawek."
                 canonicalUrl="https://gabinetpodologicznaoaza.pl/cennik"
             />
             <main className="bg-background">
                 <HeaderPage
-                    overline="Oaza Kielce"
+                    overline="Podologiczna Oaza Kielce"
                     title="Cennik"
                     titleSecondary="usług"
                     text="Przejrzyste zasady i profesjonalna opieka. Podane ceny są kwotami orientacyjnymi i mogą ulec zmianie w zależności od stopnia zaawansowania problemu."

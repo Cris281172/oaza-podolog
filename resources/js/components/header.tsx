@@ -45,7 +45,7 @@ const Header = () => {
             <div className="container mx-auto px-4">
                 <div className="flex h-22 items-center justify-between">
                     <Link href="/" className="flex w-30">
-                        <img src={logoImage} alt="Oaza Logo" />
+                        <img src={logoImage} alt="Logo Podologiczna Oaza" />
                     </Link>
 
                     <nav className="hidden items-center space-x-6 md:flex">
@@ -470,15 +470,14 @@ const Header = () => {
                                                 asChild
                                                 className="mt-4 w-full rounded-2xl"
                                             >
-                                                <a
-                                                    href="https://booksy.com/pl-pl/254137_gabinet-podologiczna-oaza-podolog-kielce_podologia_7937_kielce"
-                                                    target={'_blank'}
+                                                <Link
+                                                    href={contact.url()}
                                                     onClick={() =>
                                                         setIsOpen(false)
                                                     }
                                                 >
-                                                    Umów wizytę online
-                                                </a>
+                                                    Umów wizytę
+                                                </Link>
                                             </Button>
                                         </div>
                                     </div>

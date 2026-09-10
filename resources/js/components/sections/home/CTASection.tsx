@@ -39,8 +39,7 @@ const CTASection = () => {
                             className="w-full rounded-full text-base text-primary shadow-2xl transition-colors hover:bg-white sm:w-auto"
                         >
                             <a
-                                href="https://booksy.com/pl-pl/254137_gabinet-podologiczna-oaza-podolog-kielce_podologia_7937_kielce"
-                                target={'_blank'}
+                                href="/kontakt"
                                 className="flex items-center gap-2"
                             >
                                 <span>Zarezerwuj wizytę</span>
