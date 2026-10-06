@@ -87,7 +87,7 @@ const HeroSection = () => {
                     paznokciami, bolesnymi odciskami, modzelami i innymi
                     dolegliwościami stóp. W gabinecie{' '}
                     <span className={'text-primary'}>
-                        Podologiczna Oaza w Kielcach
+                        Gabinet Podologiczna Oaza w Kielcach
                     </span>{' '}
                     łączymy doświadczenie, nowoczesną podologię i indywidualnie
                     dobraną terapię.

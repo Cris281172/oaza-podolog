@@ -20,7 +20,7 @@ const PricingSection = ({ items }: { items: PricingItem[] }) => {
                         Sprawdź orientacyjne ceny najczęściej wykonywanych
                         zabiegów podologicznych w gabinecie{' '}
                         <span className={'text-primary'}>
-                            Podologiczna Oaza w Kielcach
+                            Gabinet Podologiczna Oaza w Kielcach
                         </span>
                     </p>
                 </div>

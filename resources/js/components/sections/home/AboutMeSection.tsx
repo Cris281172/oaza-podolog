@@ -109,10 +109,10 @@ const AboutMeSection = ({ certificates }: { certificates: Certificate[] }) => {
                                 procesów gojenia oraz szczególnych potrzeb osób
                                 w trakcie leczenia. Dzięki doświadczeniu w
                                 środowisku szpitalnym również w Gabinecie
-                                Podologiczna Oaza stosuje najwyższe standardy
-                                higieny i bezpieczeństwa. Przyjmuje osoby z
-                                problemami w obrębie stóp i paznokci np. z
-                                brodawkami, grzybicą czy wrastającymi
+                                Gabinet Podologiczna Oaza stosuje najwyższe
+                                standardy higieny i bezpieczeństwa. Przyjmuje
+                                osoby z problemami w obrębie stóp i paznokci np.
+                                z brodawkami, grzybicą czy wrastającymi
                                 paznokciami.
                             </p>
                         </div>

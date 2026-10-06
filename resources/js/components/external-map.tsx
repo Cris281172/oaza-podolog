@@ -3,7 +3,7 @@ const MAP_URL =
 
 const ExternalMap = () => (
     <iframe
-        title="Lokalizacja gabinetu Podologiczna Oaza w Kielcach"
+        title="Lokalizacja: Gabinet Podologiczna Oaza w Kielcach"
         src={MAP_URL}
         width="100%"
         height="100%"

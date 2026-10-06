@@ -73,7 +73,7 @@ const renderNode = (node: JSONContent, key: number): ReactNode => {
 };
 
 const RichText = ({ content }: { content: JSONContent }) => (
-    <div className="policy-content">{renderChildren(content)}</div>
+    <div className="rich-text-content">{renderChildren(content)}</div>
 );
 
 export default RichText;

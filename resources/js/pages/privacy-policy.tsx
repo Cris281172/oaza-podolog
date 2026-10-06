@@ -14,8 +14,8 @@ const PrivacyPolicy = ({ policy }: { policy: Policy }) => {
     return (
         <PageLayout>
             <Seo
-                title="Polityka prywatności i cookies | Podologiczna Oaza"
-                desc="Informacje o ochronie danych osobowych, plikach cookies i usługach zewnętrznych na stronie gabinetu Podologiczna Oaza."
+                title="Polityka prywatności i cookies | Gabinet Podologiczna Oaza"
+                desc="Informacje o ochronie danych osobowych, plikach cookies i usługach zewnętrznych na stronie firmy Gabinet Podologiczna Oaza."
             />
             <main className="bg-background">
                 <HeaderPage

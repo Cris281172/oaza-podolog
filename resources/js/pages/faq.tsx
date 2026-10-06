@@ -37,7 +37,7 @@ const Faq = ({ faqs }: PropsI) => {
             />
             <main className="bg-background">
                 <HeaderPage
-                    overline="Podologiczna Oaza Kielce"
+                    overline="Gabinet Podologiczna Oaza Kielce"
                     title="Najczęściej"
                     titleSecondary="zadawane pytania"
                     text="Znajdź odpowiedzi na najczęstsze pytania dotyczące wizyt, terapii, zapisów oraz przebiegu leczenia w Podologicznej Oazie w Kielcach."

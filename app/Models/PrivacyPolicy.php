@@ -27,7 +27,7 @@ class PrivacyPolicy extends Model
 
         return ['type' => 'doc', 'content' => [
             $heading('1. Administrator danych'),
-            $paragraph('Administratorem danych osobowych jest właściciel Gabinetu Podologiczna Oaza, ul. Mieczysławy Ćwiklińskiej 1E, 25-437 Kielce. W sprawach dotyczących prywatności można skontaktować się telefonicznie pod numerem 505 849 060.'),
+            $paragraph('Administratorem danych osobowych jest właściciel marki Gabinet Podologiczna Oaza, ul. Mieczysławy Ćwiklińskiej 1E, 25-437 Kielce. W sprawach dotyczących prywatności można skontaktować się telefonicznie pod numerem 505 849 060.'),
             $heading('2. Zakres i cele przetwarzania danych'),
             $paragraph('Strona ma charakter informacyjny i nie zawiera formularza kontaktowego, newslettera ani płatności. Kontakt z gabinetem odbywa się telefonicznie.'),
             $paragraph('Podczas korzystania ze strony serwer może automatycznie zapisywać dane techniczne, takie jak adres IP, data i czas żądania, typ przeglądarki oraz odwiedzony adres. Dane te służą zapewnieniu bezpieczeństwa, poprawnego działania strony i diagnozowaniu błędów. Podstawą przetwarzania jest prawnie uzasadniony interes administratora (art. 6 ust. 1 lit. f RODO).'),

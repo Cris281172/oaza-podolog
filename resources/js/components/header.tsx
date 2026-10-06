@@ -45,7 +45,10 @@ const Header = () => {
             <div className="container mx-auto px-4">
                 <div className="flex h-22 items-center justify-between">
                     <Link href="/" className="flex w-30">
-                        <img src={logoImage} alt="Logo Podologiczna Oaza" />
+                        <img
+                            src={logoImage}
+                            alt="Logo Gabinet Podologiczna Oaza"
+                        />
                     </Link>
 
                     <nav className="hidden items-center space-x-6 md:flex">

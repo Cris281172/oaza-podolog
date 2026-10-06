@@ -18,19 +18,28 @@ class PodologyService
 
     public static function resolve(string $slug): ?array
     {
-        $canonicalSlug = self::canonicalSlug($slug);
-
-        if ($canonicalSlug && ($configured = self::get($canonicalSlug))) {
-            return [...$configured, 'slug' => $slug];
-        }
-
         $service = Service::query()->where('slug', $slug)->first();
 
-        if (! $service) {
-            return null;
+        if ($service) {
+            return self::fromModel($service, self::get($slug));
         }
 
-        return self::fromModel($service);
+        $canonicalSlug = self::canonicalSlug($slug);
+
+        if ($canonicalSlug) {
+            $configured = self::get($canonicalSlug);
+            $canonicalService = Service::query()->where('slug', $canonicalSlug)->first();
+
+            if ($canonicalService) {
+                return self::fromModel($canonicalService, $configured, $slug);
+            }
+
+            if ($configured) {
+                return [...$configured, 'slug' => $slug];
+            }
+        }
+
+        return null;
     }
 
     public static function canonicalSlug(string $slug): ?string
@@ -56,34 +65,77 @@ class PodologyService
         return null;
     }
 
-    public static function fromModel(Service $service): array
+    public static function fromModel(Service $service, ?array $configured = null, ?string $resolvedSlug = null): array
     {
         $description = trim($service->short_description) ?: "Profesjonalna usługa podologiczna: {$service->name}.";
+        $pageIntro = trim((string) $service->page_intro)
+            ?: data_get($configured, 'hero.text', $description);
+        $descriptionHeading = trim((string) $service->description_heading)
+            ?: data_get($configured, 'treatment.title', 'Na czym polega usługa?');
+        $seoTitle = trim((string) $service->seo_title)
+            ?: data_get($configured, 'seo.title', "{$service->name} Kielce | Gabinet Podologiczna Oaza");
+        $seoDescription = trim((string) $service->seo_description)
+            ?: data_get($configured, 'seo.description', "{$description} Umów wizytę — Gabinet Podologiczna Oaza w Kielcach.");
 
         return [
-            'slug' => $service->slug,
+            ...($configured ?? []),
+            'slug' => $resolvedSlug ?? $service->slug,
             'seo' => [
-                'title' => "{$service->name} Kielce | Podologiczna Oaza",
-                'description' => "{$description} Umów wizytę w gabinecie Podologiczna Oaza w Kielcach.",
+                'title' => $seoTitle,
+                'description' => $seoDescription,
             ],
             'hero' => [
                 'title' => $service->name,
-                'text' => $description,
+                'text' => $pageIntro,
             ],
             'treatment' => [
-                'title' => 'Na czym polega usługa?',
-                'paragraphs' => [
-                    $description,
-                    'Wizyta rozpoczyna się od rozmowy oraz oceny problemu. Na tej podstawie podolog dobiera zakres usługi odpowiedni do aktualnego stanu stóp i paznokci.',
-                    'Postępowanie prowadzone jest z uwzględnieniem komfortu, bezpieczeństwa oraz indywidualnych potrzeb pacjenta.',
+                'title' => $descriptionHeading,
+                'paragraphs' => data_get($configured, 'treatment.paragraphs', [$description]),
+            ],
+            'pageContent' => $service->page_content,
+        ];
+    }
+
+    public static function editorData(Service $service): array
+    {
+        $configured = self::get($service->slug);
+
+        return [
+            'pageIntro' => $service->page_intro ?: data_get($configured, 'hero.text', $service->short_description),
+            'descriptionHeading' => $service->description_heading ?: data_get($configured, 'treatment.title', 'Na czym polega usługa?'),
+            'pageContent' => $service->page_content ?: self::contentFromConfig($configured, $service->short_description),
+            'seoTitle' => $service->seo_title ?: data_get($configured, 'seo.title', "{$service->name} Kielce | Gabinet Podologiczna Oaza"),
+            'seoDescription' => $service->seo_description ?: data_get($configured, 'seo.description', $service->short_description),
+        ];
+    }
+
+    public static function emptyEditorContent(): array
+    {
+        return [
+            'type' => 'doc',
+            'content' => [
+                [
+                    'type' => 'paragraph',
+                    'content' => [['type' => 'text', 'text' => 'Wpisz pełny opis usługi.']],
                 ],
             ],
-            'steps' => [
-                ['title' => 'Ocena', 'desc' => 'Rozmowa i dokładna ocena zgłaszanego problemu.'],
-                ['title' => 'Usługa', 'desc' => 'Wykonanie odpowiednio dobranych czynności podologicznych.'],
-                ['title' => 'Zalecenia', 'desc' => 'Wskazówki dotyczące pielęgnacji i dalszego postępowania.'],
-            ],
-            'symptoms' => [],
+        ];
+    }
+
+    private static function contentFromConfig(?array $configured, string $fallback): array
+    {
+        $paragraphs = data_get($configured, 'treatment.paragraphs', []);
+
+        if (! count($paragraphs)) {
+            $paragraphs = [$fallback];
+        }
+
+        return [
+            'type' => 'doc',
+            'content' => collect($paragraphs)->map(fn (string $paragraph) => [
+                'type' => 'paragraph',
+                'content' => [['type' => 'text', 'text' => $paragraph]],
+            ])->values()->all(),
         ];
     }
 

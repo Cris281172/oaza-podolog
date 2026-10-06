@@ -135,7 +135,7 @@ const ContactFaqSection = ({ faqs }: PropsI) => {
                             <p className="text-base leading-relaxed text-muted-foreground">
                                 Skontaktuj się z gabinetem{' '}
                                 <span className={'text-primary'}>
-                                    Podologiczna Oaza w Kielcach
+                                    Gabinet Podologiczna Oaza w Kielcach
                                 </span>{' '}
                                 i dobierz odpowiedni termin wizyty.
                             </p>

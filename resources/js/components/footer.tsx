@@ -15,7 +15,7 @@ const Footer = () => {
                         </p>
                         <div className="flex gap-2">
                             <a
-                                aria-label="Odwiedź profil Podologicznej Oazy na TikToku"
+                                aria-label="Odwiedź profil marki Gabinet Podologiczna Oaza na TikToku"
                                 href="https://www.tiktok.com/@podolog_kielce"
                                 target={'_blank'}
                                 rel="noopener noreferrer"
@@ -34,7 +34,7 @@ const Footer = () => {
                                 href="https://www.facebook.com/people/Gabinet-Podologiczna-Oaza-Podolog-Kielce/61566252414011/"
                                 target={'_blank'}
                                 rel="noopener noreferrer"
-                                aria-label="Odwiedź profil Podologicznej Oazy na Facebooku"
+                                aria-label="Odwiedź profil marki Gabinet Podologiczna Oaza na Facebooku"
                                 className="rounded-full bg-primary p-2 transition-transform hover:-translate-y-0.5"
                             >
                                 <Facebook
@@ -123,7 +123,7 @@ const Footer = () => {
                 <div className="mt-10 border-t border-slate-200/70 pt-7 text-center text-xs text-muted-foreground">
                     <p>
                         &copy; {new Date().getFullYear()} Gabinet Podologiczny
-                        Podologiczna Oaza. Wszelkie prawa zastrzeżone.
+                        Gabinet Podologiczna Oaza. Wszelkie prawa zastrzeżone.
                     </p>
                 </div>
             </div>

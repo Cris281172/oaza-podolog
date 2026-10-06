@@ -70,7 +70,7 @@ const CTASection = ({
                     </div>
 
                     <p className="mt-10 text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase">
-                        Podologiczna Oaza • Kielce
+                        Gabinet Podologiczna Oaza • Kielce
                     </p>
                 </motion.div>
             </div>

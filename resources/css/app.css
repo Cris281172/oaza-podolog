@@ -184,39 +184,39 @@
     @apply flex flex-wrap gap-1 rounded-t-lg border-b border-border bg-muted/20 p-2;
 }
 
-.policy-content {
+.rich-text-content {
     @apply text-base leading-8 text-slate-600 md:text-lg;
 }
-.policy-content h2 {
+.rich-text-content h2 {
     @apply mt-12 mb-4 text-2xl leading-tight font-bold text-slate-900 first:mt-0 md:text-3xl;
 }
-.policy-content h3 {
+.rich-text-content h3 {
     @apply mt-9 mb-3 text-xl font-bold text-slate-900;
 }
-.policy-content h4 {
+.rich-text-content h4 {
     @apply mt-7 mb-3 text-lg font-bold text-slate-900;
 }
-.policy-content p {
+.rich-text-content p {
     @apply mb-5;
 }
-.policy-content ul {
+.rich-text-content ul {
     @apply mb-5 ml-6 list-disc space-y-2;
 }
-.policy-content ol {
+.rich-text-content ol {
     @apply mb-5 ml-6 list-decimal space-y-2;
 }
-.policy-content a {
+.rich-text-content a {
     @apply font-medium text-primary underline underline-offset-4;
 }
-.policy-content blockquote {
+.rich-text-content blockquote {
     @apply my-6 border-l-4 border-primary/40 pl-5 italic;
 }
-.policy-content hr {
+.rich-text-content hr {
     @apply my-10 border-slate-200;
 }
-.policy-content code {
+.rich-text-content code {
     @apply rounded bg-muted px-1.5 py-0.5 text-sm;
 }
-.policy-content img {
+.rich-text-content img {
     @apply my-8 h-auto max-w-full rounded-2xl;
 }

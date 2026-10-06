@@ -1,10 +1,12 @@
 import CTASection from '@/components/cta-section';
 import HeaderPage from '@/components/header-page';
+import RichText from '@/components/rich-text';
 import SEO from '@/components/seo';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/layouts/page-layout';
 import { priceList, service as serviceRoute } from '@/routes';
 import { Link } from '@inertiajs/react';
+import type { JSONContent } from '@tiptap/core';
 import { ArrowRight, Phone } from 'lucide-react';
 
 interface ServiceI {
@@ -18,6 +20,7 @@ interface ServiceI {
     symptoms?: string[];
     treatment?: { title: string; paragraphs: string[] };
     steps?: { title: string; desc: string }[];
+    pageContent?: JSONContent | null;
 }
 
 const nameOf = (item: ServiceI) =>
@@ -80,7 +83,7 @@ export default function SingleServicePage({
             />
             <main className="flex-1 bg-background">
                 <HeaderPage
-                    overline="Podologiczna Oaza Kielce"
+                    overline="Gabinet Podologiczna Oaza Kielce"
                     title={service.hero.title}
                     titleSecondary={service.hero.titleSecond}
                     text={service.hero.text}
@@ -107,16 +110,22 @@ export default function SingleServicePage({
                             <h2 className="mt-2 text-3xl font-bold text-slate-900">
                                 {service.treatment?.title ?? name}
                             </h2>
-                            <div className="mt-8 space-y-6">
-                                {descriptionParagraphs.map(
-                                    (paragraph, index) => (
-                                        <p
-                                            key={`${index}-${paragraph}`}
-                                            className="text-lg leading-8 text-slate-600"
-                                        >
-                                            {paragraph}
-                                        </p>
-                                    ),
+                            <div className="mt-8">
+                                {service.pageContent ? (
+                                    <RichText content={service.pageContent} />
+                                ) : (
+                                    <div className="space-y-6">
+                                        {descriptionParagraphs.map(
+                                            (paragraph, index) => (
+                                                <p
+                                                    key={`${index}-${paragraph}`}
+                                                    className="text-lg leading-8 text-slate-600"
+                                                >
+                                                    {paragraph}
+                                                </p>
+                                            ),
+                                        )}
+                                    </div>
                                 )}
                             </div>
                             <Link
@@ -167,7 +176,7 @@ export default function SingleServicePage({
                 )}
                 <CTASection
                     title="Potrzebujesz pomocy podologa?"
-                    subtitle="Umów wizytę w Podologicznej Oazie."
+                    subtitle="Umów wizytę — Gabinet Podologiczna Oaza."
                     description="Skontaktuj się z nami — ocenimy problem i dobierzemy odpowiednie postępowanie."
                 />
             </main>

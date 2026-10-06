@@ -5,7 +5,7 @@ return [
         'slug' => 'bezplatna-konsultacja-z-ulotka',
 
         'seo' => [
-            'title' => 'Bezpłatna konsultacja podologiczna Kielce | Podologiczna Oaza',
+            'title' => 'Bezpłatna konsultacja podologiczna Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Bezpłatna konsultacja podologiczna w Kielcach z ulotką informacyjną. Wstępna ocena stanu stóp i dobór dalszej terapii.',
         ],
 
@@ -58,7 +58,7 @@ return [
         'slug' => 'bezplatna-konsultacja-w-ramach-zabiegu',
 
         'seo' => [
-            'title' => 'Konsultacja podologiczna w trakcie zabiegu | Podologiczna Oaza Kielce',
+            'title' => 'Konsultacja podologiczna w trakcie zabiegu | Gabinet Podologiczna Oaza Kielce',
             'description' => 'Bezpłatna konsultacja podologiczna w ramach wykonywanego zabiegu w Kielcach. Ocena stanu stóp i plan terapii.',
         ],
 
@@ -112,7 +112,7 @@ return [
         'slug' => 'konsultacja-podologiczna-w-gabinecie',
 
         'seo' => [
-            'title' => 'Konsultacja podologiczna Kielce | Podologiczna Oaza',
+            'title' => 'Konsultacja podologiczna Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Profesjonalna konsultacja podologiczna w Kielcach. Ocena stanu stóp, plan terapii i indywidualne zalecenia.',
         ],
 
@@ -168,7 +168,7 @@ return [
         'slug' => 'pedicure-dla-zdrowych-stop',
 
         'seo' => [
-            'title' => 'Pedicure podologiczny Kielce | Zdrowe stopy | Podologiczna Oaza',
+            'title' => 'Pedicure podologiczny Kielce | Zdrowe stopy | Gabinet Podologiczna Oaza',
             'description' => 'Pedicure podologiczny dla zdrowych stóp w Kielcach. Opracowanie paznokci, wałów okołopaznokciowych, podeszwy oraz profesjonalna pielęgnacja.',
         ],
 
@@ -223,7 +223,7 @@ return [
         'slug' => 'stopa-cukrzycowa-i-luszczycowa',
 
         'seo' => [
-            'title' => 'Stopa cukrzycowa i łuszczycowa Kielce | Podologiczna Oaza',
+            'title' => 'Stopa cukrzycowa i łuszczycowa Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Specjalistyczne opracowanie stopy cukrzycowej i łuszczycowej w Kielcach. Profilaktyka powikłań, pielęgnacja i terapia podologiczna.',
         ],
 
@@ -280,7 +280,7 @@ return [
         'slug' => 'terapia-pekajacych-piet',
 
         'seo' => [
-            'title' => 'Terapia pękających pięt Kielce | Podologiczna Oaza',
+            'title' => 'Terapia pękających pięt Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Leczenie pękających pięt w Kielcach. Opracowanie rozpadlin, usuwanie zrogowaceń i profesjonalna terapia podologiczna.',
         ],
 
@@ -337,7 +337,7 @@ return [
         'slug' => 'terapia-brodawki-wirusowej',
 
         'seo' => [
-            'title' => 'Usuwanie brodawek wirusowych stóp Kielce | Podologiczna Oaza',
+            'title' => 'Usuwanie brodawek wirusowych stóp Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Terapia brodawek wirusowych, czyli kurzajek, na stopach w Kielcach. Specjalistyczne opracowanie zmian i indywidualny plan terapii.',
         ],
 
@@ -406,7 +406,7 @@ return [
         'slug' => 'usuwanie-modzeli-i-odciskow',
 
         'seo' => [
-            'title' => 'Usuwanie modzeli i odcisków Kielce | Podologiczna Oaza',
+            'title' => 'Usuwanie modzeli i odcisków Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Profesjonalne usuwanie modzeli, odcisków i nagniotków w Kielcach. Skuteczna redukcja bólu, opracowanie zmian i profilaktyka nawrotów.',
         ],
 
@@ -463,7 +463,7 @@ return [
         'slug' => 'obciecie-paznokci-zdrowych',
 
         'seo' => [
-            'title' => 'Obcięcie paznokci zdrowych Kielce | Podologiczna Oaza',
+            'title' => 'Obcięcie paznokci zdrowych Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Profesjonalne obcięcie zdrowych paznokci u stóp w Kielcach. Bezpieczna pielęgnacja w gabinecie podologicznym.',
         ],
 
@@ -519,7 +519,7 @@ return [
         'slug' => 'opracowanie-paznokci-i-walow',
 
         'seo' => [
-            'title' => 'Opracowanie paznokci i wałów okołopaznokciowych Kielce | Podologiczna Oaza',
+            'title' => 'Opracowanie paznokci i wałów okołopaznokciowych Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Profesjonalne obcięcie i opracowanie zdrowych paznokci oraz wałów okołopaznokciowych w Kielcach.',
         ],
 
@@ -575,7 +575,7 @@ return [
         'slug' => 'paznokcie-dystroficzne',
 
         'seo' => [
-            'title' => 'Leczenie paznokci dystroficznych Kielce | Podologiczna Oaza',
+            'title' => 'Leczenie paznokci dystroficznych Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Specjalistyczne opracowanie paznokci zmienionych chorobowo w Kielcach. Terapia, regeneracja i poprawa kondycji paznokci.',
         ],
 
@@ -631,7 +631,7 @@ return [
         'slug' => 'odbarczanie-krwiaka-podpaznokciowego',
 
         'seo' => [
-            'title' => 'Odbarczanie krwiaka podpaznokciowego Kielce | Podologiczna Oaza',
+            'title' => 'Odbarczanie krwiaka podpaznokciowego Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Pomoc przy paznokciu po urazie w Kielcach. Odbarczanie krwiaka podpaznokciowego, oczyszczenie i zabezpieczenie płytki.',
         ],
 
@@ -687,7 +687,7 @@ return [
         'slug' => 'terapia-grzybicy-paznokci-i-stop',
 
         'seo' => [
-            'title' => 'Terapia grzybicy paznokci i stóp Kielce | Podologiczna Oaza',
+            'title' => 'Terapia grzybicy paznokci i stóp Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Diagnostyka i terapia grzybicy paznokci oraz stóp w Kielcach. Badanie mykologiczne, opracowanie zmian i preparaty specjalistyczne.',
         ],
 
@@ -756,7 +756,7 @@ return [
         'slug' => 'podstawowy-zabieg-podologiczny',
 
         'seo' => [
-            'title' => 'Podstawowy zabieg podologiczny Kielce | Podologiczna Oaza',
+            'title' => 'Podstawowy zabieg podologiczny Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Podstawowy zabieg podologiczny w Kielcach. Usunięcie mniejszych zrogowaceń, opracowanie paznokci i wałów oraz preparaty pielęgnacyjne.',
         ],
 
@@ -812,7 +812,7 @@ return [
         'slug' => 'rozszerzony-zabieg-podologiczny',
 
         'seo' => [
-            'title' => 'Rozszerzony zabieg podologiczny Kielce | Podologiczna Oaza',
+            'title' => 'Rozszerzony zabieg podologiczny Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Rozszerzony zabieg podologiczny w Kielcach. Usunięcie średnich zrogowaceń, opracowanie paznokci, wałów i pielęgnacja skóry.',
         ],
 
@@ -868,8 +868,8 @@ return [
         'slug' => 'pomiar-poziomu-cukru',
 
         'seo' => [
-            'title' => 'Pomiar poziomu cukru Kielce | Podologiczna Oaza',
-            'description' => 'Szybkie i kontrolne oznaczenie poziomu glukozy we krwi, szczególnie istotne dla pacjentów z cukrzycą oraz przed zabiegami podologicznymi. Kielce, gabinet Podologiczna Oaza.',
+            'title' => 'Pomiar poziomu cukru Kielce | Gabinet Podologiczna Oaza',
+            'description' => 'Szybkie i kontrolne oznaczenie poziomu glukozy we krwi, szczególnie istotne dla pacjentów z cukrzycą oraz przed zabiegami podologicznymi. Kielce, Gabinet Podologiczna Oaza.',
         ],
 
         'hero' => [
@@ -924,8 +924,8 @@ return [
         'slug' => 'badanie-mykologiczne-bezposrednie',
 
         'seo' => [
-            'title' => 'Badanie mykologiczne bezpośrednie Kielce | Podologiczna Oaza',
-            'description' => 'Badanie mykologiczne bezpośrednie wykonywane w celu wykrycia nici grzyba w materiale pobranym ze skóry lub paznokcia. Kielce, gabinet Podologiczna Oaza.',
+            'title' => 'Badanie mykologiczne bezpośrednie Kielce | Gabinet Podologiczna Oaza',
+            'description' => 'Badanie mykologiczne bezpośrednie wykonywane w celu wykrycia nici grzyba w materiale pobranym ze skóry lub paznokcia. Kielce, Gabinet Podologiczna Oaza.',
         ],
 
         'hero' => [
@@ -980,8 +980,8 @@ return [
         'slug' => 'badanie-mykologiczne-hodowla',
 
         'seo' => [
-            'title' => 'Badanie mykologiczne hodowla Kielce | Podologiczna Oaza',
-            'description' => 'Badanie mykologiczne w formie hodowli, wykonywane w celu identyfikacji gatunku grzyba odpowiedzialnego za infekcję. Kielce, gabinet Podologiczna Oaza.',
+            'title' => 'Badanie mykologiczne hodowla Kielce | Gabinet Podologiczna Oaza',
+            'description' => 'Badanie mykologiczne w formie hodowli, wykonywane w celu identyfikacji gatunku grzyba odpowiedzialnego za infekcję. Kielce, Gabinet Podologiczna Oaza.',
         ],
 
         'hero' => [
@@ -1036,8 +1036,8 @@ return [
         'slug' => 'badanie-mykologiczne-kompleksowe',
 
         'seo' => [
-            'title' => 'Badanie mykologiczne kompleksowe Kielce | Podologiczna Oaza',
-            'description' => 'Badanie obejmujące diagnostykę bezpośrednią oraz badanie mykologiczne wspierające dokładniejszą ocenę infekcji. Kielce, gabinet Podologiczna Oaza.',
+            'title' => 'Badanie mykologiczne kompleksowe Kielce | Gabinet Podologiczna Oaza',
+            'description' => 'Badanie obejmujące diagnostykę bezpośrednią oraz badanie mykologiczne wspierające dokładniejszą ocenę infekcji. Kielce, Gabinet Podologiczna Oaza.',
         ],
 
         'hero' => [
@@ -1091,8 +1091,8 @@ return [
         'slug' => 'badanie-mikrobiologiczne-z-mykogramem',
 
         'seo' => [
-            'title' => 'Badanie mikrobiologiczne z mykogramem Kielce | Podologiczna Oaza',
-            'description' => 'Badanie mikrobiologiczne z mykogramem, wykonywane m.in. przy stanie zapalnym, wysięku lub podejrzeniu infekcji mieszanej. Kielce, gabinet Podologiczna Oaza.',
+            'title' => 'Badanie mikrobiologiczne z mykogramem Kielce | Gabinet Podologiczna Oaza',
+            'description' => 'Badanie mikrobiologiczne z mykogramem, wykonywane m.in. przy stanie zapalnym, wysięku lub podejrzeniu infekcji mieszanej. Kielce, Gabinet Podologiczna Oaza.',
         ],
 
         'hero' => [
@@ -1147,8 +1147,8 @@ return [
         'slug' => 'badanie-genetyczne-hla-cw6',
 
         'seo' => [
-            'title' => 'Badanie genetyczne HLA-CW6 Kielce | Podologiczna Oaza',
-            'description' => 'Badanie genetyczne w kierunku łuszczycy, obejmujące oznaczenie genu HLA-CW6. Kielce, gabinet Podologiczna Oaza.',
+            'title' => 'Badanie genetyczne HLA-CW6 Kielce | Gabinet Podologiczna Oaza',
+            'description' => 'Badanie genetyczne w kierunku łuszczycy, obejmujące oznaczenie genu HLA-CW6. Kielce, Gabinet Podologiczna Oaza.',
         ],
 
         'hero' => [
@@ -1203,7 +1203,7 @@ return [
         'slug' => 'terapia-wrastajacych-paznokci',
 
         'seo' => [
-            'title' => 'Terapia wrastających paznokci Kielce | Podologiczna Oaza',
+            'title' => 'Terapia wrastających paznokci Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Terapia wrastających paznokci w Kielcach. Opracowanie paznokcia i wałów, klamry ortonyksyjne, tamponada, taping i opatrunki.',
         ],
 
@@ -1272,7 +1272,7 @@ return [
         'slug' => 'klamry-ortonyksyjne',
 
         'seo' => [
-            'title' => 'Klamry ortonyksyjne Kielce | Podologiczna Oaza',
+            'title' => 'Klamry ortonyksyjne Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Specjalistyczna metoda korekcji wrastających i wkręcających się paznokci polegająca na zastosowaniu klamry ortonyksyjnej przywracającej prawidłowy tor wzrostu płytki. Gabinet Podologiczna Oaza w Kielcach.',
         ],
 
@@ -1327,7 +1327,7 @@ return [
         'slug' => 'przelozenie-klamry',
 
         'seo' => [
-            'title' => 'Przełożenie klamry Kielce | Podologiczna Oaza',
+            'title' => 'Przełożenie klamry Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Wizyta kontrolna w trakcie terapii wrastającego paznokcia, obejmująca przełożenie lub korektę działania klamry ortonyksyjnej. Gabinet Podologiczna Oaza w Kielcach.',
         ],
 
@@ -1382,7 +1382,7 @@ return [
         'slug' => 'zdjecie-klamry-ortonyksyjnej',
 
         'seo' => [
-            'title' => 'Zdjęcie klamry ortonyksyjnej Kielce | Podologiczna Oaza',
+            'title' => 'Zdjęcie klamry ortonyksyjnej Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Wizyta kontrolna obejmująca ocenę efektów terapii oraz bezpieczne zdjęcie klamry ortonyksyjnej z paznokcia. Gabinet Podologiczna Oaza w Kielcach.',
         ],
 
@@ -1437,7 +1437,7 @@ return [
         'slug' => 'tamponada',
 
         'seo' => [
-            'title' => 'Tamponada podologiczna Kielce | Podologiczna Oaza',
+            'title' => 'Tamponada podologiczna Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Delikatne zabezpieczenie wału okołopaznokciowego przy wrastającym paznokciu w celu zmniejszenia ucisku i bólu. Gabinet Podologiczna Oaza w Kielcach.',
         ],
 
@@ -1492,7 +1492,7 @@ return [
         'slug' => 'taping-podologiczny',
 
         'seo' => [
-            'title' => 'Taping podologiczny Kielce | Podologiczna Oaza',
+            'title' => 'Taping podologiczny Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Odciążenie i wsparcie tkanek przy pomocy tapingu podologicznego, stosowane m.in. przy wrastających paznokciach i dolegliwościach bólowych. Gabinet Podologiczna Oaza w Kielcach.',
         ],
 
@@ -1547,7 +1547,7 @@ return [
         'slug' => 'opatrunek-z-odciazeniem',
 
         'seo' => [
-            'title' => 'Opatrunek z odciążeniem Kielce | Podologiczna Oaza',
+            'title' => 'Opatrunek z odciążeniem Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Specjalistyczny opatrunek z odciążeniem stosowany w celu ochrony bolesnego miejsca i poprawy komfortu chodzenia. Gabinet Podologiczna Oaza w Kielcach.',
         ],
 
@@ -1602,7 +1602,7 @@ return [
         'slug' => 'opatrunek-z-preparatem-specjalistycznym',
 
         'seo' => [
-            'title' => 'Opatrunek z preparatem Kielce | Podologiczna Oaza',
+            'title' => 'Opatrunek z preparatem Kielce | Gabinet Podologiczna Oaza',
             'description' => 'Specjalistyczny opatrunek z preparatem dobranym do problemu, wspierający regenerację i ochronę tkanek. Gabinet Podologiczna Oaza w Kielcach.',
         ],
 

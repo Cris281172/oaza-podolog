@@ -34,12 +34,12 @@ const Services = ({ categories }: { categories: ServiceCategory[] }) => {
             <Seo
                 title={'Usługi podologiczne Kielce'}
                 desc={
-                    'Poznaj usługi w gabinecie Podologiczna Oaza w Kielcach. Terapia wrastających paznokci, odcisków, modzeli i brodawek oraz kompleksowa pielęgnacja stóp.'
+                    'Poznaj usługi, które oferuje Gabinet Podologiczna Oaza w Kielcach. Terapia wrastających paznokci, odcisków, modzeli i brodawek oraz kompleksowa pielęgnacja stóp.'
                 }
             />
             <main className="flex-1 bg-background">
                 <HeaderPage
-                    overline={'Podologiczna Oaza Kielce'}
+                    overline={'Gabinet Podologiczna Oaza Kielce'}
                     title="Oferta"
                     titleSecondary="zabiegów"
                     text="Specjalistyczna pomoc w schorzeniach stóp i paznokci. Poznaj zakres naszych usług i znajdź rozwiązanie dopasowane do Twoich potrzeb."

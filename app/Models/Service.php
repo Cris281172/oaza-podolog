@@ -6,9 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    protected $fillable = ['name', 'slug', 'short_description', 'order', 'category_id'];
+    protected $fillable = [
+        'name',
+        'slug',
+        'short_description',
+        'page_intro',
+        'description_heading',
+        'page_content',
+        'seo_title',
+        'seo_description',
+        'order',
+        'category_id',
+    ];
 
-    public function category(){
+    protected $casts = [
+        'page_content' => 'array',
+    ];
+
+    public function category()
+    {
         return $this->belongsTo(ServiceCategory::class);
     }
 }

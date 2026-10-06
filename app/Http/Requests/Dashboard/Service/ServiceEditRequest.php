@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Dashboard\Service;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ServiceEditRequest extends FormRequest
 {
@@ -22,9 +23,16 @@ class ServiceEditRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'slug' => 'required|string|unique:services,slug,',
-            'shortDesc' => 'required|string',
+            'name' => ['required', 'string', 'max:255'],
+            'slug' => ['required', 'string', 'max:255', Rule::unique('services', 'slug')->ignore($this->route('id'))],
+            'shortDesc' => ['required', 'string', 'max:1000'],
+            'pageIntro' => ['required', 'string', 'max:3000'],
+            'descriptionHeading' => ['required', 'string', 'max:255'],
+            'pageContent' => ['required', 'array'],
+            'pageContent.type' => ['required', 'in:doc'],
+            'pageContent.content' => ['required', 'array', 'min:1'],
+            'seoTitle' => ['required', 'string', 'max:255'],
+            'seoDescription' => ['required', 'string', 'max:1000'],
         ];
     }
 }

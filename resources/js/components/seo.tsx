@@ -10,8 +10,8 @@ interface PropsI {
 }
 
 const SEO = ({
-    title = 'Podolog Kielce – Leczenie Wrastających Paznokci | Podologiczna Oaza',
-    desc = 'Podologiczna Oaza w Kielcach – pomoc przy wrastających paznokciach, odciskach, brodawkach i problemach stóp. Umów konsultację podologiczną.',
+    title = 'Podolog Kielce – Leczenie Wrastających Paznokci | Gabinet Podologiczna Oaza',
+    desc = 'Gabinet Podologiczna Oaza w Kielcach – pomoc przy wrastających paznokciach, odciskach, brodawkach i problemach stóp. Umów konsultację podologiczną.',
     canonicalUrl,
     image = '/og-image.jpg',
     noindex = false,
